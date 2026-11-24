@@ -1,6 +1,10 @@
 # Dependencies
 node_modules/
 
+# Production Build Outputs
+dist/
+build/
+
 # Environment Variables & Secrets
 .env
 .env.local

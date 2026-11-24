@@ -48,9 +48,27 @@ stitch_aben_technologies_brutalist_homepage/
 
 2. **Using a Local Server (Recommended for Three.js animations)**:
    ```bash
+   npm start
+   # or
    npx serve .
    ```
    Or open with VS Code's **Live Server** extension.
+
+3. **Production Build (Cloudflare Pages)**:
+   ```bash
+   npm run build
+   ```
+   This generates the production distribution in `dist/` (and compatibility mirror in `build/`) ready for Cloudflare Pages deployment.
+
+---
+
+## ☁️ Cloudflare Pages Deployment Configuration
+
+- **Framework preset**: `None` (or `Vite` / custom)
+- **Build command**: `npm run build`
+- **Build output directory**: `dist` (or `.` / `build`)
+- **Environment variables**: 
+  - (Optional) `BACKEND_URL`: URL to your external Node.js backend server hosting `server.js` if deploying the frontend decoupled from the Express SMTP server.
 
 ---
 
