@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_100 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_100" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_100');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  (function() {
+  const container = document.getElementById('about-hero-3d-cards') || document.getElementById('threejs-container-ANIMATION_97') || document.currentScript.parentElement;
+  if (!container) return;
+
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || 560;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
+  camera.position.set(0, 0, 16);
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.shadowMap.enabled = false;
+  container.appendChild(renderer.domElement);
+
+  // Lighting
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+  scene.add(ambientLight);
+
+  const dirLight = new THREE.DirectionalLight(0xfff5ea, 1.6);
+  dirLight.position.set(8, 12, 14);
+  scene.add(dirLight);
+
+  const orangeGlow = new THREE.PointLight(0xff6500, 2.0, 35);
+  orangeGlow.position.set(-6, -2, 6);
+  scene.add(orangeGlow);
+
+  const carouselGroup = new THREE.Group();
+  scene.add(carouselGroup);
+
+  // Helper to make high-res canvas texture for cards matching reference {{DATA:IMAGE:IMAGE_5}}
+  function createCardTexture(type, config) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 512;
+    canvas.height = 720;
+    const ctx = canvas.getContext('2d');
+
+    function roundRect(x, y, w, h, radius, fill, stroke, strokeW) {
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + w - radius, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + radius);
+      ctx.lineTo(x + w, y + h - radius);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - radius, y + h);
+      ctx.lineTo(x + radius, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+      if (fill) {
+        ctx.fillStyle = fill;
+        ctx.fill();
+      }
+      if (stroke) {
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = strokeW || 4;
+        ctx.stroke();
+      }
+    }
+
+    if (type === 'quote') {
+      const grad = ctx.createLinearGradient(0, 0, 0, 720);
+      grad.addColorStop(0, '#ffffff');
+      grad.addColorStop(1, '#ebebeb');
+      roundRect(8, 8, 496, 704, 32, grad, 'rgba(255,255,255,0.9)', 3);
+
+      // Top logo badge (checkerboard shield emblem)
+      ctx.fillStyle = config.badgeColor || '#ff6500';
+      const bx = 44, by = 48, bw = 46, bh = 46;
+      roundRect(bx, by, bw, bh, 12, config.badgeColor || '#ff6500');
+      // mini checker pattern inside shield
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(bx + 6, by + 6, 17, 17);
+      ctx.fillRect(bx + 23, by + 23, 17, 17);
+
+      // Subtitle / Group name
+      ctx.fillStyle = '#6b7280';
+      ctx.font = '600 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillText(config.subtitle || 'The Brotherhood of Tale', 106, 78);
+
+      // Big headline (like reference "Do something with your hands today that isn't typing.")
+      ctx.fillStyle = '#111827';
+      ctx.font = 'bold 36px "Syne", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+      const words = config.title.split(' ');
+      let line = '';
+      let y = 175;
+      for (let n = 0; n < words.length; n++) {
+        const testLine = line + words[n] + ' ';
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > 410 && n > 0) {
+          ctx.fillText(line, 44, y);
+          line = words[n] + ' ';
+          y += 46;
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line, 44, y);
+
+      // Body copy
+      y += 34;
+      ctx.fillStyle = '#4b5563';
+      ctx.font = '400 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+      const bodyWords = (config.body || 'Cook, fix, draw, build. Make one thing the screen had nothing to do with.').split(' ');
+      let bLine = '';
+      for (let n = 0; n < bodyWords.length; n++) {
+        const testLine = bLine + bodyWords[n] + ' ';
+        if (ctx.measureText(testLine).width > 410 && n > 0) {
+          ctx.fillText(bLine, 44, y);
+          bLine = bodyWords[n] + ' ';
+          y += 30;
+        } else {
+          bLine = testLine;
+        }
+      }
+      ctx.fillText(bLine, 44, y);
+
+      // Bottom footer row
+      const bottomY = 620;
+      ctx.beginPath();
+      ctx.strokeStyle = '#e5e7eb';
+      ctx.lineWidth = 1.5;
+      ctx.moveTo(44, bottomY - 26);
+      ctx.lineTo(468, bottomY - 26);
+      ctx.stroke();
+
+      // Avatars
+      const avColors = ['#ff6500', '#10b981', '#3b82f6'];
+      avColors.forEach((c, i) => {
+        ctx.fillStyle = c;
+        ctx.beginPath();
+        ctx.arc(60 + (i * 36), bottomY + 12, 15, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 11px monospace';
+        ctx.fillText('0' + (i+1), 54 + (i * 36), bottomY + 16);
+      });
+
+      ctx.fillStyle = '#6b7280';
+      ctx.font = '500 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+      ctx.fillText(config.footerNote || 'In-person beats text for anything that matters.', 44, bottomY + 46);
+
+    } else if (type === 'pattern_geometric') {
+      const bg = config.bg || '#991b1b';
+      roundRect(8, 8, 496, 704, 32, bg);
+
+      const fg = config.fg || '#f59e0b';
+      ctx.fillStyle = fg;
+      
+      // Repeating checkerboard / architectural totem motifs from reference
+      const rows = 8;
+      const cols = 5;
+      const cellW = 496 / cols;
+      const cellH = 704 / rows;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          if ((r + c) % 2 === 0) {
+            ctx.fillRect(8 + c * cellW, 8 + r * cellH, cellW, cellH);
+          }
+        }
+      }
+
+      // Center totem emblem
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(256, 352, 85, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = bg;
+      ctx.font = '900 48px "Syne", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(config.symbol || 'ABEN', 256, 368);
+      ctx.textAlign = 'left';
+
+    } else if (type === 'pattern_wave') {
+      const bg = config.bg || '#172554';
+      roundRect(8, 8, 496, 704, 32, bg);
+
+      ctx.strokeStyle = config.fg || '#38bdf8';
+      ctx.lineWidth = 14;
+      for (let y = 50; y < 700; y += 65) {
+        ctx.beginPath();
+        for (let x = 20; x <= 490; x += 10) {
+          const waveY = y + Math.sin(x * 0.05) * 18;
+          if (x === 20) ctx.moveTo(x, waveY);
+          else ctx.lineTo(x, waveY);
+        }
+        ctx.stroke();
+      }
+    } else {
+      roundRect(8, 8, 496, 704, 32, '#18181b', '#ff6500', 3);
+      ctx.fillStyle = '#ff6500';
+      ctx.font = '900 110px "Syne", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('//01', 256, 380);
+      ctx.textAlign = 'left';
+    }
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.minFilter = THREE.LinearFilter;
+    return texture;
+  }
+
+  // 12 Cards positioned along a flowing 3D elliptical orbital carousel path
+  const cardConfigs = [
+    {
+      type: 'quote',
+      config: {
+        title: "Do something with your hands today that isn't typing.",
+        body: "Cook, fix, draw, build. Make one thing the screen had nothing to do with.",
+        subtitle: 'The Brotherhood of Tale',
+        badgeColor: '#eab308',
+        footerNote: 'In-person beats text for anything that matters.'
+      }
+    },
+    {
+      type: 'pattern_geometric',
+      config: { bg: '#b91c1c', fg: '#f59e0b', symbol: 'ABEN' }
+    },
+    {
+      type: 'quote',
+      config: {
+        title: "Have a conversation today where you ask more than you talk.",
+        body: "Trade the update for a question. Then another. Watch how far someone opens up.",
+        subtitle: 'The Keepers of Time',
+        badgeColor: '#8b5cf6',
+        footerNote: 'In-person beats text for anything that matters.'
+      }
+    },
+    {
+      type: 'pattern_wave',
+      config: { bg: '#1e3a8a', fg: '#60a5fa' }
+    },
+    {
+      type: 'pattern_geometric',
+      config: { bg: '#854d0e', fg: '#fde047', symbol: 'SCALE' }
+    },
+    {
+      type: 'quote',
+      config: {
+        title: "Leave your phone in another room for the next 2 hours.",
+        body: "Do not touch it until you have built something tangible with your full focus.",
+        subtitle: 'The Deep Work Guild',
+        badgeColor: '#ea580c',
+        footerNote: 'Uninterrupted craft compounds exponentially.'
+      }
+    },
+    {
+      type: 'pattern_geometric',
+      config: { bg: '#991b1b', fg: '#fbbf24', symbol: 'CORE' }
+    },
+    {
+      type: 'quote',
+      config: {
+        title: "Architect digital products where precision meets ambition.",
+        body: "Custom WebGL shaders, micro-services, and enterprise automation engineered for speed.",
+        subtitle: 'ABEN Engineering Guild',
+        badgeColor: '#2563eb',
+        footerNote: 'DEPLOY_SEC: 99.98% availability.'
+      }
+    },
+    {
+      type: 'pattern_wave',
+      config: { bg: '#4c1d95', fg: '#c084fc' }
+    },
+    {
+      type: 'pattern_geometric',
+      config: { bg: '#713f12', fg: '#facc15', symbol: 'AI' }
+    },
+    {
+      type: 'quote',
+      config: {
+        title: "Good ideas deserve uncompromising, fearless execution.",
+        body: "Zero bloated abstractions. Rapid iteration cycles with mathematical precision.",
+        subtitle: 'Foundational Systems',
+        badgeColor: '#059669',
+        footerNote: 'Convention is cowardice.'
+      }
+    },
+    {
+      type: 'pattern_geometric',
+      config: { bg: '#c2410c', fg: '#fbbf24', symbol: 'DEV' }
+    }
+  ];
+
+  const totalCards = cardConfigs.length;
+  const cardMeshes = [];
+  const cardGeo = new THREE.PlaneGeometry(2.4, 3.4, 1, 1);
+
+  // Orbital parameters for 3D continuous flowing carousel
+  const radiusX = 8.8; // Horizontal span across screen
+  const radiusZ = 5.2; // Depth span front-to-back
+  const waveAmpY = 1.3; // Gentle roller-coaster vertical oscillation
+
+  cardConfigs.forEach((item, i) => {
+    const texture = createCardTexture(item.type, item.config);
+    const mat = new THREE.MeshBasicMaterial({
+      map: texture,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0.98
+    });
+
+    const mesh = new THREE.Mesh(cardGeo, mat);
+    mesh.userData = {
+      index: i,
+      baseAngle: (i / totalCards) * Math.PI * 2,
+      scaleFactor: 1.05
+    };
+
+    carouselGroup.add(mesh);
+    cardMeshes.push(mesh);
+  });
+
+  // Mouse / Drag interaction
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetMouseX = 0;
+  let targetMouseY = 0;
+
+  let isDragging = false;
+  let prevPointerX = 0;
+  let dragVelocity = 0;
+
+  function onMouseMove(e) {
+    const rect = container.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    targetMouseX = (x - 0.5) * 2;
+    targetMouseY = (y - 0.5) * 2;
+
+    if (isDragging) {
+      const deltaX = e.clientX - prevPointerX;
+      dragVelocity = deltaX * 0.003;
+      carouselRotation += dragVelocity;
+      prevPointerX = e.clientX;
+    }
+  }
+
+  function onMouseDown(e) {
+    isDragging = true;
+    prevPointerX = e.clientX;
+    dragVelocity = 0;
+  }
+
+  function onMouseUp() {
+    isDragging = false;
+  }
+
+  // Touch handlers
+  function onTouchStart(e) {
+    if (e.touches.length === 1) {
+      isDragging = true;
+      prevPointerX = e.touches[0].clientX;
+      dragVelocity = 0;
+    }
+  }
+
+  function onTouchMove(e) {
+    if (isDragging && e.touches.length === 1) {
+      const deltaX = e.touches[0].clientX - prevPointerX;
+      dragVelocity = deltaX * 0.003;
+      carouselRotation += dragVelocity;
+      prevPointerX = e.touches[0].clientX;
+    }
+  }
+
+  function onTouchEnd() {
+    isDragging = false;
+  }
+
+  container.addEventListener('mousemove', onMouseMove, { passive: true });
+  container.addEventListener('mousedown', onMouseDown);
+  window.addEventListener('mouseup', onMouseUp);
+  container.addEventListener('touchstart', onTouchStart, { passive: true });
+  container.addEventListener('touchmove', onTouchMove, { passive: true });
+  window.addEventListener('touchend', onTouchEnd);
+
+  // Animation Loop with continuous 3D orbital flow & rolling cards
+  let clock = new THREE.Clock();
+  let carouselRotation = 0;
+  const baseSpeed = 0.28; // Speed of continuous rolling carousel
+
+  function animate() {
+    requestAnimationFrame(animate);
+    const delta = clock.getDelta();
+
+    // Natural continuous forward rolling movement + inertia decay from drag
+    if (!isDragging) {
+      dragVelocity *= 0.94;
+      carouselRotation += (baseSpeed * delta) + dragVelocity;
+    }
+
+    // Smooth cursor parallax
+    mouseX += (targetMouseX - mouseX) * 0.05;
+    mouseY += (targetMouseY - mouseY) * 0.05;
+
+    camera.position.x = mouseX * 1.2;
+    camera.position.y = -mouseY * 0.9;
+    camera.lookAt(0, 0, 0);
+
+    // Subtle carousel tilt matching mouse
+    carouselGroup.rotation.x = 0.08 - mouseY * 0.08;
+    carouselGroup.rotation.y = mouseX * 0.08;
+
+    // Position & roll each card along the 3D flowing orbital loop
+    cardMeshes.forEach(mesh => {
+      const angle = mesh.userData.baseAngle + carouselRotation;
+
+      // Elliptical coordinates
+      const x = Math.sin(angle) * radiusX;
+      const z = Math.cos(angle) * radiusZ;
+      // Roller coaster vertical undulating wave
+      const y = Math.sin(angle * 2) * 0.65 + Math.cos(angle) * 0.4;
+
+      mesh.position.set(x, y, z);
+
+      // 3D Rolling Rotation:
+      // Yaw faces along normal of ellipse, with banking (roll) into turns and slight pitch
+      const tangentAngle = Math.atan2(Math.cos(angle) * radiusZ, -Math.sin(angle) * radiusX);
+      const yaw = -angle + Math.PI / 2;
+      const pitch = Math.sin(angle * 2) * 0.12;
+      const roll = Math.cos(angle) * 0.18; // Banking into turn like flowing roller coaster cards
+
+      mesh.rotation.set(pitch, yaw, roll);
+
+      // Depth perception: scale cards slightly up when closer in front (z > 0), down in back (z < 0)
+      const depthFactor = (z + radiusZ) / (2 * radiusZ); // 0 (far) to 1 (near)
+      const scale = 0.78 + depthFactor * 0.42;
+      mesh.scale.set(scale, scale, scale);
+
+      // Opacity / brightness fade for deep background cards to create photographic depth
+      if (mesh.material) {
+        mesh.material.opacity = 0.55 + depthFactor * 0.45;
+      }
+    });
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // Resize handler
+  function onResize() {
+    if (!container) return;
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || 560;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  }
+  window.addEventListener('resize', onResize);
+})();
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_100 -->
+</body>
+</html>

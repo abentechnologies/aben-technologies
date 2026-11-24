@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_THREEJS_START:ANIMATION_64 class="fixed inset-0 w-full h-full bg-transparent" -->
+<div class="fixed inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_64" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_64');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js Full-Page Scroll-Driven Realistic 3D Earth for ABEN Technologies
+const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || window.innerHeight;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+camera.position.set(0, 0, 3.2);
+
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.35;
+container.innerHTML = '';
+container.appendChild(renderer.domElement);
+renderer.domElement.style.outline = 'none';
+
+// Procedural High-Fidelity Earth Geographic & Atmospheric Textures
+function createRealisticEarthMaps() {
+  const w = 2048;
+  const h = 1024;
+  
+  // 1. Diffuse Map (Oceans, Coastlines, Continents, Vegetation, Deserts, Ice)
+  const cDiff = document.createElement('canvas');
+  cDiff.width = w;
+  cDiff.height = h;
+  const ctx = cDiff.getContext('2d');
+
+  const oceanGrad = ctx.createLinearGradient(0, 0, 0, h);
+  oceanGrad.addColorStop(0, '#041022');
+  oceanGrad.addColorStop(0.25, '#071d38');
+  oceanGrad.addColorStop(0.5, '#0a2a4e');
+  oceanGrad.addColorStop(0.75, '#071d38');
+  oceanGrad.addColorStop(1, '#041022');
+  ctx.fillStyle = oceanGrad;
+  ctx.fillRect(0, 0, w, h);
+
+  // Continental shelf & shallow coastal waters
+  ctx.fillStyle = '#0f4874';
+  ctx.globalAlpha = 0.45;
+  for (let i = 0; i < 90; i++) {
+    const rx = (i * 137.5) % w;
+    const ry = (i * 83.2) % h;
+    ctx.beginPath();
+    ctx.arc(rx, ry, 55 + (i % 35), 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1.0;
+
+  function drawDetailedLand(points, baseColor, detailColor) {
+    ctx.save();
+    ctx.fillStyle = baseColor;
+    ctx.beginPath();
+    points.forEach((pt, idx) => {
+      const px = (pt[0] / 360) * w;
+      const py = (1 - (pt[1] + 90) / 180) * h;
+      if (idx === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    });
+    ctx.closePath();
+    ctx.fill();
+
+    if (detailColor) {
+      ctx.fillStyle = detailColor;
+      ctx.globalAlpha = 0.6;
+      ctx.beginPath();
+      points.filter((_, idx) => idx % 2 === 0).forEach((pt, idx) => {
+        const px = (pt[0] / 360) * w + (Math.sin(idx * 1.5) * 14);
+        const py = (1 - (pt[1] + 90) / 180) * h + (Math.cos(idx * 1.5) * 10);
+        if (idx === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      });
+      ctx.closePath();
+      ctx.fill();
+      ctx.globalAlpha = 1.0;
+    }
+    ctx.restore();
+  }
+
+  // Continents
+  drawDetailedLand([
+    [190, 70], [205, 72], [225, 74], [250, 76], [285, 76], [292, 62], [295, 48],
+    [305, 45], [292, 40], [285, 30], [280, 25], [268, 18], [272, 14], [262, 18],
+    [250, 26], [240, 32], [235, 40], [230, 48], [224, 58], [200, 65]
+  ], '#2c4a24', '#685935');
+
+  drawDetailedLand([[270, 16], [282, 11], [278, 8], [268, 14]], '#24451e', '#554226');
+
+  drawDetailedLand([
+    [278, 11], [305, 7], [324, -6], [322, -18], [314, -24], [305, -35], [295, -54],
+    [288, -50], [286, -38], [280, -18], [280, -5], [274, 4], [278, 11]
+  ], '#23481d', '#5a4c28');
+
+  drawDetailedLand([
+    [350, 38], [360, 43], [10, 44], [15, 38], [25, 36], [28, 41], [30, 46],
+    [32, 54], [40, 62], [30, 70], [15, 66], [5, 58], [355, 54], [348, 44]
+  ], '#365126', '#6a5a36');
+
+  drawDetailedLand([
+    [350, 35], [10, 37], [32, 32], [35, 28], [42, 14], [50, 11], [44, -5],
+    [35, -20], [28, -34], [18, -34], [12, -18], [8, 4], [345, 6], [342, 20], [348, 30]
+  ], '#63532c', '#856e3b');
+
+  drawDetailedLand([
+    [40, 62], [65, 72], [110, 75], [170, 70], [175, 60], [145, 50], [130, 42],
+    [122, 32], [110, 20], [104, 10], [98, 18], [88, 22], [80, 14], [74, 22],
+    [60, 25], [52, 32], [45, 45], [40, 62]
+  ], '#304c22', '#6b5733');
+
+  drawDetailedLand([[140, 42], [144, 38], [139, 35], [136, 38]], '#2d4822', '#4c572a');
+
+  drawDetailedLand([
+    [114, -22], [124, -15], [135, -12], [142, -11], [150, -24], [153, -30],
+    [148, -38], [138, -36], [128, -32], [115, -34], [113, -25]
+  ], '#80562d', '#9b6838');
+
+  drawDetailedLand([[315, 82], [340, 80], [330, 70], [310, 62], [300, 70], [305, 80]], '#dce8f0', '#b5c9d6');
+  drawDetailedLand([[0, -78], [100, -75], [200, -82], [300, -77], [360, -78], [360, -90], [0, -90]], '#e6f3fa', '#bed6e6');
+
+  // Micro islands
+  ctx.fillStyle = '#2d4b24';
+  for (let i = 0; i < 110; i++) {
+    const ix = (i * 383 + 120) % w;
+    const iy = (i * 241 + 250) % 760;
+    ctx.fillRect(ix, iy, (i % 4) + 2, (i % 3) + 2);
+  }
+
+  // 2. Night Lights Map
+  const cNight = document.createElement('canvas');
+  cNight.width = w;
+  cNight.height = h;
+  const ctxNight = cNight.getContext('2d');
+  ctxNight.fillStyle = '#000000';
+  ctxNight.fillRect(0, 0, w, h);
+  for (let i = 0; i < 800; i++) {
+    const nx = (i * 71.3) % w;
+    const ny = (i * 139.7) % 780 + 110;
+    const alpha = (Math.sin(i * 0.7) * 0.5 + 0.5) * 0.85;
+    ctxNight.fillStyle = (i % 6 === 0) ? '#ff6500' : (i % 3 === 0 ? '#ffea9f' : '#ffc862');
+    ctxNight.globalAlpha = alpha;
+    ctxNight.fillRect(nx, ny, 1.8, 1.8);
+  }
+
+  // 3. Dynamic Clouds Map
+  const cClouds = document.createElement('canvas');
+  cClouds.width = w;
+  cClouds.height = h;
+  const ctxCloud = cClouds.getContext('2d');
+  ctxCloud.clearRect(0, 0, w, h);
+  ctxCloud.fillStyle = '#ffffff';
+  for (let i = 0; i < 400; i++) {
+    const cx = (i * 157.9) % w;
+    const cy = 130 + (Math.sin(i * 0.38) * 350 + 350);
+    const cr = 22 + (i % 50);
+    ctxCloud.globalAlpha = 0.09 + (Math.cos(i) * 0.05);
+    ctxCloud.beginPath();
+    ctxCloud.ellipse(cx, cy, cr * 2.4, cr * 0.8, (Math.sin(i * 0.4) * 0.5), 0, Math.PI * 2);
+    ctxCloud.fill();
+  }
+
+  return {
+    diffuse: new THREE.CanvasTexture(cDiff),
+    clouds: new THREE.CanvasTexture(cClouds),
+    night: new THREE.CanvasTexture(cNight)
+  };
+}
+
+const textures = createRealisticEarthMaps();
+
+// Master Earth Pivot Group for Scroll Progression & Position Shifts
+const earthPivot = new THREE.Group();
+scene.add(earthPivot);
+
+// 1. Earth Sphere
+const earthGeo = new THREE.SphereGeometry(1.0, 64, 64);
+const earthMat = new THREE.MeshPhongMaterial({
+  map: textures.diffuse,
+  bumpScale: 0.05,
+  specular: new THREE.Color(0x1a3a5a),
+  shininess: 24,
+  emissiveMap: textures.night,
+  emissive: new THREE.Color(0x281c0e),
+  emissiveIntensity: 0.55
+});
+const earth = new THREE.Mesh(earthGeo, earthMat);
+earthPivot.add(earth);
+
+// 2. Atmospheric Clouds Layer
+const cloudGeo = new THREE.SphereGeometry(1.022, 64, 64);
+const cloudMat = new THREE.MeshLambertMaterial({
+  map: textures.clouds,
+  transparent: true,
+  opacity: 0.45,
+  blending: THREE.AdditiveBlending
+});
+const clouds = new THREE.Mesh(cloudGeo, cloudMat);
+earthPivot.add(clouds);
+
+// 3. Signature ABEN Atmospheric Glow
+const glowGeo = new THREE.SphereGeometry(1.15, 64, 64);
+const glowMat = new THREE.ShaderMaterial({
+  vertexShader: `
+    varying vec3 vNormal;
+    void main() {
+      vNormal = normalize(normalMatrix * normal);
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    varying vec3 vNormal;
+    void main() {
+      float intensity = pow(0.70 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.6);
+      vec3 orangeGlow = vec3(1.0, 0.396, 0.0);
+      vec3 azureEdge = vec3(0.12, 0.42, 0.95);
+      vec3 finalGlow = mix(azureEdge, orangeGlow, 0.72);
+      gl_FragColor = vec4(finalGlow, intensity * 0.9);
+    }
+  `,
+  side: THREE.BackSide,
+  blending: THREE.AdditiveBlending,
+  transparent: true
+});
+const atmosphereGlow = new THREE.Mesh(glowGeo, glowMat);
+earthPivot.add(atmosphereGlow);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0x0c1928, 1.4);
+scene.add(ambientLight);
+
+const sunLight = new THREE.DirectionalLight(0xfff8ee, 2.6);
+sunLight.position.set(4.2, 2.0, 3.5);
+scene.add(sunLight);
+
+const rimLight = new THREE.DirectionalLight(0xff6500, 1.3);
+rimLight.position.set(-3.5, -1.2, -2.5);
+scene.add(rimLight);
+
+// Interactive Drag & Parallax Variables
+let isDragging = false;
+let prevPointerPos = { x: 0, y: 0 };
+let targetRotX = 0.2;
+let targetRotY = 0.0;
+let velX = 0.003;
+let velY = 0;
+let mouseHoverX = 0;
+let mouseHoverY = 0;
+
+// Scroll Trajectory Targets
+// Stage 1 (Hero): Centered or slightly to the right, scale 1.3, z=0
+// Stage 2 (Direct Inquiries): Shifts to Left (x=-1.2, y=0.1, scale 0.95)
+// Stage 3 (Project Inquiry Form): Slides behind / next to form (x=1.35, y=-0.2, scale 1.05)
+// Stage 4 (Global Presence): Shifts to Center Bottom (x=0, y=0.3, scale 1.4)
+// Stage 5 (Trust & Footer): Ascends / zooms (x=0, y=-0.8, scale 0.8)
+let currentScrollProgress = 0;
+let targetPosX = 1.05;
+let targetPosY = 0.0;
+let targetPosZ = 0.0;
+let targetScale = 1.25;
+
+function updateScrollStage(progress) {
+  currentScrollProgress = progress; // 0 to 1
+  if (window.innerWidth < 768) {
+    // Mobile responsive trajectory
+    targetScale = 0.85;
+    targetPosZ = -0.5;
+    if (progress < 0.25) {
+      targetPosX = 0.0;
+      targetPosY = 0.5 - (progress / 0.25) * 0.8;
+    } else if (progress < 0.6) {
+      targetPosX = 0.0;
+      targetPosY = -0.3;
+    } else {
+      targetPosX = 0.0;
+      targetPosY = 0.2;
+    }
+    return;
+  }
+
+  // Desktop smooth path interpolation across stages
+  if (progress <= 0.22) {
+    // Stage 1: Hero prominent right position
+    const t = progress / 0.22;
+    targetPosX = THREE.MathUtils.lerp(1.15, -1.25, t);
+    targetPosY = THREE.MathUtils.lerp(0.05, -0.15, t);
+    targetPosZ = THREE.MathUtils.lerp(0.1, -0.1, t);
+    targetScale = THREE.MathUtils.lerp(1.3, 0.98, t);
+  } else if (progress <= 0.55) {
+    // Stage 2 to Stage 3: Across inquiry cards to right side of project inquiry form
+    const t = (progress - 0.22) / 0.33;
+    targetPosX = THREE.MathUtils.lerp(-1.25, 1.32, t);
+    targetPosY = THREE.MathUtils.lerp(-0.15, 0.1, t);
+    targetPosZ = THREE.MathUtils.lerp(-0.1, 0.05, t);
+    targetScale = THREE.MathUtils.lerp(0.98, 1.15, t);
+  } else if (progress <= 0.85) {
+    // Stage 3 to Stage 4: Down into Global Presence center
+    const t = (progress - 0.55) / 0.30;
+    targetPosX = THREE.MathUtils.lerp(1.32, 0.0, t);
+    targetPosY = THREE.MathUtils.lerp(0.1, -0.1, t);
+    targetPosZ = THREE.MathUtils.lerp(0.05, 0.4, t);
+    targetScale = THREE.MathUtils.lerp(1.15, 1.45, t);
+  } else {
+    // Stage 5: Receding toward trust matrix & footer
+    const t = (progress - 0.85) / 0.15;
+    targetPosX = THREE.MathUtils.lerp(0.0, -0.9, t);
+    targetPosY = THREE.MathUtils.lerp(-0.1, 0.35, t);
+    targetPosZ = THREE.MathUtils.lerp(0.4, -0.3, t);
+    targetScale = THREE.MathUtils.lerp(1.45, 0.9, t);
+  }
+}
+
+// Window scroll listener
+function onWindowScroll() {
+  const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? Math.min(Math.max(scrollY / maxScroll, 0), 1) : 0;
+  updateScrollStage(progress);
+}
+window.addEventListener('scroll', onWindowScroll, { passive: true });
+onWindowScroll();
+
+// Interactive controls
+const dom = renderer.domElement;
+dom.style.cursor = 'grab';
+
+function onPointerDown(e) {
+  isDragging = true;
+  prevPointerPos = { x: e.clientX, y: e.clientY };
+  dom.style.cursor = 'grabbing';
+}
+
+function onPointerMove(e) {
+  const mx = (e.clientX / window.innerWidth) - 0.5;
+  const my = (e.clientY / window.innerHeight) - 0.5;
+  mouseHoverX = mx * 0.35;
+  mouseHoverY = my * 0.25;
+
+  if (isDragging) {
+    const deltaX = e.clientX - prevPointerPos.x;
+    const deltaY = e.clientY - prevPointerPos.y;
+    velX = deltaX * 0.005;
+    velY = deltaY * 0.005;
+    targetRotY += velX;
+    targetRotX += velY;
+    prevPointerPos = { x: e.clientX, y: e.clientY };
+  }
+}
+
+function onPointerUp() {
+  isDragging = false;
+  dom.style.cursor = 'grab';
+}
+
+dom.addEventListener('mousedown', onPointerDown);
+window.addEventListener('mousemove', onPointerMove);
+window.addEventListener('mouseup', onPointerUp);
+
+// Mobile touch
+dom.addEventListener('touchstart', (e) => {
+  if (e.touches.length === 1) {
+    isDragging = true;
+    prevPointerPos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }
+}, { passive: true });
+
+window.addEventListener('touchmove', (e) => {
+  if (isDragging && e.touches.length === 1) {
+    const deltaX = e.touches[0].clientX - prevPointerPos.x;
+    const deltaY = e.touches[0].clientY - prevPointerPos.y;
+    velX = deltaX * 0.005;
+    velY = deltaY * 0.005;
+    targetRotY += velX;
+    targetRotX += velY;
+    prevPointerPos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }
+}, { passive: true });
+
+window.addEventListener('touchend', () => { isDragging = false; });
+
+// Resize
+function onWindowResize() {
+  const nw = container.clientWidth || window.innerWidth;
+  const nh = container.clientHeight || window.innerHeight;
+  camera.aspect = nw / nh;
+  camera.updateProjectionMatrix();
+  renderer.setSize(nw, nh);
+  onWindowScroll();
+}
+window.addEventListener('resize', onWindowResize);
+
+// Animation Loop
+let lastTime = performance.now();
+const baseAutoSpin = 0.0025;
+
+function animate(currentTime) {
+  requestAnimationFrame(animate);
+
+  const delta = Math.min((currentTime - lastTime) / 1000, 0.1);
+  lastTime = currentTime;
+
+  if (!isDragging) {
+    velX = THREE.MathUtils.lerp(velX, baseAutoSpin, 0.04);
+    velY = THREE.MathUtils.lerp(velY, 0, 0.06);
+    targetRotY += velX * (delta * 60);
+    targetRotX += velY * (delta * 60);
+  }
+
+  targetRotX = Math.max(-1.1, Math.min(1.1, targetRotX));
+
+  // Natural Rotation
+  earth.rotation.y = THREE.MathUtils.lerp(earth.rotation.y, targetRotY, 0.12);
+  earth.rotation.x = THREE.MathUtils.lerp(earth.rotation.x, targetRotX + mouseHoverY, 0.08);
+  earth.rotation.z = THREE.MathUtils.lerp(earth.rotation.z, -mouseHoverX * 0.2, 0.08);
+
+  clouds.rotation.y = earth.rotation.y * 1.07;
+  clouds.rotation.x = earth.rotation.x;
+
+  // Smooth Scroll Position & Scale Traversal
+  earthPivot.position.x = THREE.MathUtils.lerp(earthPivot.position.x, targetPosX, 0.08);
+  earthPivot.position.y = THREE.MathUtils.lerp(earthPivot.position.y, targetPosY, 0.08);
+  earthPivot.position.z = THREE.MathUtils.lerp(earthPivot.position.z, targetPosZ, 0.08);
+
+  const curScale = earthPivot.scale.x;
+  const nextScale = THREE.MathUtils.lerp(curScale, targetScale, 0.08);
+  earthPivot.scale.set(nextScale, nextScale, nextScale);
+
+  renderer.render(scene, camera);
+}
+requestAnimationFrame(animate);
+
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_64 -->
+</body>
+</html>

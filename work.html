@@ -1,0 +1,1132 @@
+<!DOCTYPE html><html class="dark" lang="en" style="overflow-y: auto; height: auto;"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Syne:wght@700;800;900&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>
+/* ABEN Modern Geometric Brutalist Typography System (Clash Display / Unbounded / Space Grotesk) */
+:root {
+  --font-display: 'Clash Display', 'Unbounded', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+.font-display-xl, .font-headline-lg, .font-headline-md, .font-display,
+h1, h2, h3, .display-heading {
+  font-family: var(--font-display) !important;
+  letter-spacing: -0.03em;
+}
+
+.font-body-lg, .font-body-md, body, p {
+  font-family: var(--font-body);
+}
+
+.font-label-mono-sm, .font-label-code {
+  font-family: var(--font-mono);
+}
+@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+.reveal-on-scroll{opacity:0;transform:translateY(28px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1);}
+.reveal-on-scroll.is-visible{opacity:1;transform:translateY(0);}
+</style><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { 'colors': { 'tertiary-fixed-dim': '#9dcaff', 'on-secondary': '#2f3131', 'background': '#131313', 'surface-bright': '#3a3939', 'surface-container-highest': '#353534', 'surface-container-lowest': '#0e0e0e', 'secondary-fixed-dim': '#c6c6c7', 'tertiary': '#9dcaff', 'inverse-on-surface': '#313030', 'tertiary-container': '#009bfe', 'surface': '#131313', 'primary-fixed': '#ffdbcd', 'surface-tint': '#ffb596', 'error-container': '#93000a', 'on-secondary-fixed': '#1a1c1c', 'on-tertiary-fixed': '#001d36', 'surface-variant': '#353534', 'on-secondary-fixed-variant': '#454747', 'surface-container': '#201f1f', 'on-surface': '#e5e2e1', 'secondary-fixed': '#e2e2e2', 'primary': '#ffb596', 'on-error-container': '#ffdad6', 'surface-dim': '#131313', 'on-tertiary-container': '#003155', 'on-error': '#690005', 'error': '#ffb4ab', 'inverse-primary': '#a33e00', 'on-tertiary': '#003257', 'surface-container-low': '#1c1b1b', 'on-primary-fixed': '#360f00', 'secondary': '#c6c6c7', 'on-background': '#e5e2e1', 'primary-container': '#ff6500', 'on-primary': '#581e00', 'outline-variant': '#5a4136', 'on-tertiary-fixed-variant': '#00497c', 'tertiary-fixed': '#d1e4ff', 'outline': '#aa8a7d', 'on-surface-variant': '#e3bfb1', 'inverse-surface': '#e5e2e1', 'on-primary-container': '#551d00', 'surface-container-high': '#2a2a2a', 'primary-fixed-dim': '#ffb596', 'secondary-container': '#454747', 'on-secondary-container': '#b4b5b5', 'on-primary-fixed-variant': '#7d2d00' }, 'borderRadius': { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, 'spacing': { 'gutter': '1rem', 'space-sm': '0.5rem', 'space-xl': '3rem', 'margin': '2rem', 'margin-mobile': '1rem', 'space-lg': '1.5rem', 'gutter-mobile': '0.5rem', 'space-md': '1rem', 'space-xs': '0.25rem' }, 'fontFamily': { 'headline-md': ['Syne'], 'headline-lg-mobile': ['Syne'], 'display-xl-mobile': ['Syne'], 'headline-lg': ['Syne'], 'body-lg': ['Space Grotesk'], 'display-xl': ['Syne'], 'body-md': ['Space Grotesk'], 'label-code': ['Space Mono'], 'label-mono-sm': ['Space Mono'], 'title-lg': ['Space Grotesk'] }, 'fontSize': { 'headline-md': ['28px', { 'lineHeight': '32px', 'letterSpacing': '-0.02em', 'fontWeight': '700' }], 'headline-lg-mobile': ['32px', { 'lineHeight': '36px', 'letterSpacing': '-0.02em', 'fontWeight': '700' }], 'display-xl-mobile': ['40px', { 'lineHeight': '44px', 'letterSpacing': '-0.03em', 'fontWeight': '800' }], 'headline-lg': ['48px', { 'lineHeight': '52px', 'letterSpacing': '-0.03em', 'fontWeight': '700' }], 'body-lg': ['16px', { 'lineHeight': '24px', 'letterSpacing': '0em', 'fontWeight': '500' }], 'display-xl': ['72px', { 'lineHeight': '76px', 'letterSpacing': '-0.04em', 'fontWeight': '800' }], 'body-md': ['14px', { 'lineHeight': '20px', 'letterSpacing': '0em', 'fontWeight': '400' }], 'label-code': ['12px', { 'lineHeight': '16px', 'letterSpacing': '0.08em', 'fontWeight': '700' }], 'label-mono-sm': ['10px', { 'lineHeight': '14px', 'letterSpacing': '0.12em', 'fontWeight': '400' }], 'title-lg': ['22px', { 'lineHeight': '28px', 'letterSpacing': '-0.01em', 'fontWeight': '700' }] } } } }</script><link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head><body class="bg-background font-body-md text-on-surface antialiased overflow-x-hidden overflow-y-auto h-auto selection:bg-primary-container selection:text-on-primary-container" style="overscroll-behavior: auto;"><!-- ============================================================ -->
+<!-- MINIMAL TOP NAVIGATION (KOTA REFERENCE REPLICA)             -->
+<!-- ============================================================ -->
+<header class="fixed top-0 left-0 right-0 z-40 px-6 sm:px-10 py-6 flex items-center justify-between pointer-events-none transform transition-all duration-700 ease-out translate-y-0 opacity-100" id="main-nav">
+  <!-- Top-Left: 'ABEN' frosted-glass capsule pill -->
+  <a class="pointer-events-auto px-5 py-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 backdrop-blur-xl flex items-center gap-2.5 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.5)] group" href="index.html">
+    <span class="w-2 h-2 rounded-full bg-primary bg-[#ff6900] group-hover:scale-125 transition-transform"></span>
+    <span class="font-display-xl font-black text-white text-base tracking-wider uppercase">ABEN</span>
+  </a>
+  <!-- Top-Center: Minimal circular menu button with clean dual-dash -->
+  <button aria-label="Toggle Navigation Menu" class="pointer-events-auto w-11 h-11 rounded-full bg-white/[0.08] hover:bg-white/[0.16] border border-white/15 backdrop-blur-xl flex flex-col items-center justify-center gap-1.5 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.5)] group" onclick="const m = document.getElementById('quick-nav-modal'); m.classList.toggle('hidden');">
+    <span class="w-4 h-[2px] bg-white/90 group-hover:w-5 transition-all"></span>
+    <span class="w-4 h-[2px] bg-white/90 group-hover:w-3 transition-all"></span>
+  </button>
+  <!-- Top-Right: Elegant rounded pill button 'Get in touch' -->
+  <a class="pointer-events-auto px-6 py-2.5 rounded-full bg-white/[0.08] hover:bg-primary hover:bg-[#ff6900] hover:text-black border border-white/15 hover:border-primary hover:border-[#ff6900] backdrop-blur-xl font-body-md text-sm font-medium text-white tracking-wide transition-all shadow-[0_8px_32px_rgba(0,0,0,0.5)]" href="contact.html">
+    Get in touch
+  </a>
+</header>
+<!-- Minimal Quick Nav Dropdown Overlay (from menu button) -->
+<div class="fixed inset-x-6 top-24 z-50 max-w-sm mx-auto hidden bg-[#0c0c0f]/95 border border-white/15 backdrop-blur-2xl rounded-2xl p-6 shadow-2xl transition-all pointer-events-auto" id="quick-nav-modal">
+  <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4 font-label-mono-sm text-xs text-secondary">
+    <span>SYSTEM DIRECTORY</span>
+    <button aria-label="Close menu" class="text-white hover:text-primary hover:text-[#ff6900] transition-colors text-base leading-none p-1" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">✕</button>
+  </div>
+  <nav class="flex flex-col gap-2.5 font-headline-md text-lg">
+    <a class="text-white hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1" href="index.html" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+      <span>Home</span> <span class="font-label-mono-sm text-xs text-secondary">01</span>
+    </a>
+    <a class="text-white hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1" href="about.html" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+      <span>About Us</span> <span class="font-label-mono-sm text-xs text-secondary">02</span>
+    </a>
+    <a class="text-white hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1" href="services.html" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+      <span>Services</span> <span class="font-label-mono-sm text-xs text-secondary">03</span>
+    </a>
+    <a class="text-primary text-[#ff6900] hover:text-white transition-colors flex items-center justify-between py-1 font-bold" href="work.html" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+      <span>Work</span> <span class="font-label-mono-sm text-xs text-primary text-[#ff6900] font-bold">04 // ACTIVE</span>
+    </a>
+    <a class="text-white hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1" href="contact.html" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+      <span>Contact</span> <span class="font-label-mono-sm text-xs text-secondary">05</span>
+    </a>
+    <div class="pt-3 mt-3 border-t border-white/10 flex flex-col gap-1 font-label-code text-xs">
+      <div class="font-label-mono-sm text-[10px] text-secondary tracking-widest uppercase mb-1">HOMEPAGE ARCHITECTURE</div>
+      <a class="text-white/75 hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1" href="index.html#hero" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+        <span># Overview</span> <span class="text-secondary/60">01</span>
+      </a>
+      <a class="text-white/75 hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1" href="index.html#company-dossier" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+        <span># Dossier &amp; Architecture</span> <span class="text-secondary/60">02</span>
+      </a>
+      <a class="text-white/75 hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1" href="index.html#capabilities" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+        <span># Capabilities</span> <span class="text-secondary/60">03</span>
+      </a>
+      <a class="text-white/75 hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1" href="index.html#manifesto" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+        <span># Manifesto</span> <span class="text-secondary/60">04</span>
+      </a>
+      <a class="text-white/75 hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1" href="index.html#intake-terminal" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+        <span># Intake Terminal</span> <span class="text-secondary/60">05</span>
+      </a>
+    </div>
+  </nav>
+</div>
+<script>
+(function() {
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const m = document.getElementById('quick-nav-modal');
+      if (m && !m.classList.contains('hidden')) m.classList.add('hidden');
+    }
+  });
+  document.addEventListener('click', function(e) {
+    const modal = document.getElementById('quick-nav-modal');
+    const menuBtn = document.querySelector('button[aria-label="Toggle Navigation Menu"]');
+    if (modal && !modal.classList.contains('hidden')) {
+      if (!modal.contains(e.target) && (!menuBtn || !menuBtn.contains(e.target))) {
+        modal.classList.add('hidden');
+      }
+    }
+  });
+})();
+</script><main class="w-full pt-20 bg-background min-h-screen overflow-x-hidden overflow-y-auto h-auto"><div class="flex flex-col w-full">
+<!-- ========================================================================= -->
+<!-- 1. CINEMATIC PARTICLE INTRO 'WORK'                                       -->
+<!-- ========================================================================= -->
+<section class="relative w-full h-[85vh] min-h-[650px] flex items-center justify-center overflow-hidden bg-[#050505]" id="work-particle-canvas-container">
+<!-- STITCH_THREEJS_START:ANIMATION_133 class="absolute inset-0 w-full h-full bg-transparent" -->
+<div class="absolute inset-0 w-full h-full bg-transparent" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_133" style="width:100%;height:100%"><canvas width="1600" height="1087" style="display: block; width: 1280px; height: 870px;"></canvas></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_133');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  // Three.js Particle System: Cinematic "WORK" Assembly
+(function() {
+  const mountEl = container || document.getElementById('work-particle-canvas-container') || document.body;
+  
+  // Safe dimensions to avoid 0x0 collapse
+  let width = mountEl.clientWidth || window.innerWidth || 1200;
+  let height = mountEl.clientHeight || 650;
+  if (height < 300) height = 650;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 2000);
+  camera.position.z = 210;
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setClearColor(0x000000, 0);
+
+  mountEl.innerHTML = '';
+  mountEl.appendChild(renderer.domElement);
+
+  // Raster text mask for dense typography sampling of "WORK"
+  const textCanvas = document.createElement('canvas');
+  textCanvas.width = 1400;
+  textCanvas.height = 420;
+  const tCtx = textCanvas.getContext('2d', { willReadFrequently: true });
+
+  tCtx.fillStyle = '#000000';
+  tCtx.fillRect(0, 0, textCanvas.width, textCanvas.height);
+  tCtx.fillStyle = '#ffffff';
+  // Ultra-bold sans font for strong readability
+  tCtx.font = '900 240px "Syne", "Impact", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+  tCtx.textAlign = 'center';
+  tCtx.textBaseline = 'middle';
+  tCtx.fillText('WORK', textCanvas.width / 2, textCanvas.height / 2);
+
+  const imgData = tCtx.getImageData(0, 0, textCanvas.width, textCanvas.height);
+  const targets = [];
+  const step = 4; // Dense sampling step
+
+  for (let y = 0; y < textCanvas.height; y += step) {
+    for (let x = 0; x < textCanvas.width; x += step) {
+      const idx = (y * textCanvas.width + x) * 4;
+      if (imgData.data[idx] > 120) {
+        const targetX = (x - textCanvas.width / 2) * 0.22;
+        const targetY = -(y - textCanvas.height / 2) * 0.22;
+        const targetZ = (Math.random() - 0.5) * 8;
+        targets.push({ x: targetX, y: targetY, z: targetZ });
+      }
+    }
+  }
+
+  const particleCount = Math.max(targets.length, 5200);
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(particleCount * 3);
+  const originPositions = new Float32Array(particleCount * 3);
+  const targetPositions = new Float32Array(particleCount * 3);
+  const colors = new Float32Array(particleCount * 3);
+  const sizes = new Float32Array(particleCount);
+  const delays = new Float32Array(particleCount);
+  const phases = new Float32Array(particleCount);
+
+  const orangeBrand = new THREE.Color('#FF6500');
+  const flameAccent = new THREE.Color('#FFA834');
+  const pureWhite = new THREE.Color('#FFFFFF');
+  const subtleSilver = new THREE.Color('#D1D5DB');
+
+  for (let i = 0; i < particleCount; i++) {
+    // Phase 1: Dispersed 3D scatter
+    const theta = Math.random() * Math.PI * 2;
+    const phi = (Math.random() - 0.5) * Math.PI;
+    const radius = 180 + Math.random() * 320;
+
+    const ox = radius * Math.cos(theta) * Math.cos(phi) * 1.5;
+    const oy = radius * Math.sin(phi) * 1.1;
+    const oz = (Math.random() - 0.5) * 360;
+
+    originPositions[i * 3] = ox;
+    originPositions[i * 3 + 1] = oy;
+    originPositions[i * 3 + 2] = oz;
+
+    positions[i * 3] = ox;
+    positions[i * 3 + 1] = oy;
+    positions[i * 3 + 2] = oz;
+
+    if (i < targets.length) {
+      targetPositions[i * 3] = targets[i].x;
+      targetPositions[i * 3 + 1] = targets[i].y;
+      targetPositions[i * 3 + 2] = targets[i].z;
+    } else {
+      const randT = targets[Math.floor(Math.random() * targets.length)] || { x: 0, y: 0, z: 0 };
+      targetPositions[i * 3] = randT.x + (Math.random() - 0.5) * 2;
+      targetPositions[i * 3 + 1] = randT.y + (Math.random() - 0.5) * 2;
+      targetPositions[i * 3 + 2] = (Math.random() - 0.5) * 4;
+    }
+
+    const roll = Math.random();
+    let col = pureWhite;
+    if (roll < 0.50) {
+      col = orangeBrand;
+    } else if (roll < 0.75) {
+      col = flameAccent;
+    } else if (roll < 0.95) {
+      col = pureWhite;
+    } else {
+      col = subtleSilver;
+    }
+
+    colors[i * 3] = col.r;
+    colors[i * 3 + 1] = col.g;
+    colors[i * 3 + 2] = col.b;
+
+    sizes[i] = Math.random() * 2.2 + 2.2;
+    delays[i] = Math.random() * 0.45;
+    phases[i] = Math.random() * Math.PI * 2;
+  }
+
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+  // Glowing particle texture
+  const pCanvas = document.createElement('canvas');
+  pCanvas.width = 64;
+  pCanvas.height = 64;
+  const pCtx = pCanvas.getContext('2d');
+  const grad = pCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+  grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+  grad.addColorStop(0.25, 'rgba(255, 160, 40, 0.9)');
+  grad.addColorStop(0.6, 'rgba(255, 101, 0, 0.45)');
+  grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+  pCtx.fillStyle = grad;
+  pCtx.fillRect(0, 0, 64, 64);
+
+  const pTexture = new THREE.CanvasTexture(pCanvas);
+  pTexture.generateMipmaps = false;
+  pTexture.minFilter = THREE.LinearFilter;
+
+  const material = new THREE.PointsMaterial({
+    size: 3.8,
+    vertexColors: true,
+    map: pTexture,
+    transparent: true,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
+
+  const particleSystem = new THREE.Points(geometry, material);
+  scene.add(particleSystem);
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetRotX = 0;
+  let targetRotY = 0;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX - window.innerWidth / 2) * 0.00035;
+    mouseY = (e.clientY - window.innerHeight / 2) * 0.00035;
+  });
+
+  const startTime = performance.now();
+
+  function animate(now) {
+    requestAnimationFrame(animate);
+    const elapsed = (now - startTime) * 0.001;
+
+    const posAttr = geometry.attributes.position;
+    const currentPositions = posAttr.array;
+
+    const animDuration = 1.9;
+    const animStart = 0.25;
+
+    for (let i = 0; i < particleCount; i++) {
+      const idx = i * 3;
+      const ox = originPositions[idx];
+      const oy = originPositions[idx + 1];
+      const oz = originPositions[idx + 2];
+
+      const tx = targetPositions[idx];
+      const ty = targetPositions[idx + 1];
+      const tz = targetPositions[idx + 2];
+
+      const delay = delays[i];
+      const rawProgress = Math.max(0, Math.min(1, (elapsed - animStart - delay) / animDuration));
+      const easeT = 1 - Math.pow(1 - rawProgress, 4);
+
+      if (rawProgress < 1.0) {
+        const vortex = Math.sin(rawProgress * Math.PI) * (1 - easeT) * 16;
+        currentPositions[idx] = ox + (tx - ox) * easeT + Math.sin(elapsed * 4 + i) * vortex;
+        currentPositions[idx + 1] = oy + (ty - oy) * easeT + Math.cos(elapsed * 4 + i) * vortex;
+        currentPositions[idx + 2] = oz + (tz - oz) * easeT;
+      } else {
+        const phase = phases[i];
+        const jitter = (i % 8 === 0) ? 0.9 : 0.35;
+        const jx = Math.sin(elapsed * 3.0 + phase) * jitter;
+        const jy = Math.cos(elapsed * 2.5 + phase * 1.2) * jitter;
+        const jz = Math.sin(elapsed * 2.0 + phase * 0.8) * jitter;
+
+        const breathe = Math.sin(elapsed * 1.5) * 0.008;
+
+        currentPositions[idx] = tx * (1 + breathe) + jx;
+        currentPositions[idx + 1] = ty * (1 + breathe) + jy;
+        currentPositions[idx + 2] = tz + jz;
+      }
+    }
+
+    posAttr.needsUpdate = true;
+
+    targetRotY += (mouseX - targetRotY) * 0.05;
+    targetRotX += (mouseY - targetRotX) * 0.05;
+    particleSystem.rotation.y = targetRotY;
+    particleSystem.rotation.x = targetRotX;
+
+    renderer.render(scene, camera);
+  }
+
+  requestAnimationFrame(animate);
+
+  window.addEventListener('resize', () => {
+    const newW = mountEl.clientWidth || window.innerWidth || 1200;
+    const newH = mountEl.clientHeight || 650;
+    camera.aspect = newW / newH;
+    camera.updateProjectionMatrix();
+    renderer.setSize(newW, newH);
+  });
+})();
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_133 -->
+<div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(255,101,0,0.12)_0%,rgba(5,5,5,0.9)_75%,#050505_100%)] z-0"></div>
+<!-- Kinetic telemetry overlay -->
+<div class="absolute top-8 left-8 flex items-center space-x-3 z-20 pointer-events-none">
+<span class="inline-block w-2 h-2 rounded-full bg-[#FF6500] animate-pulse"></span>
+<span class="text-xs font-mono tracking-widest text-[#FF6500] uppercase">// EXHIBIT 2026 // KINETIC PARTICLE MATRIX // SHARD DENSITY: 4,500+</span>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center space-x-0 space-y-2 z-20 pointer-events-none text-center">
+<span class="text-xs font-mono uppercase tracking-[0.3em] text-white/50">SCROLL TO EXPLORE SELECTED WORKS</span>
+<div class="w-5 h-8 border border-white/20 rounded-full flex justify-center pt-1.5">
+<div class="w-1 h-2 bg-[#FF6500] rounded-full animate-bounce"></div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 2. RECENT PROJECTS SECTION (MATCHING REFERENCE IMAGE_2 GALLERY DESIGN)    -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin py-space-xl bg-[#080808]" id="recent-projects">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<!-- Header -->
+<div class="flex flex-col gap-space-xs reveal-on-scroll is-visible border-b border-white/10 pb-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest">// 01. SELECTED WORKS // RECENT PROJECTS</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">[ PRODUCTION FLEET // 2025 - 2026 ]</span>
+</div>
+<h2 class="font-display-xl font-black text-4xl sm:text-6xl text-white uppercase tracking-tight">RECENT <span class="text-primary text-[#ff6900]">PROJECTS</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+        High-throughput web platforms, custom AI architectures, and verified enterprise ecosystems.
+      </p>
+</div>
+<!-- 3-Column Visual Grid (Matching User Reference Image_2) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 pt-4">
+<!-- CARD 1: SharkFlow -->
+<a class="group flex flex-col rounded-2xl bg-[#0e0e0e] border border-white/5 overflow-hidden transition-all duration-500 hover:border-[#FF6500]/50 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(255,101,0,0.15)] reveal-on-scroll is-visible" href="https://sharkflow.org/" rel="noopener noreferrer" target="_blank">
+<!-- Visual Preview Deck with Desktop + Phone Mockup -->
+<div class="relative w-full aspect-[16/10] bg-gradient-to-br from-[#1c0c08] via-[#120704] to-[#080808] p-5 flex items-center justify-center overflow-hidden">
+<!-- Subtle Glow Backdrop -->
+<div class="absolute -top-10 -left-10 w-48 h-48 bg-[#FF6500]/20 rounded-full blur-3xl group-hover:bg-[#FF6500]/30 transition-all duration-700 pointer-events-none"></div>
+<!-- Desktop Mockup Frame -->
+<div class="relative w-[75%] rounded-md bg-[#131314] border border-white/10 shadow-2xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="h-3.5 bg-[#1f2023] px-2 flex items-center gap-1 border-b border-white/5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ff5f56]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#ffbd2e]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#27c93f]"></span>
+<span class="ml-2 text-[7px] text-white/40 font-mono">sharkflow.org</span>
+</div>
+<div class="w-full aspect-[16/9.5] bg-[#0c0d12] overflow-hidden">
+<img alt="SharkFlow Desktop Interface" class="w-full h-full object-cover object-top opacity-95" src="assets/images/sharkflow_browser.png">
+</div>
+</div>
+<!-- Mobile Phone Overlay Mockup -->
+<div class="absolute right-4 bottom-3 w-[26%] rounded-[14px] bg-[#000] p-[2.5px] border border-white/20 shadow-[0_12px_30px_rgba(0,0,0,0.85)] transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-105">
+<div class="w-full rounded-[12px] overflow-hidden aspect-[9/18] bg-[#0e1017]">
+<img alt="SharkFlow Mobile Interface" class="w-full h-full object-cover" src="assets/images/sharkflow_live.png">
+</div>
+</div>
+<!-- Floating Action Pill -->
+<div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="px-4 py-2 rounded-full bg-[#FF6500] text-black font-label-code text-xs font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(255,101,0,0.6)] flex items-center gap-1.5">
+<span>VIEW PROJECT</span>
+<span class="material-symbols-outlined text-[15px]">arrow_outward</span>
+</span>
+</div>
+</div>
+<!-- Card Text Metadata -->
+<div class="p-5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-lg text-white font-bold tracking-tight group-hover:text-[#FF6500] transition-colors">SharkFlow</h3>
+<span class="font-label-mono-sm text-sm text-white/50">2026</span>
+</div>
+<p class="font-sans text-sm text-white/60">AI Project Intelligence &amp; SaaS Platform</p>
+</div>
+</a>
+<!-- CARD 2: RealHomeServices -->
+<a class="group flex flex-col rounded-2xl bg-[#0e0e0e] border border-white/5 overflow-hidden transition-all duration-500 hover:border-[#FF6500]/50 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(255,101,0,0.15)] reveal-on-scroll is-visible" href="https://realhomeservice.com/" rel="noopener noreferrer" target="_blank">
+<!-- Visual Preview Deck -->
+<div class="relative w-full aspect-[16/10] bg-gradient-to-br from-[#1a1408] via-[#100d04] to-[#080808] p-5 flex items-center justify-center overflow-hidden">
+<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-amber-600/15 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Desktop Mockup Frame -->
+<div class="relative w-[75%] rounded-md bg-[#131314] border border-white/10 shadow-2xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="h-3.5 bg-[#1f2023] px-2 flex items-center gap-1 border-b border-white/5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ff5f56]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#ffbd2e]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#27c93f]"></span>
+<span class="ml-2 text-[7px] text-white/40 font-mono">realhomeservice.com</span>
+</div>
+<div class="w-full aspect-[16/9.5] bg-[#ffffff] p-2 flex flex-col gap-1.5">
+<div class="flex items-center justify-between border-b pb-1">
+<span class="text-[8px] font-bold text-slate-800">REAL HOME SERVICES</span>
+<span class="text-[6px] px-1 py-0.5 bg-[#FF6500] text-white rounded">BOOK NOW</span>
+</div>
+<div class="grid grid-cols-3 gap-1 pt-0.5">
+<div class="h-10 bg-slate-100 rounded flex flex-col items-center justify-center p-0.5 text-center"><span class="text-[6px] font-bold text-slate-700">AC Repair</span><span class="text-[5px] text-slate-500">24/7 Dispatch</span></div>
+<div class="h-10 bg-slate-100 rounded flex flex-col items-center justify-center p-0.5 text-center"><span class="text-[6px] font-bold text-slate-700">Plumbing</span><span class="text-[5px] text-slate-500">Certified Tech</span></div>
+<div class="h-10 bg-slate-100 rounded flex flex-col items-center justify-center p-0.5 text-center"><span class="text-[6px] font-bold text-slate-700">Electrical</span><span class="text-[5px] text-slate-500">Instant Quote</span></div>
+</div>
+<div class="h-4 bg-orange-50 rounded border border-orange-200 px-1.5 flex items-center justify-between">
+<span class="text-[5.5px] text-orange-900 font-semibold">Active Dispatch: 18 Vans On-Duty</span>
+<span class="text-[5.5px] text-emerald-600 font-mono font-bold">LIVE GPS</span>
+</div>
+</div>
+</div>
+<!-- Mobile Phone Overlay Mockup -->
+<div class="absolute right-4 bottom-3 w-[26%] rounded-[14px] bg-[#000] p-[2.5px] border border-white/20 shadow-[0_12px_30px_rgba(0,0,0,0.85)] transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-105">
+<div class="w-full rounded-[12px] overflow-hidden aspect-[9/18] bg-white p-1.5 flex flex-col gap-1">
+<div class="w-6 h-1 bg-black/70 rounded-full mx-auto mb-1"></div>
+<span class="text-[6px] font-bold text-slate-900">Book Service</span>
+<div class="h-8 bg-slate-100 rounded p-1 flex flex-col justify-center">
+<span class="text-[5px] font-bold text-slate-800">Technician Assigned</span>
+<span class="text-[4px] text-slate-500">Arriving in 14 mins</span>
+</div>
+<div class="mt-auto h-3 bg-[#FF6500] rounded text-[5px] text-white flex items-center justify-center font-bold">Track Live</div>
+</div>
+</div>
+<!-- Floating Action Pill -->
+<div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="px-4 py-2 rounded-full bg-[#FF6500] text-black font-label-code text-xs font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(255,101,0,0.6)] flex items-center gap-1.5">
+<span>VIEW PROJECT</span>
+<span class="material-symbols-outlined text-[15px]">arrow_outward</span>
+</span>
+</div>
+</div>
+<!-- Card Text Metadata -->
+<div class="p-5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-lg text-white font-bold tracking-tight group-hover:text-[#FF6500] transition-colors">RealHomeServices</h3>
+<span class="font-label-mono-sm text-sm text-white/50">2025</span>
+</div>
+<p class="font-sans text-sm text-white/60">On-Demand Service Ecosystem &amp; Dispatch</p>
+</div>
+</a>
+<!-- CARD 3: FashionX Mobile -->
+<a class="group flex flex-col rounded-2xl bg-[#0e0e0e] border border-white/5 overflow-hidden transition-all duration-500 hover:border-[#FF6500]/50 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(255,101,0,0.15)] reveal-on-scroll is-visible" href="#recent-projects">
+<!-- Visual Preview Deck -->
+<div class="relative w-full aspect-[16/10] bg-gradient-to-br from-[#121318] via-[#0c0d12] to-[#080808] p-5 flex items-center justify-center overflow-hidden">
+<div class="absolute top-0 right-0 w-44 h-44 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Desktop Mockup Frame -->
+<div class="relative w-[75%] rounded-md bg-[#111215] border border-white/10 shadow-2xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="h-3.5 bg-[#1b1c20] px-2 flex items-center gap-1 border-b border-white/5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ff5f56]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#ffbd2e]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#27c93f]"></span>
+<span class="ml-2 text-[7px] text-white/40 font-mono">fashionx-retail.app</span>
+</div>
+<div class="w-full aspect-[16/9.5] bg-[#0a0a0d] p-2 flex flex-col justify-between">
+<div class="flex justify-between items-center text-[7px] text-white/80 border-b border-white/10 pb-1">
+<span class="font-bold tracking-widest uppercase">FASHIONX ATELIER</span>
+<span class="text-white/40">COLLECTION AUTUMN/WINTER</span>
+</div>
+<div class="grid grid-cols-3 gap-1 my-auto">
+<div class="aspect-[3/4] bg-[#1a1b22] rounded flex flex-col justify-end p-1 border border-white/5"><span class="text-[5px] text-white/90 font-bold">Monolith Coat</span><span class="text-[4.5px] text-[#FF6500]">$840</span></div>
+<div class="aspect-[3/4] bg-[#17181f] rounded flex flex-col justify-end p-1 border border-white/5"><span class="text-[5px] text-white/90 font-bold">Silk Drape</span><span class="text-[4.5px] text-[#FF6500]">$420</span></div>
+<div class="aspect-[3/4] bg-[#1a1b22] rounded flex flex-col justify-end p-1 border border-white/5"><span class="text-[5px] text-white/90 font-bold">Noir Combat</span><span class="text-[4.5px] text-[#FF6500]">$690</span></div>
+</div>
+</div>
+</div>
+<!-- Mobile Phone Overlay Mockup -->
+<div class="absolute right-4 bottom-3 w-[26%] rounded-[14px] bg-[#000] p-[2.5px] border border-white/20 shadow-[0_12px_30px_rgba(0,0,0,0.85)] transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-105">
+<div class="w-full rounded-[12px] overflow-hidden aspect-[9/18] bg-[#0d0e12] p-1.5 flex flex-col gap-1">
+<div class="w-6 h-1 bg-white/20 rounded-full mx-auto mb-1"></div>
+<span class="text-[6px] font-bold text-white uppercase tracking-wider">Fast Checkout</span>
+<div class="h-10 bg-white/5 rounded p-1 flex flex-col justify-center border border-white/5">
+<span class="text-[5px] text-white font-medium">Apple Pay 1-Tap</span>
+<span class="text-[4px] text-emerald-400">Order Confirmed</span>
+</div>
+<div class="mt-auto h-3 bg-white text-black rounded text-[5px] flex items-center justify-center font-bold">Bag (3)</div>
+</div>
+</div>
+<!-- Floating Action Pill -->
+<div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="px-4 py-2 rounded-full bg-[#FF6500] text-black font-label-code text-xs font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(255,101,0,0.6)] flex items-center gap-1.5">
+<span>EXPLORE CASE STUDY</span>
+<span class="material-symbols-outlined text-[15px]">arrow_outward</span>
+</span>
+</div>
+</div>
+<!-- Card Text Metadata -->
+<div class="p-5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-lg text-white font-bold tracking-tight group-hover:text-[#FF6500] transition-colors">FashionX Mobile</h3>
+<span class="font-label-mono-sm text-sm text-white/50">2026</span>
+</div>
+<p class="font-sans text-sm text-white/60">Enterprise Mobile &amp; E-Commerce Platform</p>
+</div>
+</a>
+<!-- CARD 4: Mastercard Music (Matching Reference Image_2 Left Card) -->
+<a class="group flex flex-col rounded-2xl bg-[#0e0e0e] border border-white/5 overflow-hidden transition-all duration-500 hover:border-[#FF6500]/50 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(255,101,0,0.15)] reveal-on-scroll is-visible" href="#recent-projects">
+<!-- Visual Preview Deck (Crimson Sun Backdrop + Silhouette & Mobile App) -->
+<div class="relative w-full aspect-[16/10] bg-gradient-to-br from-[#2a0606] via-[#150404] to-[#080808] p-5 flex items-center justify-center overflow-hidden">
+<!-- Crimson Circle Graphic Matching Reference Image -->
+<div class="absolute -left-6 top-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-gradient-to-r from-[#d91414] to-[#f43f1e] opacity-90 blur-[1px]"></div>
+<!-- Desktop Mockup Frame -->
+<div class="relative w-[75%] rounded-md bg-[#131314] border border-white/10 shadow-2xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="h-3.5 bg-[#1f2023] px-2 flex items-center gap-1 border-b border-white/5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ff5f56]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#ffbd2e]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#27c93f]"></span>
+<span class="ml-2 text-[7px] text-white/40 font-mono">mastercardmusic.com</span>
+</div>
+<div class="w-full aspect-[16/9.5] bg-[#0f0404] p-2 flex flex-col justify-center relative overflow-hidden">
+<div class="w-24 h-24 rounded-full bg-gradient-to-br from-red-600 to-orange-500 absolute -left-4 top-1/2 -translate-y-1/2 opacity-70"></div>
+<div class="relative z-10 pl-16 space-y-0.5">
+<span class="text-[5.5px] uppercase tracking-wider text-red-300 font-bold block">Mastercard Music</span>
+<p class="text-[7.5px] text-white font-bold leading-tight">Mastercard nagradza tych, którzy słuchają muzyki.</p>
+<span class="inline-block px-1.5 py-0.5 bg-white text-black font-bold text-[5px] rounded mt-0.5">Dołącz do gry</span>
+</div>
+</div>
+</div>
+<!-- Mobile Phone Overlay Mockup with Orange Artist Card (Matching Reference Image) -->
+<div class="absolute right-4 bottom-3 w-[26%] rounded-[14px] bg-[#000] p-[2.5px] border border-white/20 shadow-[0_12px_30px_rgba(0,0,0,0.85)] transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-105">
+<div class="w-full rounded-[12px] overflow-hidden aspect-[9/18] bg-gradient-to-b from-[#e84118] to-[#c23616] p-1.5 flex flex-col justify-between text-white">
+<div class="w-6 h-1 bg-black/40 rounded-full mx-auto"></div>
+<div class="space-y-0.5 pt-1 text-center">
+<div class="w-7 h-7 mx-auto rounded-full bg-white/20 border border-white/40 flex items-center justify-center font-bold text-[8px]">M</div>
+<span class="text-[5px] font-bold block">Sprawdź czy jesteś w TOPCE fanów!</span>
+<span class="text-[7px] font-extrabold uppercase tracking-wider block">MATA</span>
+</div>
+<div class="h-2.5 bg-white text-red-600 rounded text-[4.5px] flex items-center justify-center font-bold">Sprawdź</div>
+</div>
+</div>
+<!-- Floating Action Pill -->
+<div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="px-4 py-2 rounded-full bg-[#FF6500] text-black font-label-code text-xs font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(255,101,0,0.6)] flex items-center gap-1.5">
+<span>EXPLORE CASE STUDY</span>
+<span class="material-symbols-outlined text-[15px]">arrow_outward</span>
+</span>
+</div>
+</div>
+<!-- Card Text Metadata (Matching Reference Image) -->
+<div class="p-5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-lg text-white font-bold tracking-tight group-hover:text-[#FF6500] transition-colors">Mastercard Music</h3>
+<span class="font-label-mono-sm text-sm text-white/50">2025</span>
+</div>
+<p class="font-sans text-sm text-white/60">Product design</p>
+</div>
+</a>
+<!-- CARD 5: All Aces Games (Matching Reference Image_2 Center Card) -->
+<a class="group flex flex-col rounded-2xl bg-[#0e0e0e] border border-white/5 overflow-hidden transition-all duration-500 hover:border-[#FF6500]/50 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(255,101,0,0.15)] reveal-on-scroll is-visible" href="#recent-projects">
+<!-- Visual Preview Deck (Deep Green Vibrant Backdrop + Cartoon Art & Phone Mockup) -->
+<div class="relative w-full aspect-[16/10] bg-gradient-to-br from-[#06240d] via-[#041708] to-[#080808] p-5 flex items-center justify-center overflow-hidden">
+<div class="absolute -top-10 left-10 w-44 h-44 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Desktop Mockup Frame -->
+<div class="relative w-[75%] rounded-md bg-[#131314] border border-white/10 shadow-2xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="h-3.5 bg-[#1f2023] px-2 flex items-center gap-1 border-b border-white/5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ff5f56]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#ffbd2e]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#27c93f]"></span>
+<span class="ml-2 text-[7px] text-white/40 font-mono">allacesgames.io</span>
+</div>
+<div class="w-full aspect-[16/9.5] bg-[#1a6428] p-2 flex justify-between items-center relative overflow-hidden">
+<div class="space-y-1 z-10 max-w-[55%]">
+<span class="text-[5px] uppercase tracking-wider text-emerald-200 font-mono">ALL ACES GAMES</span>
+<p class="text-[8px] font-headline-md text-white leading-tight font-extrabold">We Take Good Games Further</p>
+<div class="flex gap-1 pt-0.5">
+<span class="px-1 py-0.5 bg-white text-emerald-900 text-[4.5px] font-bold rounded">Publish game</span>
+<span class="px-1 py-0.5 bg-lime-300 text-black text-[4.5px] font-bold rounded">Sell Game</span>
+</div>
+</div>
+<div class="w-16 h-16 rounded-full bg-lime-400/30 border border-lime-300/40 flex items-center justify-center">
+<span class="text-xl">🎮</span>
+</div>
+</div>
+</div>
+<!-- Mobile Phone Overlay Mockup with Green Brand Screen (Matching Reference Image) -->
+<div class="absolute right-4 bottom-3 w-[26%] rounded-[14px] bg-[#000] p-[2.5px] border border-white/20 shadow-[0_12px_30px_rgba(0,0,0,0.85)] transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-105">
+<div class="w-full rounded-[12px] overflow-hidden aspect-[9/18] bg-gradient-to-b from-[#218c38] to-[#12501f] p-1.5 flex flex-col justify-between text-white">
+<div class="w-6 h-1 bg-black/40 rounded-full mx-auto"></div>
+<div class="space-y-0.5 pt-1 text-center">
+<span class="text-[5.5px] font-extrabold uppercase">ALL ACES</span>
+<p class="text-[6.5px] font-bold leading-tight">We Take Good Games Further</p>
+</div>
+<div class="h-3 bg-white text-emerald-800 rounded text-[4.5px] flex items-center justify-center font-bold">Publish Game</div>
+</div>
+</div>
+<!-- Floating Action Pill -->
+<div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="px-4 py-2 rounded-full bg-[#FF6500] text-black font-label-code text-xs font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(255,101,0,0.6)] flex items-center gap-1.5">
+<span>EXPLORE CASE STUDY</span>
+<span class="material-symbols-outlined text-[15px]">arrow_outward</span>
+</span>
+</div>
+</div>
+<!-- Card Text Metadata (Matching Reference Image) -->
+<div class="p-5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-lg text-white font-bold tracking-tight group-hover:text-[#FF6500] transition-colors">All Aces Games</h3>
+<span class="font-label-mono-sm text-sm text-white/50">2026</span>
+</div>
+<p class="font-sans text-sm text-white/60">Brand and website</p>
+</div>
+</a>
+<!-- CARD 6: oneDynamics (Matching Reference Image_2 Right Card) -->
+<a class="group flex flex-col rounded-2xl bg-[#0e0e0e] border border-white/5 overflow-hidden transition-all duration-500 hover:border-[#FF6500]/50 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(255,101,0,0.15)] reveal-on-scroll is-visible" href="#recent-projects">
+<!-- Visual Preview Deck (Flowing Liquid Iridescent Ribbons & Microsoft Cloud View) -->
+<div class="relative w-full aspect-[16/10] bg-gradient-to-br from-[#120824] via-[#090514] to-[#080808] p-5 flex items-center justify-center overflow-hidden">
+<!-- Flowing Iridescent Liquid Backdrop Graphic Matching Reference -->
+<div class="absolute -right-4 top-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-gradient-to-tr from-purple-600 via-pink-500 to-amber-400 opacity-60 blur-xl"></div>
+<!-- Desktop Mockup Frame -->
+<div class="relative w-[75%] rounded-md bg-[#131314] border border-white/10 shadow-2xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
+<div class="h-3.5 bg-[#1f2023] px-2 flex items-center gap-1 border-b border-white/5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#ff5f56]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#ffbd2e]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#27c93f]"></span>
+<span class="ml-2 text-[7px] text-white/40 font-mono">onedynamics.cloud</span>
+</div>
+<div class="w-full aspect-[16/9.5] bg-[#0c0d12] p-2 flex flex-col justify-center relative overflow-hidden">
+<div class="relative z-10 max-w-[65%] space-y-0.5">
+<span class="text-[5.5px] uppercase tracking-wider text-purple-300 font-mono font-bold">oneDynamics</span>
+<p class="text-[7.5px] font-bold text-white leading-tight">Dynamika, która zmienia tempo Twojego biznesu.</p>
+<div class="flex items-center gap-1 pt-0.5">
+<span class="text-[4.5px] px-1 bg-white/10 text-white rounded">Microsoft Partner</span>
+<span class="text-[4.5px] px-1 bg-white/10 text-white rounded">Dynamics 365</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Mobile Phone Overlay Mockup with Microsoft Cloud Dashboard (Matching Reference Image) -->
+<div class="absolute right-4 bottom-3 w-[26%] rounded-[14px] bg-[#000] p-[2.5px] border border-white/20 shadow-[0_12px_30px_rgba(0,0,0,0.85)] transition-transform duration-500 group-hover:-translate-y-1.5 group-hover:scale-105">
+<div class="w-full rounded-[12px] overflow-hidden aspect-[9/18] bg-[#14151c] p-1.5 flex flex-col justify-between text-white">
+<div class="w-6 h-1 bg-white/20 rounded-full mx-auto"></div>
+<div class="space-y-0.5 pt-1">
+<span class="text-[5px] text-purple-400 font-bold block">oneDynamics</span>
+<div class="h-6 bg-gradient-to-r from-purple-700/50 to-pink-600/50 rounded p-1 border border-white/10">
+<span class="text-[4.5px] block font-bold">Cloud Migration</span>
+<span class="text-[4px] text-white/70 block">Power BI Integrated</span>
+</div>
+</div>
+<div class="h-2.5 bg-white text-black rounded text-[4.5px] flex items-center justify-center font-bold">Konsultacja</div>
+</div>
+</div>
+<!-- Floating Action Pill -->
+<div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<span class="px-4 py-2 rounded-full bg-[#FF6500] text-black font-label-code text-xs font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(255,101,0,0.6)] flex items-center gap-1.5">
+<span>EXPLORE CASE STUDY</span>
+<span class="material-symbols-outlined text-[15px]">arrow_outward</span>
+</span>
+</div>
+</div>
+<!-- Card Text Metadata (Matching Reference Image) -->
+<div class="p-5 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-lg text-white font-bold tracking-tight group-hover:text-[#FF6500] transition-colors">oneDynamics</h3>
+<span class="font-label-mono-sm text-sm text-white/50">2026</span>
+</div>
+<p class="font-sans text-sm text-white/60">Company website</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3. ADDITIONAL COMPLETED PROJECTS ('OUR DEVELOPMENT EXPERIENCE')           -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin py-space-xl bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest">
+          [ // 02. PROVEN RECORD // NON-PUBLIC &amp; PROPRIETARY CLIENT SYSTEMS ]
+        </span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
+          OUR DEVELOPMENT <span class="text-primary text-[#ff6900]">EXPERIENCE.</span>
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+          Beyond the projects you see, we've worked on a variety of digital products and complete software systems for high-reliability industries.
+        </p>
+</div>
+<!-- 3 High-Density Industrial Project Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- PROJ 03: First Flight Travels -->
+<div class="bg-surface-container-low p-space-md flex flex-col justify-between gap-space-md hover:bg-surface-container transition-colors group">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between border-b border-surface-bright pb-space-xs">
+<span class="font-label-code text-label-code text-primary-container font-bold">PROJ // 03</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">[ AIRLINE_PORTAL // COMPLETED ]</span>
+</div>
+<div class="space-y-1">
+<div class="font-label-mono-sm text-label-mono-sm text-primary uppercase">Travel &amp; Airline Website</div>
+<h3 class="font-title-lg text-title-lg text-on-surface uppercase group-hover:text-primary transition-colors">
+                FIRST FLIGHT TRAVELS
+              </h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Developed a professional travel and airline-focused website with structured pages, modern frontend design, and travel-related website functionality.
+            </p>
+</div>
+<div class="space-y-space-sm pt-space-sm border-t border-surface-bright">
+<div class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase">// ARCHITECTURE &amp; SCOPE:</div>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Frontend Dev</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Backend Dev</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Booking Workflows</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Database Integration</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Responsive UX</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Architecture</span>
+</div>
+</div>
+</div>
+<!-- PROJ 04: Multiple E-Commerce Websites -->
+<div class="bg-surface-container-low p-space-md flex flex-col justify-between gap-space-md hover:bg-surface-container transition-colors group">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between border-b border-surface-bright pb-space-xs">
+<span class="font-label-code text-label-code text-primary-container font-bold">PROJ // 04</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">[ COMMERCE_FLEET // DEPLOYED ]</span>
+</div>
+<div class="space-y-1">
+<div class="font-label-mono-sm text-label-mono-sm text-primary uppercase">E-Commerce Development</div>
+<h3 class="font-title-lg text-title-lg text-on-surface uppercase group-hover:text-primary transition-colors">
+                MULTIPLE E-COMMERCE PLATFORMS
+              </h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Successfully developed multiple e-commerce websites with modern shopping experiences and complete business-oriented functionality.
+            </p>
+</div>
+<div class="space-y-space-sm pt-space-sm border-t border-surface-bright">
+<div class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase">// ARCHITECTURE &amp; SCOPE:</div>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Custom Store Dev</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Catalog Management</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Cart &amp; Checkout</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Backend Architecture</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Admin Telemetry</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Responsive UX</span>
+</div>
+</div>
+</div>
+<!-- PROJ 05: FashionX Mobile App System -->
+<div class="bg-surface-container-low p-space-md flex flex-col justify-between gap-space-md hover:bg-surface-container transition-colors group">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between border-b border-surface-bright pb-space-xs">
+<span class="font-label-code text-label-code text-primary-container font-bold">PROJ // 05</span>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">[ NATIVE_APP // FULL-SYSTEM ]</span>
+</div>
+<div class="space-y-1">
+<div class="font-label-mono-sm text-label-mono-sm text-primary uppercase">Complete Mobile App System</div>
+<h3 class="font-title-lg text-title-lg text-on-surface uppercase group-hover:text-primary transition-colors">
+                FASHIONX MOBILE SYSTEM
+              </h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Developed a complete mobile application system for FashionX, including the mobile application, backend infrastructure, APIs, and database integration.
+            </p>
+</div>
+<div class="space-y-space-sm pt-space-sm border-t border-surface-bright">
+<div class="font-label-mono-sm text-label-mono-sm text-on-surface uppercase">// ARCHITECTURE &amp; SCOPE:</div>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">iOS &amp; Android Apps</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Backend Architecture</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">REST API Dev</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Database Schema</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">User Authentication</span>
+<span class="px-2 py-0.5 bg-surface-container font-label-mono-sm text-label-mono-sm text-on-surface">Admin Panel</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 4. WHAT WE CAN BUILD ('COMPLETE DIGITAL SOLUTIONS')                       -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin py-space-xl bg-surface">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest">
+          [ // 03. FULL-SPECTRUM CAPABILITIES ]
+        </span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
+          COMPLETE DIGITAL SOLUTIONS. <span class="text-primary text-[#ff6900]">ONE TECHNOLOGY PARTNER.</span>
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+          Industrial precision applied across every phase of digital product evolution—from bare-metal servers to intuitive touch points.
+        </p>
+</div>
+<!-- 10 Structured Capability Grid Modules -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-sm">
+<!-- 01 -->
+<div class="p-space-md bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="space-y-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-primary-container font-bold">[ SPEC 01 ]</span>
+<div class="font-headline-md text-base font-bold text-on-surface uppercase">Custom Website Development</div>
+<p class="font-body-md text-xs text-on-surface-variant">Bespoke, high-throughput digital interfaces built to operational requirements.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container self-end text-[20px]">web</span>
+</div>
+<!-- 02 -->
+<div class="p-space-md bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="space-y-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-primary-container font-bold">[ SPEC 02 ]</span>
+<div class="font-headline-md text-base font-bold text-on-surface uppercase">Full-Stack Development</div>
+<p class="font-body-md text-xs text-on-surface-variant">Seamless vertical cohesion from deep database queries to reactive client layers.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container self-end text-[20px]">layers</span>
+</div>
+<!-- 03 -->
+<div class="p-space-md bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="space-y-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-primary-container font-bold">[ SPEC 03 ]</span>
+<div class="font-headline-md text-base font-bold text-on-surface uppercase">Mobile Application Development</div>
+<p class="font-body-md text-xs text-on-surface-variant">Cross-platform native experiences engineered for zero latency and offline telemetry.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container self-end text-[20px]">smartphone</span>
+</div>
+<!-- 04 -->
+<div class="p-space-md bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="space-y-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-primary-container font-bold">[ SPEC 04 ]</span>
+<div class="font-headline-md text-base font-bold text-on-surface uppercase">E-Commerce Platforms</div>
+<p class="font-body-md text-xs text-on-surface-variant">High-volume transactional systems with hardened checkout pipelines.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container self-end text-[20px]">shopping_cart</span>
+</div>
+<!-- 05 -->
+<div class="p-space-md bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="space-y-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-primary-container font-bold">[ SPEC 05 ]</span>
+<div class="font-headline-md text-base font-bold text-on-surface uppercase">SaaS Applications</div>
+<p class="font-body-md text-xs text-on-surface-variant">Multi-tenant cloud architectures engineered for rapid horizontal scalability.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container self-end text-[20px]">cloud_sync</span>
+</div>
+<!-- 06 -->
+<div class="p-space-md bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="space-y-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-primary-container font-bold">[ SPEC 06 ]</span>
+<div class="font-headline-md text-base font-bold text-on-surface uppercase">Backend &amp; API Development</div>
+<p class="font-body-md text-xs text-on-surface-variant">Microservices, RESTful interfaces, and high-concurrency event buses.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container self-end text-[20px]">terminal</span>
+</div>
+<!-- 07 -->
+<div class="p-space-md bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="space-y-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-primary-container font-bold">[ SPEC 07 ]</span>
+<div class="font-headline-md text-base font-bold text-on-surface uppercase">Database Architecture</div>
+<p class="font-body-md text-xs text-on-surface-variant">Normalized relational schemas, indexed storage clusters, and real-time syncing.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container self-end text-[20px]">database</span>
+</div>
+<!-- 08 -->
+<div class="p-space-md bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="space-y-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-primary-container font-bold">[ SPEC 08 ]</span>
+<div class="font-headline-md text-base font-bold text-on-surface uppercase">AI Solutions &amp; Automation</div>
+<p class="font-body-md text-xs text-on-surface-variant">Autonomous agents, LLM pipelines, and continuous process automation nodes.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container self-end text-[20px]">smart_toy</span>
+</div>
+<!-- 09 -->
+<div class="p-space-md bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="space-y-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-primary-container font-bold">[ SPEC 09 ]</span>
+<div class="font-headline-md text-base font-bold text-on-surface uppercase">Admin Dashboards</div>
+<p class="font-body-md text-xs text-on-surface-variant">Real-time control planes and operational telemetry monitoring consoles.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container self-end text-[20px]">monitoring</span>
+</div>
+<!-- 10 -->
+<div class="p-space-md bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container-high transition-colors">
+<div class="space-y-space-xs">
+<span class="font-label-mono-sm text-label-mono-sm text-primary-container font-bold">[ SPEC 10 ]</span>
+<div class="font-headline-md text-base font-bold text-on-surface uppercase">UI/UX Design</div>
+<p class="font-body-md text-xs text-on-surface-variant">Industrial visual hierarchy, radical functionalism, and friction-free ergonomics.</p>
+</div>
+<span class="material-symbols-outlined text-primary-container self-end text-[20px]">design_services</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 5. PRODUCTION INFRASTRUCTURE ('OUR TECHNOLOGY STACK')                     -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin py-space-xl bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-xl">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-code text-label-code text-primary-container uppercase tracking-widest">
+          [ // 04. PRODUCTION INFRASTRUCTURE ]
+        </span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
+          OUR TECHNOLOGY <span class="text-primary text-[#ff6900]">STACK.</span>
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+          Production-grade frameworks and runtimes proven across mission-critical deployments. Zero dependencies without operational justification.
+        </p>
+</div>
+<!-- Verified Technology Runtimes Table Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-space-xs">
+<!-- React -->
+<div class="p-space-sm bg-surface-container-low flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-center text-primary-container font-label-mono-sm text-label-mono-sm">
+<span>// 01</span>
+<span class="text-[10px] bg-surface-container px-1 text-on-surface-variant">FRONTEND</span>
+</div>
+<div class="font-headline-md text-lg text-on-surface font-bold">React</div>
+<div class="flex justify-between items-center font-label-mono-sm text-[10px] text-on-surface-variant">
+<span>V18+ COMPONENT</span>
+<span class="text-primary-container font-bold">ACTIVE</span>
+</div>
+</div>
+<!-- JavaScript -->
+<div class="p-space-sm bg-surface-container-low flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-center text-primary-container font-label-mono-sm text-label-mono-sm">
+<span>// 02</span>
+<span class="text-[10px] bg-surface-container px-1 text-on-surface-variant">CORE RUNTIME</span>
+</div>
+<div class="font-headline-md text-lg text-on-surface font-bold">JavaScript</div>
+<div class="flex justify-between items-center font-label-mono-sm text-[10px] text-on-surface-variant">
+<span>ECMASCRIPT 2024</span>
+<span class="text-primary-container font-bold">ACTIVE</span>
+</div>
+</div>
+<!-- Node.js -->
+<div class="p-space-sm bg-surface-container-low flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-center text-primary-container font-label-mono-sm text-label-mono-sm">
+<span>// 03</span>
+<span class="text-[10px] bg-surface-container px-1 text-on-surface-variant">RUNTIME</span>
+</div>
+<div class="font-headline-md text-lg text-on-surface font-bold">Node.js</div>
+<div class="flex justify-between items-center font-label-mono-sm text-[10px] text-on-surface-variant">
+<span>V20 LTS ENGINE</span>
+<span class="text-primary-container font-bold">ACTIVE</span>
+</div>
+</div>
+<!-- HTML5 -->
+<div class="p-space-sm bg-surface-container-low flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-center text-primary-container font-label-mono-sm text-label-mono-sm">
+<span>// 04</span>
+<span class="text-[10px] bg-surface-container px-1 text-on-surface-variant">MARKUP</span>
+</div>
+<div class="font-headline-md text-lg text-on-surface font-bold">HTML5</div>
+<div class="flex justify-between items-center font-label-mono-sm text-[10px] text-on-surface-variant">
+<span>SEMANTIC DOM</span>
+<span class="text-primary-container font-bold">ACTIVE</span>
+</div>
+</div>
+<!-- CSS3 -->
+<div class="p-space-sm bg-surface-container-low flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-center text-primary-container font-label-mono-sm text-label-mono-sm">
+<span>// 05</span>
+<span class="text-[10px] bg-surface-container px-1 text-on-surface-variant">STYLING</span>
+</div>
+<div class="font-headline-md text-lg text-on-surface font-bold">CSS3</div>
+<div class="flex justify-between items-center font-label-mono-sm text-[10px] text-on-surface-variant">
+<span>TAILWIND / NATIVE</span>
+<span class="text-primary-container font-bold">ACTIVE</span>
+</div>
+</div>
+<!-- PHP -->
+<div class="p-space-sm bg-surface-container-low flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-center text-primary-container font-label-mono-sm text-label-mono-sm">
+<span>// 06</span>
+<span class="text-[10px] bg-surface-container px-1 text-on-surface-variant">BACKEND</span>
+</div>
+<div class="font-headline-md text-lg text-on-surface font-bold">PHP</div>
+<div class="flex justify-between items-center font-label-mono-sm text-[10px] text-on-surface-variant">
+<span>PHP 8.2+ JIT</span>
+<span class="text-primary-container font-bold">ACTIVE</span>
+</div>
+</div>
+<!-- MySQL -->
+<div class="p-space-sm bg-surface-container-low flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-center text-primary-container font-label-mono-sm text-label-mono-sm">
+<span>// 07</span>
+<span class="text-[10px] bg-surface-container px-1 text-on-surface-variant">DATABASE</span>
+</div>
+<div class="font-headline-md text-lg text-on-surface font-bold">MySQL</div>
+<div class="flex justify-between items-center font-label-mono-sm text-[10px] text-on-surface-variant">
+<span>INNODB ENGINE</span>
+<span class="text-primary-container font-bold">ACTIVE</span>
+</div>
+</div>
+<!-- PostgreSQL -->
+<div class="p-space-sm bg-surface-container-low flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-center text-primary-container font-label-mono-sm text-label-mono-sm">
+<span>// 08</span>
+<span class="text-[10px] bg-surface-container px-1 text-on-surface-variant">DATABASE</span>
+</div>
+<div class="font-headline-md text-lg text-on-surface font-bold">PostgreSQL</div>
+<div class="flex justify-between items-center font-label-mono-sm text-[10px] text-on-surface-variant">
+<span>V16 RELATIONAL</span>
+<span class="text-primary-container font-bold">ACTIVE</span>
+</div>
+</div>
+<!-- Flutter -->
+<div class="p-space-sm bg-surface-container-low flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-center text-primary-container font-label-mono-sm text-label-mono-sm">
+<span>// 09</span>
+<span class="text-[10px] bg-surface-container px-1 text-on-surface-variant">MOBILE</span>
+</div>
+<div class="font-headline-md text-lg text-on-surface font-bold">Flutter</div>
+<div class="flex justify-between items-center font-label-mono-sm text-[10px] text-on-surface-variant">
+<span>DART / IMPELLER</span>
+<span class="text-primary-container font-bold">ACTIVE</span>
+</div>
+</div>
+<!-- Supabase -->
+<div class="p-space-sm bg-surface-container-low flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-center text-primary-container font-label-mono-sm text-label-mono-sm">
+<span>// 10</span>
+<span class="text-[10px] bg-surface-container px-1 text-on-surface-variant">BAAS</span>
+</div>
+<div class="font-headline-md text-lg text-on-surface font-bold">Supabase</div>
+<div class="flex justify-between items-center font-label-mono-sm text-[10px] text-on-surface-variant">
+<span>REALTIME / RLS</span>
+<span class="text-primary-container font-bold">ACTIVE</span>
+</div>
+</div>
+<!-- REST APIs -->
+<div class="p-space-sm bg-surface-container-low flex flex-col justify-between gap-space-sm hover:bg-surface-container-high transition-colors col-span-2">
+<div class="flex justify-between items-center text-primary-container font-label-mono-sm text-label-mono-sm">
+<span>// 11</span>
+<span class="text-[10px] bg-surface-container px-1 text-on-surface-variant">INTEGRATION</span>
+</div>
+<div class="font-headline-md text-lg text-on-surface font-bold">REST APIs</div>
+<div class="flex justify-between items-center font-label-mono-sm text-[10px] text-on-surface-variant">
+<span>OPENAPI 3.1 SPECIFICATION // SECURED TLS</span>
+<span class="text-primary-container font-bold">ACTIVE</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 6. FINAL CALL TO ACTION                                                   -->
+<!-- ========================================================================= -->
+<section class="w-full px-margin py-space-xl bg-surface">
+<div class="max-w-7xl mx-auto">
+<!-- Hazard Edge Callout Container -->
+<div class="relative bg-surface-container-low p-space-md md:p-space-xl overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-space-lg shadow-[6px_6px_0px_#ff6500]">
+<!-- Left Content -->
+<div class="space-y-space-md max-w-2xl">
+<div class="flex items-center gap-space-xs font-label-code text-label-code text-primary-container uppercase">
+<span class="w-2 h-2 bg-primary-container"></span>
+<span>[ // DEPLOYMENT INTAKE PROTOCOL // IMMEDIATE AVAILABILITY ]</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">
+            YOUR IDEA DESERVES <span class="text-primary-container">TO BE BUILT.</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Let's create something powerful together. From the first concept to a complete digital product, ABEN Technologies is ready to make it happen.
+          </p>
+<div class="inline-block bg-surface-container px-space-md py-1.5 font-label-mono-sm text-label-mono-sm text-primary-fixed-dim uppercase tracking-wider">
+            ESTIMATED TURNAROUND: 4-8 WEEKS // ARCHITECTURE AUDIT INCLUDED
+          </div>
+</div>
+<!-- Right Action Button -->
+<div class="w-full md:w-auto flex flex-col gap-space-xs items-start md:items-end">
+<a class="w-full md:w-auto inline-flex items-center justify-center gap-space-sm px-space-xl py-space-lg bg-primary-container text-on-primary-container font-headline-md text-headline-md font-bold uppercase tracking-wider hover:bg-on-surface hover:text-surface transition-all shadow-[4px_4px_0px_#ffffff] text-center" data-path="contact" href="contact.html">
+<span>START YOUR PROJECT</span>
+<span class="material-symbols-outlined text-[28px]">arrow_forward</span>
+</a>
+<span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase">
+            AVERAGE RESPONSE TIME: &lt; 2 HOURS TABULAR
+          </span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Scroll Reveal Observer -->
+<script>
+  (function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      revealElements.forEach((el) => observer.observe(el));
+    } else {
+      revealElements.forEach((el) => el.classList.add('is-visible'));
+    }
+  })();
+</script></main><footer class="w-full bg-surface-container-lowest"><div class="w-full px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg mb-space-xl"><div class="md:col-span-4 space-y-space-md"><div class="font-headline-md text-headline-md uppercase text-on-surface">ABEN TECHNOLOGIES</div><p class="font-body-md text-body-md text-on-surface-variant max-w-md">Kinetic computing systems, experimental telemetry hubs, and industrial cyber-physical deployment infrastructure for zero-latency operations.</p><div class="flex flex-wrap items-center gap-space-xs"><span class="px-space-xs py-0.5 bg-surface-container font-label-code text-label-code text-primary-container">[ISO-27001 COMPLIANT]</span><span class="px-space-xs py-0.5 bg-surface-container font-label-code text-label-code text-on-surface-variant">[SOC-2 TYPE II]</span><span class="px-space-xs py-0.5 bg-surface-container font-label-code text-label-code text-on-surface-variant">[ITAR HARDENED]</span></div></div><div class="md:col-span-3 space-y-space-sm"><div class="font-label-code text-label-code uppercase text-on-surface-variant">// NODE TELEMETRY &amp; SPECS</div><div class="space-y-space-xs font-label-mono-sm text-label-mono-sm text-on-surface-variant"><div class="flex justify-between py-1 bg-surface-container-low px-space-xs"><span>NODE CLUSTER:</span><span class="text-on-surface">ALPHA-09</span></div><div class="flex justify-between py-1 bg-surface-container-low px-space-xs"><span>SERVER PING:</span><span class="text-primary-container font-bold">1.42 MS</span></div><div class="flex justify-between py-1 bg-surface-container-low px-space-xs"><span>CORE ENGINE:</span><span class="text-on-surface">V8 BRUTALIST</span></div><div class="flex justify-between py-1 bg-surface-container-low px-space-xs"><span>INTEGRITY:</span><span class="text-on-surface">SHA-512</span></div></div></div><div class="md:col-span-2 space-y-space-sm"><div class="font-label-code text-label-code uppercase text-on-surface-variant">// NAVIGATION</div><ul class="space-y-space-xs font-body-md text-body-md"><li class="flex items-center gap-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-primary-container">01</span><a class="text-on-surface hover:text-primary-container transition-colors" data-path="work" href="work.html">PORTFOLIO</a></li><li class="flex items-center gap-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-primary-container">02</span><a class="text-on-surface hover:text-primary-container transition-colors" data-path="services" href="services.html">SERVICES</a></li><li class="flex items-center gap-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-primary-container">03</span><a class="text-on-surface hover:text-primary-container transition-colors" data-path="about-us" href="about.html">ABOUT US</a></li><li class="flex items-center gap-space-xs"><span class="font-label-mono-sm text-label-mono-sm text-primary-container">04</span><a class="text-on-surface hover:text-primary-container transition-colors" data-path="contact" href="contact.html">CONTACT</a></li></ul></div><div class="md:col-span-3 space-y-space-sm"><div class="font-label-code text-label-code uppercase text-[#ff6900]">// DIRECT COMMS</div><div class="space-y-space-xs font-label-mono-sm text-label-mono-sm"><div class="text-on-surface-variant">INQUIRIES:</div><div><a href="mailto:abentechnologies@gmail.com" class="text-on-surface hover:text-primary-container transition-colors">abentechnologies@gmail.com</a></div><div class="pt-space-xs text-on-surface-variant">PROFESSIONAL NETWORK:</div><div><a href="https://www.linkedin.com/in/aben-technologies-643751450?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="text-[#0a66c2] hover:text-white transition-colors inline-flex items-center gap-1.5 font-bold"><svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>OFFICIAL LINKEDIN ↗</a></div></div></div></div><div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm pt-space-md bg-surface-container-low px-space-md py-space-sm"><div class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">© 2025 ABEN TECHNOLOGIES CORP. ALL RIGHTS RESERVED. SECURED PROTOCOL V4.2.</div><div class="flex flex-wrap items-center gap-space-md font-label-mono-sm text-label-mono-sm text-on-surface-variant"><a href="mailto:abentechnologies@gmail.com" class="text-on-surface hover:text-primary-container transition-colors">abentechnologies@gmail.com</a><span class="text-outline">|</span><a href="https://www.linkedin.com/in/aben-technologies-643751450?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="text-[#0a66c2] hover:text-white transition-colors">LINKEDIN</a><span class="text-outline">|</span><span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>CLUSTER READY</span><span>LATENCY: &lt;2MS</span></div></div></div></footer>
+
+
+</body></html>

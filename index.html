@@ -1,0 +1,3200 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en"><svg class="inline-defs-container" aria-hidden="true"
+  style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>ABEN TECHNOLOGIES // Building Digital Experiences. Engineering What's Next.</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@700;800;900&amp;display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- GSAP & ScrollTrigger for high-craft studio motion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-fixed": "#360f00",
+            "secondary-container": "#454747",
+            "surface-container-highest": "#353534",
+            "secondary-fixed-dim": "#c6c6c7",
+            "on-surface": "#f5f5f5",
+            "inverse-surface": "#e5e2e1",
+            "outline-variant": "#3e3734",
+            "on-tertiary": "#003257",
+            "on-error": "#690005",
+            "tertiary": "#9dcaff",
+            "surface-tint": "#ff6900",
+            "surface-container-low": "#111113",
+            "error": "#ffb4ab",
+            "on-background": "#f5f5f5",
+            "surface-container": "#18181b",
+            "primary-fixed-dim": "#ffb596",
+            "surface-container-high": "#222226",
+            "background": "#050505",
+            "surface-variant": "#2a2928",
+            "on-secondary-fixed-variant": "#454747",
+            "primary": "#ff6900",
+            "inverse-on-surface": "#313030",
+            "inverse-primary": "#a33e00",
+            "surface-bright": "#333231",
+            "on-tertiary-container": "#003155",
+            "on-secondary-fixed": "#1a1c1c",
+            "on-primary-fixed-variant": "#7d2d00",
+            "surface": "#09090b",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#009bfe",
+            "tertiary-fixed": "#d1e4ff",
+            "on-tertiary-fixed": "#001d36",
+            "on-surface-variant": "#c9c2be",
+            "primary-fixed": "#ffdbcd",
+            "on-secondary-container": "#b4b5b5",
+            "surface-container-lowest": "#050505",
+            "error-container": "#93000a",
+            "outline": "#8a7d78",
+            "secondary-fixed": "#e2e2e2",
+            "on-primary": "#2b0d00",
+            "secondary": "#a1a1aa",
+            "on-tertiary-fixed-variant": "#00497c",
+            "on-secondary": "#2f3131",
+            "tertiary-fixed-dim": "#9dcaff",
+            "on-primary-container": "#200800",
+            "primary-container": "#ff6900",
+            "surface-dim": "#050505"
+          },
+          fontFamily: {
+            'display-xl': ['"Clash Display"', 'Unbounded', '"Space Grotesk"', 'sans-serif'],
+            'headline-lg': ['"Clash Display"', 'Unbounded', '"Space Grotesk"', 'sans-serif'],
+            'headline-md': ['"Clash Display"', 'Unbounded', '"Space Grotesk"', 'sans-serif'],
+            'display': ['"Clash Display"', 'Unbounded', '"Space Grotesk"', 'sans-serif'],
+            'title-lg': ['"Clash Display"', '"Space Grotesk"', 'sans-serif'],
+            'body-lg': ['"Space Grotesk"', 'sans-serif'],
+            'body-md': ['"Space Grotesk"', 'sans-serif'],
+            'label-code': ['"Space Mono"', 'monospace'],
+            'label-mono-sm': ['"Space Mono"', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* ABEN Modern Geometric Brutalist Typography System (Clash Display / Unbounded / Space Grotesk) */
+    :root {
+      --font-display: 'Clash Display', 'Unbounded', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    .font-display-xl,
+    .font-headline-lg,
+    .font-headline-md,
+    .font-display,
+    h1,
+    h2,
+    h3,
+    .display-heading {
+      font-family: var(--font-display) !important;
+      letter-spacing: -0.03em;
+    }
+
+    .font-body-lg,
+    .font-body-md,
+    body,
+    p {
+      font-family: var(--font-body);
+    }
+
+    .font-label-mono-sm,
+    .font-label-code {
+      font-family: var(--font-mono);
+    }
+
+    @layer base {
+
+      html,
+      body {
+        background-color: #050505;
+        color: #f5f5f5;
+        overflow-x: clip;
+      }
+
+      ::selection {
+        background: #ff6900;
+        color: #000;
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #050505;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #262629;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ff6900;
+      }
+    }
+
+    /* Architectural Grain & Radial Vignette Overlay */
+    .cinematic-vignette {
+      background: radial-gradient(circle at 50% 40%, rgba(255, 105, 0, 0.05) 0%, transparent 60%),
+        radial-gradient(circle at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.85) 100%);
+      pointer-events: none;
+    }
+
+    /* 3D Perspective Stage for Intro */
+    .perspective-stage {
+      perspective: 1600px;
+      perspective-origin: 50% 45%;
+      transform-style: preserve-3d;
+    }
+
+    .reveal-letter {
+      display: inline-block;
+      transform-style: preserve-3d;
+      will-change: transform, opacity, filter;
+      backface-visibility: hidden;
+    }
+
+    /* Realistic 3D Heavy Titanium Industrial Chains */
+    .heavy-chain-assembly {
+      position: absolute;
+      width: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: none;
+      z-index: 30;
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.95));
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .chain-link-titanium {
+      width: 20px;
+      height: 38px;
+      margin-top: -14px;
+      border-radius: 10px;
+      border: 4.5px solid #282a2e;
+      background: linear-gradient(135deg, #44474f 0%, #151618 40%, #5a5e69 65%, #18191c 100%);
+      box-shadow: inset 1.5px 1.5px 2px rgba(255, 255, 255, 0.4),
+        inset -1.5px -1.5px 3px rgba(0, 0, 0, 0.9),
+        0 4px 6px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+
+    .chain-link-titanium:nth-child(even) {
+      width: 12px;
+      height: 32px;
+      border-radius: 7px;
+      border-width: 4px;
+      background: linear-gradient(90deg, #18191b 0%, #3e4149 50%, #121314 100%);
+      margin-top: -12px;
+      box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.25), inset -1px -1px 3px rgba(0, 0, 0, 0.95);
+      transform: scaleX(0.85);
+    }
+
+    .clevis-shackle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #484b54 30%, #111214 85%);
+      border: 2.5px solid #ff6900;
+      box-shadow: 0 0 16px rgba(255, 105, 0, 0.45), inset 0 0 6px #000;
+      position: absolute;
+      z-index: 35;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .clevis-shackle::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #ff6900;
+      border-radius: 2px;
+      box-shadow: 0 0 8px #ff6900;
+    }
+
+    /* 3D Dimensional Curvaceous Ribbons */
+    .ribbon-glow-filter {
+      filter: drop-shadow(0 20px 40px rgba(255, 105, 0, 0.15)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.9));
+    }
+
+    /* Subtle Technical Corner Brackets */
+    .bracket-tl {
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      width: 12px;
+      height: 12px;
+      border-top: 2px solid #ff6900;
+      border-left: 2px solid #ff6900;
+      pointer-events: none;
+    }
+
+    .bracket-tr {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      width: 12px;
+      height: 12px;
+      border-top: 2px solid #ff6900;
+      border-right: 2px solid #ff6900;
+      pointer-events: none;
+    }
+
+    .bracket-bl {
+      position: absolute;
+      bottom: -1px;
+      left: -1px;
+      width: 12px;
+      height: 12px;
+      border-bottom: 2px solid #ff6900;
+      border-left: 2px solid #ff6900;
+      pointer-events: none;
+    }
+
+    .bracket-br {
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 12px;
+      height: 12px;
+      border-bottom: 2px solid #ff6900;
+      border-right: 2px solid #ff6900;
+      pointer-events: none;
+    }
+
+    /* 3D Angled Perspective Wall (KOTA Inspired) */
+    .hero-perspective-viewport {
+      perspective: 1200px;
+      perspective-origin: 50% 38%;
+      overflow: hidden;
+    }
+
+    .hero-perspective-plane {
+      transform: rotateX(24deg) rotateY(-8deg) rotateZ(3deg) scale(1.18);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .kota-ui-card {
+      background: #0e0e11;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      transition: transform 0.4s ease, border-color 0.4s ease;
+    }
+
+    .kota-ui-card:hover {
+      border-color: rgba(255, 105, 0, 0.4);
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    /* Animated vertical line for scroll indicator */
+    @keyframes scrollPulse {
+      0% {
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+
+      50% {
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+
+      50.1% {
+        transform-origin: bottom;
+      }
+
+      100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
+      }
+    }
+
+    .scroll-indicator-line {
+      animation: scrollPulse 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    }
+  </style>
+  <style>
+    .hero-perspective-viewport {
+      perspective: 1400px;
+      perspective-origin: 50% 45%;
+      overflow: hidden;
+    }
+
+    .hero-perspective-plane.hero-kota-tilt-plane {
+      transform: rotateX(15deg) rotateY(-5deg) rotateZ(2deg) scale(1.08) !important;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .web-showcase-window {
+      width: 100% !important;
+      min-width: 520px !important;
+      min-height: 440px !important;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.16) !important;
+      background: #0f1015;
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+      filter: brightness(1.08) contrast(1.05);
+      transition: transform 0.4s ease, border-color 0.4s ease;
+    }
+
+    .web-showcase-window:hover {
+      border-color: rgba(255, 105, 0, 0.6) !important;
+      filter: brightness(1.18);
+    }
+
+    @keyframes driftLoopSlow {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-50%);
+      }
+    }
+
+    @keyframes driftLoopMid {
+      0% {
+        transform: translateY(-25%);
+      }
+
+      100% {
+        transform: translateY(-75%);
+      }
+    }
+
+    @keyframes driftLoopFast {
+      0% {
+        transform: translateY(-10%);
+      }
+
+      100% {
+        transform: translateY(-60%);
+      }
+    }
+
+    .drift-col-fast {
+      animation: driftLoopFast 48s linear infinite;
+      will-change: transform;
+    }
+
+    .drift-col-slow {
+      animation: driftLoopSlow 64s linear infinite;
+      will-change: transform;
+    }
+
+    .drift-col-mid {
+      animation: driftLoopMid 54s linear infinite;
+      will-change: transform;
+    }
+
+    .drift-col-alt {
+      animation: driftLoopSlow 58s linear infinite;
+      will-change: transform;
+    }
+  </style>
+  <style id="showcase-marquee-style">
+    @keyframes infiniteShowcaseScroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .showcase-marquee-track {
+      display: flex;
+      width: max-content;
+      gap: 2rem;
+      animation: infiniteShowcaseScroll 60s linear infinite;
+      will-change: transform;
+    }
+
+    .showcase-container:hover .showcase-marquee-track {
+      animation-play-state: paused;
+    }
+
+    .mockup-glass {
+      background: #0c0d12;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.9);
+    }
+
+    .mockup-glass:hover {
+      border-color: rgba(255, 105, 0, 0.5);
+    }
+  </style>
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+</head>
+
+<body
+  class="bg-background text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-black">
+  <!-- ============================================================ -->
+  <!-- 1. CINEMATIC ATMOSPHERIC OVERLAY & REVEAL CANOPY             -->
+  <!-- STRICTLY PRESERVED AS REQUIRED                               -->
+  <!-- ============================================================ -->
+  <div
+    class="fixed inset-0 z-50 bg-[#050505] flex flex-col items-center justify-center pointer-events-auto transition-colors duration-1000"
+    id="cinematic-curtain" style="pointer-events: none; opacity: 0; display: none;">
+    <div class="cinematic-vignette absolute inset-0"></div>
+    <!-- Fine studio grid lines -->
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none opacity-40">
+    </div>
+    <!-- Letter Assembly Chamber -->
+    <div class="perspective-stage relative z-10 w-full max-w-6xl px-6 flex flex-col items-center text-center">
+      <!-- Studio Monogram & Phase telemetry -->
+      <div
+        class="flex items-center gap-3 px-3 py-1 mb-8 border border-white/10 bg-white/[0.02] backdrop-blur-sm opacity-0 transform -translate-y-4"
+        id="reveal-meta"
+        style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+        <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+        <span class="font-label-mono-sm text-[11px] uppercase tracking-[0.25em] text-secondary">
+          ABEN SYSTEMS // DIGITAL ARCHITECTURE 2025
+        </span>
+      </div>
+      <!-- Monumental Brand Title Reveal -->
+      <div
+        class="flex flex-wrap items-center justify-center font-display-xl font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter leading-none select-none"
+        id="reveal-words">
+        <!-- Word 1: ABEN -->
+        <div class="inline-flex tracking-tighter mr-3 sm:mr-6 text-white" id="word-aben">
+          <span class="reveal-letter" data-letter="A"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">A</span>
+          <span class="reveal-letter" data-letter="B"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">B</span>
+          <span class="reveal-letter" data-letter="E"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">E</span>
+          <span class="reveal-letter" data-letter="N"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">N</span>
+        </div>
+        <!-- Word 2: TECHNOLOGIES -->
+        <div class="inline-flex tracking-tighter text-primary" id="word-tech">
+          <span class="reveal-letter" data-letter="T"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">T</span>
+          <span class="reveal-letter" data-letter="E"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">E</span>
+          <span class="reveal-letter" data-letter="C"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">C</span>
+          <span class="reveal-letter" data-letter="H"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">H</span>
+          <span class="reveal-letter" data-letter="N"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">N</span>
+          <span class="reveal-letter" data-letter="O"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">O</span>
+          <span class="reveal-letter" data-letter="L"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">L</span>
+          <span class="reveal-letter" data-letter="O"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">O</span>
+          <span class="reveal-letter" data-letter="G"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">G</span>
+          <span class="reveal-letter" data-letter="I"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">I</span>
+          <span class="reveal-letter" data-letter="E"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">E</span>
+          <span class="reveal-letter" data-letter="S"
+            style="translate: none; rotate: none; scale: none; filter: blur(0px); transform: translate(0px, 0px); opacity: 1; text-shadow: rgba(255, 105, 0, 0.45) 0px 0px 30px;">S</span>
+        </div>
+      </div>
+      <!-- Cinematic Sub-line -->
+      <div
+        class="mt-6 font-label-code text-xs md:text-sm tracking-[0.35em] uppercase text-secondary/70 opacity-0 transform translate-y-3"
+        id="reveal-tagline"
+        style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+        BUILDING DIGITAL EXPERIENCES // ENGINEERING WHAT'S NEXT
+      </div>
+      <!-- Skip Button for quick accessibility -->
+      <button
+        class="mt-10 px-4 py-1.5 font-label-mono-sm text-[10px] tracking-widest text-secondary hover:text-white uppercase border border-white/10 hover:border-primary transition-colors opacity-0"
+        id="skip-reveal-btn" style="opacity: 0.7;">
+        [ SKIP INTRO // ESC ]
+      </button>
+    </div>
+  </div>
+  <!-- ============================================================ -->
+  <!-- 2. MINIMAL TOP NAVIGATION (KOTA REFERENCE REPLICA)           -->
+  <!-- ============================================================ -->
+  <header
+    class="fixed top-0 left-0 right-0 z-40 px-6 sm:px-10 py-6 flex items-center justify-between pointer-events-none transform transition-all duration-700 ease-out translate-y-0 opacity-100"
+    id="main-nav">
+    <!-- Top-Left: 'ABEN' frosted-glass capsule pill -->
+    <a class="pointer-events-auto px-5 py-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 backdrop-blur-xl flex items-center gap-2.5 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.5)] group"
+      href="index.html">
+      <span class="w-2 h-2 rounded-full bg-primary bg-[#ff6900] group-hover:scale-125 transition-transform"></span>
+      <span class="font-display-xl font-black text-white text-base tracking-wider uppercase">ABEN</span>
+    </a>
+    <!-- Top-Center: Minimal circular menu button with clean dual-dash -->
+    <button aria-label="Toggle Navigation Menu"
+      class="pointer-events-auto w-11 h-11 rounded-full bg-white/[0.08] hover:bg-white/[0.16] border border-white/15 backdrop-blur-xl flex flex-col items-center justify-center gap-1.5 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.5)] group"
+      onclick="const m = document.getElementById('quick-nav-modal'); m.classList.toggle('hidden');">
+      <span class="w-4 h-[2px] bg-white/90 group-hover:w-5 transition-all"></span>
+      <span class="w-4 h-[2px] bg-white/90 group-hover:w-3 transition-all"></span>
+    </button>
+    <!-- Top-Right: Elegant rounded pill button 'Get in touch' -->
+    <a class="pointer-events-auto px-6 py-2.5 rounded-full bg-white/[0.08] hover:bg-primary hover:bg-[#ff6900] hover:text-black border border-white/15 hover:border-primary hover:border-[#ff6900] backdrop-blur-xl font-body-md text-sm font-medium text-white tracking-wide transition-all shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+      href="contact.html">
+      Get in touch
+    </a>
+  </header>
+  <!-- Minimal Quick Nav Dropdown Overlay (from menu button) -->
+  <div
+    class="fixed inset-x-6 top-24 z-50 max-w-sm mx-auto hidden bg-[#0c0c0f]/95 border border-white/15 backdrop-blur-2xl rounded-2xl p-6 shadow-2xl transition-all pointer-events-auto"
+    id="quick-nav-modal">
+    <div
+      class="flex items-center justify-between pb-3 border-b border-white/10 mb-4 font-label-mono-sm text-xs text-secondary">
+      <span>SYSTEM DIRECTORY</span>
+      <button aria-label="Close menu"
+        class="text-white hover:text-primary hover:text-[#ff6900] transition-colors text-base leading-none p-1"
+        onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">✕</button>
+    </div>
+    <nav class="flex flex-col gap-2.5 font-headline-md text-lg">
+      <a class="text-primary text-[#ff6900] hover:text-white transition-colors flex items-center justify-between py-1 font-bold"
+        href="index.html" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+        <span>Home</span> <span class="font-label-mono-sm text-xs text-primary text-[#ff6900] font-bold">01 //
+          ACTIVE</span>
+      </a>
+      <a class="text-white hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1"
+        href="about.html" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+        <span>About Us</span> <span class="font-label-mono-sm text-xs text-secondary">02</span>
+      </a>
+      <a class="text-white hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1"
+        href="services.html" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+        <span>Services</span> <span class="font-label-mono-sm text-xs text-secondary">03</span>
+      </a>
+      <a class="text-white hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1"
+        href="work.html" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+        <span>Work</span> <span class="font-label-mono-sm text-xs text-secondary">04</span>
+      </a>
+      <a class="text-white hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1"
+        href="contact.html" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+        <span>Contact</span> <span class="font-label-mono-sm text-xs text-secondary">05</span>
+      </a>
+      <div class="pt-3 mt-3 border-t border-white/10 flex flex-col gap-1 font-label-code text-xs">
+        <div class="font-label-mono-sm text-[10px] text-secondary tracking-widest uppercase mb-1">HOMEPAGE ARCHITECTURE
+        </div>
+        <a class="text-white/75 hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1"
+          href="index.html#hero" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+          <span># Overview</span> <span class="text-secondary/60">01</span>
+        </a>
+        <a class="text-white/75 hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1"
+          href="index.html#company-dossier"
+          onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+          <span># Dossier &amp; Architecture</span> <span class="text-secondary/60">02</span>
+        </a>
+        <a class="text-white/75 hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1"
+          href="index.html#capabilities" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+          <span># Capabilities</span> <span class="text-secondary/60">03</span>
+        </a>
+        <a class="text-white/75 hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1"
+          href="index.html#manifesto" onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+          <span># Manifesto</span> <span class="text-secondary/60">04</span>
+        </a>
+        <a class="text-white/75 hover:text-primary hover:text-[#ff6900] transition-colors flex items-center justify-between py-1"
+          href="index.html#intake-terminal"
+          onclick="document.getElementById('quick-nav-modal').classList.add('hidden')">
+          <span># Intake Terminal</span> <span class="text-secondary/60">05</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+  <!-- ============================================================ -->
+  <!-- 3. HERO SECTION (REDESIGNED: KOTA-STYLE 3D COLLAGE WALL)     -->
+  <!-- ============================================================ -->
+  <main class="w-full relative z-10 bg-background min-h-screen">
+    <section
+      class="relative min-h-screen w-full flex flex-col justify-between overflow-hidden pt-28 pb-10 px-6 sm:px-12"
+      id="hero">
+      <!-- 3D PERSPECTIVE WEBSITE COLLAGE BACKGROUND WALL (FULL BLEED) -->
+      <div class="hero-perspective-viewport absolute inset-0 z-0 pointer-events-none select-none">
+        <div
+          class="hero-perspective-plane hero-kota-tilt-plane absolute -top-[30%] -left-[16%] w-[140%] h-[220%] grid grid-cols-4 gap-8 opacity-100"
+          id="collage-grid">
+          <!-- COLUMN 1: DRIFT FAST -->
+          <div class="drift-col-fast flex flex-col gap-6">
+            <!-- Window 1: Artifact / Cyberpunk Dark Portfolio -->
+            <div class="web-showcase-window w-full h-[320px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  artifact-studio.xyz</div>
+                <span class="text-[9px] text-primary font-label-mono-sm">2025</span>
+              </div>
+              <div
+                class="flex-1 p-5 bg-gradient-to-br from-[#121217] via-[#09090c] to-[#040405] flex flex-col justify-between">
+                <div class="flex items-center justify-between text-[10px] font-label-mono-sm text-white/40">
+                  <span>FEATURED WORK // 01</span>
+                  <span
+                    class="px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">INTERACTIVE</span>
+                </div>
+                <div class="my-auto py-2">
+                  <div class="text-xs text-primary font-label-mono-sm uppercase tracking-widest mb-1">San Francisco, CA
+                  </div>
+                  <h3 class="text-3xl font-display-xl font-black text-white leading-tight tracking-tight">Teddy &amp;
+                    Paym</h3>
+                  <p class="text-xs text-white/60 font-body-md mt-1.5">3D experiential identity for generative creative
+                    studio.</p>
+                </div>
+                <div
+                  class="flex items-center justify-between pt-3 border-t border-white/10 text-[10px] font-label-mono-sm text-white/40">
+                  <span>WEBGL / SHADERS</span>
+                  <span class="text-white underline">EXPLORE CASE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Window 2: SharkFlow SaaS Interface -->
+            <div class="web-showcase-window w-full h-[320px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  app.sharkflow.io</div>
+                <span class="text-[9px] text-emerald-400 font-label-mono-sm">● LIVE</span>
+              </div>
+              <div class="flex-1 relative overflow-hidden">
+                <img alt="SharkFlow SaaS Interface Preview" class="w-full h-full object-cover object-top opacity-85"
+                  src="assets/images/sharkflow_browser.png">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between">
+                  <span
+                    class="px-2.5 py-1 bg-black/80 rounded font-label-mono-sm text-[10px] text-white border border-white/15">SharkFlow
+                    Engine</span>
+                  <span class="font-label-mono-sm text-[10px] text-primary">99.98% Latency SLA</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Window 3: Orion Luxury Tech -->
+            <div class="web-showcase-window w-full h-[300px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  orionis.design</div>
+                <span class="text-[9px] text-white/40 font-label-mono-sm">v3.0</span>
+              </div>
+              <div class="flex-1 p-5 bg-[#0e0e13] flex flex-col justify-between">
+                <div class="flex justify-between items-center text-xs font-label-mono-sm text-secondary">
+                  <span>ORION LABS</span>
+                  <span class="text-primary font-bold">PROTOTYPE</span>
+                </div>
+                <div
+                  class="h-28 rounded-lg bg-gradient-to-tr from-primary/20 via-white/5 to-transparent flex flex-col items-center justify-center border border-white/10 p-3 text-center">
+                  <span class="font-headline-md text-2xl font-black text-white tracking-tighter">WHAT YOUR DATA CAN
+                    DO</span>
+                  <span class="text-[10px] text-primary mt-1 font-label-mono-sm">DYNAMIC VECTOR ENGINE</span>
+                </div>
+                <div class="flex justify-between items-center text-[10px] font-label-mono-sm text-white/50">
+                  <span>ENTERPRISE TIERS</span>
+                  <span class="text-white underline">READ WHITEPAPER</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Window 1 Duplicate (Infinite Loop Seamlessness) -->
+            <div class="web-showcase-window w-full h-[320px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  artifact-studio.xyz</div>
+                <span class="text-[9px] text-primary font-label-mono-sm">2025</span>
+              </div>
+              <div
+                class="flex-1 p-5 bg-gradient-to-br from-[#121217] via-[#09090c] to-[#040405] flex flex-col justify-between">
+                <div class="flex items-center justify-between text-[10px] font-label-mono-sm text-white/40">
+                  <span>FEATURED WORK // 01</span>
+                  <span
+                    class="px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-400 border border-emerald-400/20">INTERACTIVE</span>
+                </div>
+                <div class="my-auto py-2">
+                  <div class="text-xs text-primary font-label-mono-sm uppercase tracking-widest mb-1">San Francisco, CA
+                  </div>
+                  <h3 class="text-3xl font-display-xl font-black text-white leading-tight tracking-tight">Teddy &amp;
+                    Paym</h3>
+                  <p class="text-xs text-white/60 font-body-md mt-1.5">3D experiential identity for generative creative
+                    studio.</p>
+                </div>
+                <div
+                  class="flex items-center justify-between pt-3 border-t border-white/10 text-[10px] font-label-mono-sm text-white/40">
+                  <span>WEBGL / SHADERS</span>
+                  <span class="text-white underline">EXPLORE CASE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 2: DRIFT SLOW -->
+          <div class="drift-col-slow flex flex-col gap-6">
+            <!-- Window 4: We Make Things (KOTA Reference) -->
+            <div class="web-showcase-window w-full h-[350px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  wemakethings.studio</div>
+                <span class="text-[9px] text-white/40 font-label-mono-sm">BERLIN</span>
+              </div>
+              <div
+                class="flex-1 p-6 bg-gradient-to-b from-[#181922] via-[#0d0e14] to-[#060608] flex flex-col justify-between">
+                <div class="flex items-center justify-between text-xs text-white/50 font-label-mono-sm">
+                  <span class="text-primary font-bold">✦ DIGITAL SCULPTURE</span>
+                  <span>THREE.JS ENGINE</span>
+                </div>
+                <div class="py-4 flex flex-col items-center text-center">
+                  <div
+                    class="w-28 h-28 rounded-full bg-gradient-to-br from-primary/50 via-purple-600/35 to-blue-500/40 blur-sm flex items-center justify-center shadow-[0_0_40px_rgba(255,105,0,0.3)]">
+                    <div
+                      class="w-16 h-16 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center">
+                      <span class="material-symbols-outlined text-3xl text-white">deployed_code</span>
+                    </div>
+                  </div>
+                  <h4 class="mt-3 font-display-xl text-xl font-black text-white tracking-tight leading-snug">We make
+                    things.</h4>
+                  <p class="text-[11px] text-white/60 font-body-md mt-1">Fluid motion, spatial design &amp;
+                    micro-interactions.</p>
+                </div>
+                <div
+                  class="flex justify-between items-center text-[10px] text-white/40 font-label-mono-sm border-t border-white/10 pt-2.5">
+                  <span>GLOBAL REACH</span>
+                  <span class="text-primary">DISCOVER</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Window 5: Fizens Finance (KOTA Reference replica) -->
+            <div class="web-showcase-window w-full h-[320px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  fizens.app</div>
+                <span class="text-[9px] text-blue-400 font-label-mono-sm">FINTECH</span>
+              </div>
+              <div class="flex-1 p-5 bg-[#0e1017] flex flex-col justify-between">
+                <div class="flex items-center justify-between">
+                  <span class="font-display-xl font-bold text-xs text-blue-400 tracking-wider">FIZENS TOOL</span>
+                  <span class="font-label-mono-sm text-[9px] text-white/40">GET STARTED FREE</span>
+                </div>
+                <div class="space-y-1.5">
+                  <div class="text-lg font-display-xl font-black text-white leading-tight">Start Managing Your Finance
+                    With Our Tool</div>
+                  <p class="text-[11px] text-white/60 font-body-md">Simplify transactions with our automated ledger and
+                    cards.</p>
+                </div>
+                <div class="p-2.5 rounded-lg bg-white/5 border border-white/10 flex items-center justify-between">
+                  <div class="flex items-center gap-2.5">
+                    <div
+                      class="w-7 h-7 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">
+                      $</div>
+                    <div>
+                      <div class="text-xs text-white font-bold">$2,350.00</div>
+                      <div class="text-[8px] text-emerald-400 font-label-mono-sm">+18.4% this week</div>
+                    </div>
+                  </div>
+                  <span class="font-label-mono-sm text-[9px] text-white/50">2.3M+ USERS</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Window 6: AI Autonomous Neural -->
+            <div class="web-showcase-window w-full h-[290px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  neural.aben.tech</div>
+                <span class="text-[9px] text-primary font-label-mono-sm">ACTIVE</span>
+              </div>
+              <div class="flex-1 p-5 bg-[#0b0c10] flex flex-col justify-between">
+                <div class="flex items-center justify-between font-label-mono-sm text-xs text-primary">
+                  <span>AGENT ORCHESTRATION</span>
+                  <span>MULTI-MODAL</span>
+                </div>
+                <div class="space-y-2">
+                  <div class="p-2 rounded bg-black/60 border border-white/10 text-xs text-white/80 font-label-code">
+                    &gt; Synthesizing 1.2M pipeline events...
+                  </div>
+                  <div class="p-2 rounded bg-primary/10 border border-primary/20 text-xs text-primary font-label-code">
+                    ✔ 0 anomalies found. Automated deploy OK.
+                  </div>
+                </div>
+                <div class="flex justify-between items-center text-[10px] text-white/40 font-label-mono-sm">
+                  <span>MODEL: CLAUDE 3.7</span>
+                  <span class="text-primary font-bold">DISPATCH</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Window 4 Duplicate (Infinite Loop Seamlessness) -->
+            <div class="web-showcase-window w-full h-[350px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  wemakethings.studio</div>
+                <span class="text-[9px] text-white/40 font-label-mono-sm">BERLIN</span>
+              </div>
+              <div
+                class="flex-1 p-6 bg-gradient-to-b from-[#181922] via-[#0d0e14] to-[#060608] flex flex-col justify-between">
+                <div class="flex items-center justify-between text-xs text-white/50 font-label-mono-sm">
+                  <span class="text-primary font-bold">✦ DIGITAL SCULPTURE</span>
+                  <span>THREE.JS ENGINE</span>
+                </div>
+                <div class="py-4 flex flex-col items-center text-center">
+                  <div
+                    class="w-28 h-28 rounded-full bg-gradient-to-br from-primary/50 via-purple-600/35 to-blue-500/40 blur-sm flex items-center justify-center shadow-[0_0_40px_rgba(255,105,0,0.3)]">
+                    <div
+                      class="w-16 h-16 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center">
+                      <span class="material-symbols-outlined text-3xl text-white">deployed_code</span>
+                    </div>
+                  </div>
+                  <h4 class="mt-3 font-display-xl text-xl font-black text-white tracking-tight leading-snug">We make
+                    things.</h4>
+                  <p class="text-[11px] text-white/60 font-body-md mt-1">Fluid motion, spatial design &amp;
+                    micro-interactions.</p>
+                </div>
+                <div
+                  class="flex justify-between items-center text-[10px] text-white/40 font-label-mono-sm border-t border-white/10 pt-2.5">
+                  <span>GLOBAL REACH</span>
+                  <span class="text-primary">DISCOVER</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 3: DRIFT MID -->
+          <div class="drift-col-mid flex flex-col gap-6">
+            <!-- Window 7: Digital Growth / Hello Monster (KOTA Reference replica) -->
+            <div class="web-showcase-window w-full h-[340px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  hellomonster.agency</div>
+                <span class="text-[9px] text-primary font-label-mono-sm">AWWWARDS</span>
+              </div>
+              <div
+                class="flex-1 p-6 relative overflow-hidden bg-gradient-to-br from-[#2a0e05] via-[#140803] to-[#0a0a0d] flex flex-col justify-between">
+                <div class="flex justify-between items-center text-xs font-label-mono-sm text-primary">
+                  <span>DIGITAL PORTFOLIO</span>
+                  <span>2025 EDITION</span>
+                </div>
+                <div class="my-auto py-2">
+                  <h3 class="font-display-xl font-black text-4xl text-primary leading-none tracking-tighter">HELLO
+                    MONSTER</h3>
+                  <p class="font-headline-md text-sm text-white/80 mt-1 uppercase tracking-wide">Brand &amp; Interactive
+                    Experience</p>
+                </div>
+                <div
+                  class="flex justify-between items-center font-label-mono-sm text-[10px] text-white/40 border-t border-white/10 pt-3">
+                  <span>FWA OF THE DAY</span>
+                  <span class="text-white underline">VIEW ARCHIVE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Window 8: SaaS Dashboard Image Preview -->
+            <div class="web-showcase-window w-full h-[320px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  cloudops.platform</div>
+                <span class="text-[9px] text-white/40 font-label-mono-sm">DASHBOARD</span>
+              </div>
+              <div class="flex-1 relative overflow-hidden">
+                <img alt="SharkFlow Platform Preview" class="w-full h-full object-cover object-top opacity-80"
+                  src="assets/images/sharkflow_live.png">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                <div class="absolute bottom-3 inset-x-3 flex items-center justify-between">
+                  <span
+                    class="px-2.5 py-1 bg-black/80 rounded font-label-mono-sm text-[10px] text-white border border-white/15">Telemetry
+                    Mesh</span>
+                  <span class="font-label-mono-sm text-[10px] text-primary">Realtime Sync</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Window 9: Rust High-Speed Code Engine -->
+            <div class="web-showcase-window w-full h-[290px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  engine.aben.rs</div>
+                <span class="text-[9px] text-primary font-label-mono-sm">CORE</span>
+              </div>
+              <div class="flex-1 p-5 bg-[#101015] flex flex-col justify-between">
+                <div class="flex justify-between items-center font-label-mono-sm text-xs text-white/60">
+                  <span>DISTRIBUTED EDGE</span>
+                  <span class="text-primary font-bold">WASM + NEXT.JS</span>
+                </div>
+                <div
+                  class="font-label-code text-[11px] text-white/70 space-y-1 bg-black/60 p-2.5 rounded border border-white/5">
+                  <div><span class="text-primary">fn</span> <span class="text-blue-400">deploy_cluster</span>() {</div>
+                  <div class="pl-4 text-emerald-400">// Zero cold-start latency</div>
+                  <div class="pl-4 text-white">scale_nodes(128);</div>
+                  <div>}</div>
+                </div>
+                <div class="flex justify-between text-[10px] text-white/40 font-label-mono-sm">
+                  <span>HIGH-CONSEQUENCE</span>
+                  <span class="text-white">0.4ms TTFB</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Window 7 Duplicate (Infinite Loop Seamlessness) -->
+            <div class="web-showcase-window w-full h-[340px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  hellomonster.agency</div>
+                <span class="text-[9px] text-primary font-label-mono-sm">AWWWARDS</span>
+              </div>
+              <div
+                class="flex-1 p-6 relative overflow-hidden bg-gradient-to-br from-[#2a0e05] via-[#140803] to-[#0a0a0d] flex flex-col justify-between">
+                <div class="flex justify-between items-center text-xs font-label-mono-sm text-primary">
+                  <span>DIGITAL PORTFOLIO</span>
+                  <span>2025 EDITION</span>
+                </div>
+                <div class="my-auto py-2">
+                  <h3 class="font-display-xl font-black text-4xl text-primary leading-none tracking-tighter">HELLO
+                    MONSTER</h3>
+                  <p class="font-headline-md text-sm text-white/80 mt-1 uppercase tracking-wide">Brand &amp; Interactive
+                    Experience</p>
+                </div>
+                <div
+                  class="flex justify-between items-center font-label-mono-sm text-[10px] text-white/40 border-t border-white/10 pt-3">
+                  <span>FWA OF THE DAY</span>
+                  <span class="text-white underline">VIEW ARCHIVE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 4: DRIFT ALT -->
+          <div class="drift-col-alt flex flex-col gap-6">
+            <!-- Window 10: Native Fluidity Mobile Suite -->
+            <div class="web-showcase-window w-full h-[330px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  swift-mobile.app</div>
+                <span class="text-[9px] text-primary font-label-mono-sm">iOS 18</span>
+              </div>
+              <div class="flex-1 p-5 bg-[#0d0e13] flex flex-col justify-between">
+                <div class="flex justify-between items-center font-label-mono-sm text-[10px] text-white/50">
+                  <span>MOBILE SUITE</span>
+                  <span>120 FPS NATIVE</span>
+                </div>
+                <div
+                  class="w-full h-32 rounded-xl bg-gradient-to-tr from-primary/30 via-white/10 to-transparent p-4 flex flex-col justify-end border border-white/10">
+                  <span class="font-display-xl font-black text-white text-xl">NATIVE FLUIDITY</span>
+                  <span class="text-xs text-white/70 font-label-mono-sm">Liquid gesture handling</span>
+                </div>
+                <div class="flex justify-between items-center text-[10px] text-white/40 font-label-mono-sm">
+                  <span>APP STORE VERIFIED</span>
+                  <span class="text-primary font-bold">4.9 ★ RATING</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Window 11: Realtime Inference Analytics -->
+            <div class="web-showcase-window w-full h-[300px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  telemetry.metrics</div>
+                <span class="text-[9px] text-emerald-400 font-label-mono-sm">99.99%</span>
+              </div>
+              <div class="flex-1 p-5 bg-[#0e0e12] flex flex-col justify-between">
+                <div class="text-xs uppercase font-label-mono-sm text-primary tracking-widest">REALTIME THROUGHPUT</div>
+                <div class="text-2xl font-display-xl font-bold text-white tracking-tight">4.82ms // L3 Cache</div>
+                <div class="h-14 flex items-end gap-1.5 pt-2">
+                  <div class="flex-1 bg-white/10 rounded-t h-40%"></div>
+                  <div class="flex-1 bg-white/15 rounded-t h-65%"></div>
+                  <div class="flex-1 bg-primary/70 rounded-t h-90%"></div>
+                  <div class="flex-1 bg-white/20 rounded-t h-55%"></div>
+                  <div class="flex-1 bg-primary rounded-t h-100%"></div>
+                  <div class="flex-1 bg-white/30 rounded-t h-75%"></div>
+                </div>
+                <div class="flex justify-between items-center text-[10px] text-white/40 font-label-mono-sm">
+                  <span>UPTIME 99.99%</span>
+                  <span class="text-primary">OPTIMIZED</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Window 12: Creative Agency Editorial -->
+            <div class="web-showcase-window w-full h-[290px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  forme-studio.fr</div>
+                <span class="text-[9px] text-white/40 font-label-mono-sm">PARIS</span>
+              </div>
+              <div class="flex-1 p-5 bg-[#121217] flex flex-col justify-between">
+                <div class="text-xs font-label-mono-sm text-secondary">RETENTION INDEX</div>
+                <div class="text-3xl font-display-xl font-extrabold text-white">96.8%</div>
+                <div class="text-xs text-secondary font-body-md">Sustained organic engagement across 40+ client
+                  implementations.</div>
+                <div class="text-[10px] text-primary font-label-mono-sm">BENCHMARK: TOP 1% TIER</div>
+              </div>
+            </div>
+
+            <!-- Window 10 Duplicate (Infinite Loop Seamlessness) -->
+            <div class="web-showcase-window w-full h-[330px] flex flex-col">
+              <div class="h-7 bg-[#14151a] border-b border-white/10 px-3 flex items-center justify-between">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="px-2.5 py-0.5 rounded-full bg-black/50 text-[9px] text-white/50 font-label-mono-sm border border-white/10">
+                  swift-mobile.app</div>
+                <span class="text-[9px] text-primary font-label-mono-sm">iOS 18</span>
+              </div>
+              <div class="flex-1 p-5 bg-[#0d0e13] flex flex-col justify-between">
+                <div class="flex justify-between items-center font-label-mono-sm text-[10px] text-white/50">
+                  <span>MOBILE SUITE</span>
+                  <span>120 FPS NATIVE</span>
+                </div>
+                <div
+                  class="w-full h-32 rounded-xl bg-gradient-to-tr from-primary/30 via-white/10 to-transparent p-4 flex flex-col justify-end border border-white/10">
+                  <span class="font-display-xl font-black text-white text-xl">NATIVE FLUIDITY</span>
+                  <span class="text-xs text-white/70 font-label-mono-sm">Liquid gesture handling</span>
+                </div>
+                <div class="flex justify-between items-center text-[10px] text-white/40 font-label-mono-sm">
+                  <span>APP STORE VERIFIED</span>
+                  <span class="text-primary font-bold">4.9 ★ RATING</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ATMOSPHERIC VIGNETTE & CENTRAL DARK GRADIENT OVERLAY -->
+      <!-- Keeps background visible while making typography pop with zero eye strain -->
+      <div class="absolute inset-0 z-[1] pointer-events-none"
+        style="background: radial-gradient(circle at 50% 48%, rgba(5, 5, 5, 0.72) 0%, rgba(5, 5, 5, 0.42) 42%, rgba(5, 5, 5, 0.18) 72%, rgba(5, 5, 5, 0.65) 100%);">
+      </div>
+      <div
+        class="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-black/20 via-transparent to-[#050505]">
+      </div>
+      <!-- Subtle warm safety orange ambient ray -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[360px] bg-primary/[0.07] rounded-full blur-[140px] pointer-events-none z-[1]">
+      </div>
+      <!-- CENTRAL HERO CONTENT — EDITORIAL OVERSIZED TYPOGRAPHY (KOTA REFERENCE REPLICA) -->
+      <div
+        class="relative z-10 w-full max-w-6xl mx-auto my-auto pt-16 sm:pt-20 flex flex-col items-start md:items-center text-left md:text-center">
+        <!-- Top Pill Badge (Reference: Official Framer Expert / Studio Badge) -->
+        <div
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 backdrop-blur-md mb-8 transition-colors">
+          <span class="material-symbols-outlined text-primary text-sm">bolt</span>
+          <span class="font-body-md text-xs sm:text-sm font-medium text-white/90 tracking-wide">
+            Digital Product &amp; Technology Studio
+          </span>
+        </div>
+        <!-- Main Headline with Integrated Miniature Website Thumbnails -->
+        <h1
+          class="font-display-xl font-black text-4xl sm:text-6xl md:text-7xl lg:text-[84px] text-white tracking-[-0.035em] leading-[1.04] max-w-5xl uppercase">
+          Turning ideas
+          <!-- Miniature Website Preview Thumbnail 1 (Integrated between words like reference) -->
+          <span class="inline-flex align-middle mx-1.5 sm:mx-3 my-1 relative group">
+            <span
+              class="w-16 sm:w-24 h-9 sm:h-12 rounded-md sm:rounded-lg overflow-hidden border border-white/25 group-hover:border-primary shadow-[0_4px_20px_rgba(0,0,0,0.8)] inline-block transform -rotate-2 group-hover:rotate-0 transition-transform">
+              <img alt="SaaS UI Preview" class="w-full h-full object-cover" src="assets/images/sharkflow_browser.png">
+            </span>
+          </span>
+          into <br class="hidden sm:inline">
+          <span class="text-white">high — impact</span>
+          <!-- Miniature Website Preview Thumbnail 2 (Stacked duo preview like KOTA reference) -->
+          <span class="inline-flex align-middle mx-1.5 sm:mx-3 my-1 relative group">
+            <span
+              class="w-14 sm:w-20 h-9 sm:h-12 rounded-md sm:rounded-lg overflow-hidden border border-white/25 group-hover:border-primary shadow-[0_4px_20px_rgba(0,0,0,0.8)] inline-block transform rotate-3 group-hover:rotate-0 transition-transform">
+              <img alt="App Preview" class="w-full h-full object-cover" src="assets/images/sharkflow_live.png">
+            </span>
+          </span>
+          <span class="text-primary text-[#ff6900]">digital experiences.</span>
+        </h1>
+        <!-- Availability Status & Subtext -->
+        <div class="mt-8 flex flex-col items-start md:items-center">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="font-label-mono-sm text-xs text-white/70 uppercase tracking-widest">
+              Available for new projects // Q2-Q3 2025
+            </span>
+          </div>
+          <p class="font-body-lg text-secondary text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed font-normal">
+            We design and develop modern websites, intelligent applications, custom software and AI-powered solutions
+            that help businesses move forward.
+          </p>
+        </div>
+        <!-- Action Links / CTAs -->
+        <div class="mt-10 flex flex-wrap items-center justify-start md:justify-center gap-4 w-full">
+          <a class="px-8 py-3.5 rounded-full bg-primary text-black font-body-md text-sm font-semibold tracking-wide hover:bg-[#ff8533] hover:shadow-[0_8px_30px_rgba(255,105,0,0.4)] transition-all flex items-center gap-2"
+            href="#capabilities">
+            <span>Explore Our Services</span>
+            <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
+          <a class="px-8 py-3.5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/15 hover:border-primary font-body-md text-sm font-medium tracking-wide backdrop-blur-md transition-all flex items-center gap-2"
+            href="#intake-terminal">
+            <span>Start a Project</span>
+          </a>
+        </div>
+      </div>
+      <!-- THREE-PART BOTTOM INFORMATION BAR (EXACT KOTA REPLICA) -->
+      <div
+        class="relative z-10 w-full max-w-7xl mx-auto pt-12 border-t border-white/[0.08] flex flex-col md:flex-row items-start md:items-end justify-between gap-6 font-body-md">
+        <!-- Bottom-Left: "For inquiries" with active verified email -->
+        <div class="flex flex-col">
+          <span class="font-label-mono-sm text-[11px] text-white/50 uppercase tracking-wider mb-1">For inquiries</span>
+          <a class="text-white hover:text-primary transition-colors text-sm sm:text-base font-semibold tracking-tight"
+            href="mailto:abentechnologies@gmail.com">
+            abentechnologies@gmail.com
+          </a>
+        </div>
+        <!-- Bottom-Center: Studio mission statement -->
+        <div class="max-w-md text-left md:text-center">
+          <p class="text-xs sm:text-sm text-white/70 leading-relaxed">
+            <strong class="text-white font-medium">ABEN Technologies</strong> builds modern digital experiences,
+            intelligent software and innovative technology solutions for ambitious businesses.
+          </p>
+        </div>
+        <!-- Bottom-Right: Vertical indicator label "Scroll for more" with animated line -->
+        <div class="flex items-center gap-3 self-end md:self-auto">
+          <span class="font-label-mono-sm text-[11px] text-white/50 uppercase tracking-widest">
+            Scroll for more
+          </span>
+          <div class="w-[1.5px] h-9 bg-white/15 relative overflow-hidden">
+            <div class="scroll-indicator-line absolute inset-0 bg-primary"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="relative z-20 w-full py-24 bg-[#070709] border-t border-b border-white/[0.08] overflow-hidden"
+      id="digital-showcase">
+      <div
+        class="absolute top-0 left-1/4 w-[500px] h-[300px] bg-primary/[0.04] rounded-full blur-[120px] pointer-events-none">
+      </div>
+      <div
+        class="absolute bottom-0 right-1/4 w-[450px] h-[300px] bg-primary/[0.03] rounded-full blur-[100px] pointer-events-none">
+      </div>
+      <div class="max-w-7xl mx-auto px-6 sm:px-12 mb-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 mb-4">
+              <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span
+                class="font-label-mono-sm text-[11px] uppercase tracking-widest text-primary font-bold">DIGITAL
+                EXPERIENCES IN MOTION</span></div>
+            <h2
+              class="font-display-xl font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-tight max-w-3xl uppercase">
+              ENGINEERED FOR <span class="text-primary">SCALE &amp; CRAFT.</span></h2>
+          </div>
+          <p class="font-body-lg text-secondary text-base sm:text-lg max-w-xl leading-relaxed">From websites and
+            applications to intelligent software, we turn ambitious ideas into powerful digital experiences.</p>
+        </div>
+      </div>
+      <div class="showcase-container relative w-full overflow-hidden select-none py-4">
+        <div
+          class="absolute left-0 inset-y-0 w-24 sm:w-48 bg-gradient-to-r from-[#070709] via-[#070709]/80 to-transparent z-20 pointer-events-none">
+        </div>
+        <div
+          class="absolute right-0 inset-y-0 w-24 sm:w-48 bg-gradient-to-l from-[#070709] via-[#070709]/80 to-transparent z-20 pointer-events-none">
+        </div>
+        <div class="showcase-marquee-track">
+          <div
+            class="w-[520px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300 relative group">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                app.relatewise.io/timeline</div><span
+                class="text-[9px] text-primary font-label-mono-sm uppercase font-bold">SPRINT 04</span>
+            </div>
+            <div class="p-6 bg-[#0a0a0f] flex flex-col justify-between h-[340px] relative">
+              <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary font-bold font-headline-md text-sm">
+                    R</div>
+                  <div>
+                    <h4 class="font-headline-md font-bold text-white text-sm">Microdose Studio Sprint</h4>
+                    <div class="font-label-mono-sm text-[10px] text-secondary">12 Microtasks • Active Milestone</div>
+                  </div>
+                </div>
+                <div class="flex -space-x-2">
+                  <div
+                    class="w-6 h-6 rounded-full bg-purple-500 border border-white/20 flex items-center justify-center text-[9px] text-white font-bold">
+                    JD</div>
+                  <div
+                    class="w-6 h-6 rounded-full bg-amber-500 border border-white/20 flex items-center justify-center text-[9px] text-white font-bold">
+                    AK</div>
+                  <div
+                    class="w-6 h-6 rounded-full bg-emerald-500 border border-white/20 flex items-center justify-center text-[9px] text-white font-bold">
+                    +3</div>
+                </div>
+              </div>
+              <div class="my-auto space-y-3 font-label-mono-sm text-xs">
+                <div class="flex items-center gap-2"><span class="w-28 text-[11px] text-white/50 truncate">Motion
+                    Design</span>
+                  <div class="flex-1 bg-white/5 h-7 rounded-md p-1 relative">
+                    <div
+                      class="bg-gradient-to-r from-purple-500 to-pink-500 h-full rounded text-[10px] text-white px-2 flex items-center font-bold shadow-lg"
+                      style="width: 68%;">68% • IN REVIEW</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2"><span class="w-28 text-[11px] text-white/50 truncate">Web3
+                    Identity</span>
+                  <div class="flex-1 bg-white/5 h-7 rounded-md p-1 relative">
+                    <div class="bg-primary h-full rounded text-[10px] text-black px-2 flex items-center font-bold"
+                      style="width: 92%;">92% • SHIPPED</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2"><span class="w-28 text-[11px] text-white/50 truncate">Shader
+                    Core</span>
+                  <div class="flex-1 bg-white/5 h-7 rounded-md p-1 relative">
+                    <div
+                      class="bg-emerald-400/80 h-full rounded text-[10px] text-black px-2 flex items-center font-bold"
+                      style="width: 45%;">45% • ACTIVE</div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                <div
+                  class="w-20 h-20 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 p-0.5 shadow-[0_0_30px_rgba(236,72,153,0.5)] flex items-center justify-center animate-pulse">
+                  <div
+                    class="w-full h-full rounded-full bg-black/40 backdrop-blur-sm flex flex-col items-center justify-center text-white text-center">
+                    <span class="text-[10px] font-bold uppercase tracking-wider">DRAG</span><span
+                      class="text-[8px] opacity-70 font-label-mono-sm">TIMELINE</span></div>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between text-xs font-label-mono-sm text-white/40 pt-2 border-t border-white/10">
+                <span>THROUGHPUT: 18 TASKS/DAY</span><span class="text-primary font-bold">VIEW ROADMAP →</span></div>
+            </div>
+          </div>
+          <div
+            class="w-[300px] flex-shrink-0 mockup-glass rounded-3xl p-4 shadow-2xl flex flex-col justify-between relative overflow-hidden transition-all duration-300">
+            <div
+              class="w-24 h-4 bg-black rounded-full mx-auto mb-3 flex items-center justify-center border border-white/10">
+              <div class="w-8 h-1 bg-white/20 rounded-full"></div>
+            </div>
+            <div
+              class="bg-[#111219] rounded-2xl p-4 border border-white/10 flex-1 flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between text-xs"><span
+                  class="font-headline-md font-bold text-white text-sm">Apex Capital</span><span
+                  class="font-label-mono-sm text-[10px] text-emerald-400 font-bold">+12.4% • LIVE</span></div>
+              <div class="space-y-1"><span
+                  class="text-[10px] text-secondary font-label-mono-sm uppercase tracking-wider">Portfolio
+                  Balance</span>
+                <div class="font-display-xl text-2xl font-bold text-white tracking-tight">$97,480.20</div>
+              </div>
+              <div class="h-28 bg-black/50 rounded-lg p-2 flex items-end justify-between border border-white/5">
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-3 bg-emerald-400/50"></div>
+                  <div class="w-2.5 h-10 bg-emerald-400 rounded-sm"></div>
+                  <div class="w-1 h-2 bg-emerald-400/50"></div>
+                </div>
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-2 bg-red-400/50"></div>
+                  <div class="w-2.5 h-6 bg-red-400 rounded-sm"></div>
+                  <div class="w-1 h-1 bg-red-400/50"></div>
+                </div>
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-4 bg-emerald-400/50"></div>
+                  <div class="w-2.5 h-14 bg-emerald-400 rounded-sm"></div>
+                  <div class="w-1 h-3 bg-emerald-400/50"></div>
+                </div>
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-2 bg-emerald-400/50"></div>
+                  <div class="w-2.5 h-18 bg-emerald-400 rounded-sm"></div>
+                  <div class="w-1 h-2 bg-emerald-400/50"></div>
+                </div>
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-3 bg-red-400/50"></div>
+                  <div class="w-2.5 h-8 bg-red-400 rounded-sm"></div>
+                  <div class="w-1 h-2 bg-red-400/50"></div>
+                </div>
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-2 bg-emerald-400/50"></div>
+                  <div class="w-2.5 h-20 bg-primary rounded-sm shadow-[0_0_12px_rgba(255,105,0,0.5)]"></div>
+                  <div class="w-1 h-3 bg-primary/50"></div>
+                </div>
+              </div>
+              <div
+                class="p-2.5 bg-black/60 rounded-xl border border-white/10 flex items-center justify-between text-xs font-label-mono-sm">
+                <span class="text-white/60">24h Volume</span><span class="text-primary font-bold">$18.4M</span></div>
+            </div>
+            <div class="mt-3 text-center font-label-mono-sm text-[10px] text-white/40 uppercase tracking-widest">NATIVE
+              IOS ARCHITECTURE</div>
+          </div>
+          <div class="w-[500px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                nomos.ai/studio</div><span class="text-[9px] text-amber-400 font-label-mono-sm font-bold">★★★★★
+                5.0</span>
+            </div>
+            <div
+              class="p-6 bg-gradient-to-b from-[#111116] via-[#09090c] to-[#040405] flex flex-col justify-between h-[340px]">
+              <div class="flex items-center justify-between text-xs font-label-mono-sm"><span
+                  class="text-primary uppercase tracking-wider font-bold">Nomos Intelligence</span><span
+                  class="text-white/50">AI DECISION ENGINE</span></div>
+              <div class="my-auto py-2">
+                <h3 class="font-display-xl font-bold text-3xl text-white tracking-tight leading-snug">Make Wise
+                  Choices.<br><span class="text-primary">Effortlessly. Everywhere.</span></h3>
+                <p class="font-body-md text-xs text-secondary mt-2 leading-relaxed max-w-md">“Transformed our
+                  algorithmic allocation with zero drift across 4,200 concurrent user sessions.”</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs font-label-mono-sm">
+                <span class="text-white/60">FEATURED IN WIRED • 2025</span><span
+                  class="text-primary font-bold">EXPERIENCE DEMO →</span></div>
+            </div>
+          </div>
+          <div class="w-[520px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                os.sharkflow.cloud</div><span class="text-[9px] text-emerald-400 font-label-mono-sm font-bold">• CLUSTER
+                HEALTHY</span>
+            </div>
+            <div class="p-6 bg-[#0c0d12] flex flex-col justify-between h-[340px]">
+              <div class="flex items-center justify-between"><span
+                  class="font-headline-md font-bold text-white text-base">SharkFlow Enterprise OS</span><span
+                  class="font-label-mono-sm text-xs text-primary">RAID 10 ACTIVE</span></div>
+              <div class="grid grid-cols-3 gap-3 my-2 font-label-mono-sm">
+                <div class="p-3 bg-black/50 border border-white/10 rounded-lg">
+                  <div class="text-[10px] text-secondary">THROUGHPUT</div>
+                  <div class="text-xl font-display-xl font-bold text-white mt-1">2.4M</div>
+                  <div class="text-[9px] text-emerald-400">Req / Sec</div>
+                </div>
+                <div class="p-3 bg-black/50 border border-white/10 rounded-lg">
+                  <div class="text-[10px] text-secondary">LATENCY SLA</div>
+                  <div class="text-xl font-display-xl font-bold text-primary mt-1">0.42ms</div>
+                  <div class="text-[9px] text-emerald-400">p99 Global</div>
+                </div>
+                <div class="p-3 bg-black/50 border border-white/10 rounded-lg">
+                  <div class="text-[10px] text-secondary">MEMORY MESH</div>
+                  <div class="text-xl font-display-xl font-bold text-white mt-1">99.98%</div>
+                  <div class="text-[9px] text-secondary">Zero Dropped</div>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between text-xs font-label-mono-sm text-white/50 pt-3 border-t border-white/10">
+                <span>CONTAINERS: 1,024 ACTIVE</span><span class="text-white underline">INSPECT TELEMETRY</span></div>
+            </div>
+          </div>
+          <div
+            class="w-[300px] flex-shrink-0 mockup-glass rounded-3xl p-4 shadow-2xl flex flex-col justify-between relative overflow-hidden transition-all duration-300">
+            <div
+              class="w-24 h-4 bg-black rounded-full mx-auto mb-3 flex items-center justify-center border border-white/10">
+              <div class="w-8 h-1 bg-white/20 rounded-full"></div>
+            </div>
+            <div
+              class="bg-[#111219] rounded-2xl p-4 border border-white/10 flex-1 flex flex-col justify-between space-y-3">
+              <div class="flex items-center justify-between text-xs"><span
+                  class="font-headline-md font-bold text-white text-sm">Aura Biometrics</span><span
+                  class="font-label-mono-sm text-[10px] text-primary">HEALTH OS</span></div>
+              <div class="flex flex-col items-center justify-center py-2">
+                <div
+                  class="w-24 h-24 rounded-full border-4 border-emerald-400 flex items-center justify-center relative">
+                  <div class="w-18 h-18 rounded-full border-4 border-primary flex items-center justify-center">
+                    <div class="text-center"><span class="font-display-xl text-xl font-bold text-white">138</span><span
+                        class="text-[9px] text-white/60 font-label-mono-sm block">BPM</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-1.5 font-label-mono-sm text-[10px]">
+                <div class="flex justify-between text-white/70"><span>Active Calorie Burn</span><span
+                    class="text-primary font-bold">840 / 1,000 KCAL</span></div>
+                <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full w-[84%]"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 text-center font-label-mono-sm text-[10px] text-white/40 uppercase tracking-widest">HEART
+              RATE • VO2 MAX SYNC</div>
+          </div>
+          <div class="w-[520px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                artifact-studio.xyz/threejs</div><span
+                class="text-[9px] text-primary font-label-mono-sm uppercase font-bold">WEBGL ENGINE</span>
+            </div>
+            <div
+              class="p-6 bg-gradient-to-br from-[#180a05] via-[#0d0e14] to-[#050507] flex flex-col justify-between h-[340px]">
+              <div class="flex items-center justify-between text-xs font-label-mono-sm"><span
+                  class="px-2 py-0.5 bg-primary/20 text-primary border border-primary/30 rounded">AWWWARDS
+                  SOTD</span><span class="text-white/60">THREE.JS PHYSICS</span></div>
+              <div class="my-auto py-2"><span
+                  class="text-xs text-primary font-label-mono-sm tracking-widest uppercase block mb-1">Procedural 3D
+                  Identity</span>
+                <h3 class="font-display-xl font-black text-3xl text-white tracking-tight leading-snug">Kinetic Shaders
+                  &amp; Spatial Lighting</h3>
+                <p class="font-body-md text-xs text-secondary mt-1.5">Hardware-accelerated GLSL fragments with
+                  interactive fluid dynamics.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs font-label-mono-sm">
+                <span>FPS: 60 LOCKED</span><span class="text-primary font-bold">INSPECT SHADER →</span></div>
+            </div>
+          </div>
+          <div class="w-[500px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                fizens.app/treasury</div><span
+                class="text-[9px] text-blue-400 font-label-mono-sm font-bold">MULTI-CURRENCY</span>
+            </div>
+            <div class="p-6 bg-[#0c0d12] flex flex-col justify-between h-[340px]">
+              <div class="flex items-center justify-between text-xs font-label-mono-sm text-secondary"><span>TREASURY
+                  REBALANCING</span><span class="text-emerald-400 font-bold">+28.4% APY</span></div>
+              <div class="space-y-1.5 my-auto">
+                <div class="text-xs text-white/60 font-label-mono-sm uppercase">Aggregated Liquidity</div>
+                <div class="text-4xl font-display-xl font-black text-white tracking-tight">$4,829,140.50</div>
+                <div class="flex items-center gap-2 pt-2"><span
+                    class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] text-white">USD
+                    62%</span><span
+                    class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] text-white">EUR
+                    24%</span><span
+                    class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] text-primary">BTC
+                    14%</span></div>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs font-label-mono-sm">
+                <span class="text-white/50">AUTOMATED SWAPS</span><span class="text-primary font-bold">VIEW ASSETS
+                  →</span></div>
+            </div>
+          </div>
+          <div
+            class="w-[300px] flex-shrink-0 mockup-glass rounded-3xl p-4 shadow-2xl flex flex-col justify-between relative overflow-hidden transition-all duration-300">
+            <div
+              class="w-24 h-4 bg-black rounded-full mx-auto mb-3 flex items-center justify-center border border-white/10">
+              <div class="w-8 h-1 bg-white/20 rounded-full"></div>
+            </div>
+            <div
+              class="bg-[#0d0e14] rounded-2xl p-4 border border-white/10 flex-1 flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between text-xs"><span
+                  class="font-headline-md font-bold text-white text-sm">Cipher Vault</span><span
+                  class="font-label-mono-sm text-[10px] text-emerald-400 font-bold">ENCLAVE SECURE</span></div>
+              <div class="py-4 flex flex-col items-center justify-center text-center">
+                <div
+                  class="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary mb-2 shadow-[0_0_20px_rgba(255,105,0,0.3)]">
+                  <span class="material-symbols-outlined text-3xl">fingerprint</span></div><span
+                  class="text-xs text-white font-bold">Biometrics Verified</span><span
+                  class="text-[10px] text-white/50 font-label-mono-sm mt-0.5">Multi-Sig 3 of 5 Approved</span>
+              </div>
+              <div
+                class="p-2.5 bg-black/60 rounded-xl border border-white/10 flex items-center justify-between text-xs font-label-mono-sm">
+                <span class="text-white/60">Hardware Key</span><span class="text-primary font-bold">FIDO2 /
+                  YUBIKEY</span></div>
+            </div>
+            <div class="mt-3 text-center font-label-mono-sm text-[10px] text-white/40 uppercase tracking-widest">
+              ZERO-KNOWLEDGE AUTH</div>
+          </div>
+          <div class="w-[520px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                forme-paris.com</div><span class="text-[9px] text-white/60 font-label-mono-sm uppercase font-bold">PARIS
+                • RUNWAY</span>
+            </div>
+            <div
+              class="p-6 bg-gradient-to-t from-[#0a0a0d] via-[#101017] to-[#151622] flex flex-col justify-between h-[340px]">
+              <div class="flex items-center justify-between text-xs font-label-mono-sm"><span
+                  class="text-primary font-bold">FORME ARCHITECTURAL</span><span class="text-white/50">AUTUMN / WINTER
+                  25</span></div>
+              <div class="my-auto py-2">
+                <h3 class="font-display-xl font-black text-3xl text-white tracking-tight">Tangible Digital Luxury</h3>
+                <p class="font-body-md text-xs text-secondary mt-1.5 max-w-sm">Interactive lookbook featuring real-time
+                  3D garments, fluid drape physics and sub-second checkout.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs font-label-mono-sm">
+                <span class="text-emerald-400 font-bold">+38.2% CONVERSION</span><span
+                  class="text-white underline font-medium">ENTER STORE →</span></div>
+            </div>
+          </div>
+          <div
+            class="w-[520px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300 relative group">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                app.relatewise.io/timeline</div><span
+                class="text-[9px] text-primary font-label-mono-sm uppercase font-bold">SPRINT 04</span>
+            </div>
+            <div class="p-6 bg-[#0a0a0f] flex flex-col justify-between h-[340px] relative">
+              <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary font-bold font-headline-md text-sm">
+                    R</div>
+                  <div>
+                    <h4 class="font-headline-md font-bold text-white text-sm">Microdose Studio Sprint</h4>
+                    <div class="font-label-mono-sm text-[10px] text-secondary">12 Microtasks • Active Milestone</div>
+                  </div>
+                </div>
+                <div class="flex -space-x-2">
+                  <div
+                    class="w-6 h-6 rounded-full bg-purple-500 border border-white/20 flex items-center justify-center text-[9px] text-white font-bold">
+                    JD</div>
+                  <div
+                    class="w-6 h-6 rounded-full bg-amber-500 border border-white/20 flex items-center justify-center text-[9px] text-white font-bold">
+                    AK</div>
+                  <div
+                    class="w-6 h-6 rounded-full bg-emerald-500 border border-white/20 flex items-center justify-center text-[9px] text-white font-bold">
+                    +3</div>
+                </div>
+              </div>
+              <div class="my-auto space-y-3 font-label-mono-sm text-xs">
+                <div class="flex items-center gap-2"><span class="w-28 text-[11px] text-white/50 truncate">Motion
+                    Design</span>
+                  <div class="flex-1 bg-white/5 h-7 rounded-md p-1 relative">
+                    <div
+                      class="bg-gradient-to-r from-purple-500 to-pink-500 h-full rounded text-[10px] text-white px-2 flex items-center font-bold shadow-lg"
+                      style="width: 68%;">68% • IN REVIEW</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2"><span class="w-28 text-[11px] text-white/50 truncate">Web3
+                    Identity</span>
+                  <div class="flex-1 bg-white/5 h-7 rounded-md p-1 relative">
+                    <div class="bg-primary h-full rounded text-[10px] text-black px-2 flex items-center font-bold"
+                      style="width: 92%;">92% • SHIPPED</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2"><span class="w-28 text-[11px] text-white/50 truncate">Shader
+                    Core</span>
+                  <div class="flex-1 bg-white/5 h-7 rounded-md p-1 relative">
+                    <div
+                      class="bg-emerald-400/80 h-full rounded text-[10px] text-black px-2 flex items-center font-bold"
+                      style="width: 45%;">45% • ACTIVE</div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                <div
+                  class="w-20 h-20 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 p-0.5 shadow-[0_0_30px_rgba(236,72,153,0.5)] flex items-center justify-center animate-pulse">
+                  <div
+                    class="w-full h-full rounded-full bg-black/40 backdrop-blur-sm flex flex-col items-center justify-center text-white text-center">
+                    <span class="text-[10px] font-bold uppercase tracking-wider">DRAG</span><span
+                      class="text-[8px] opacity-70 font-label-mono-sm">TIMELINE</span></div>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between text-xs font-label-mono-sm text-white/40 pt-2 border-t border-white/10">
+                <span>THROUGHPUT: 18 TASKS/DAY</span><span class="text-primary font-bold">VIEW ROADMAP →</span></div>
+            </div>
+          </div>
+          <div
+            class="w-[300px] flex-shrink-0 mockup-glass rounded-3xl p-4 shadow-2xl flex flex-col justify-between relative overflow-hidden transition-all duration-300">
+            <div
+              class="w-24 h-4 bg-black rounded-full mx-auto mb-3 flex items-center justify-center border border-white/10">
+              <div class="w-8 h-1 bg-white/20 rounded-full"></div>
+            </div>
+            <div
+              class="bg-[#111219] rounded-2xl p-4 border border-white/10 flex-1 flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between text-xs"><span
+                  class="font-headline-md font-bold text-white text-sm">Apex Capital</span><span
+                  class="font-label-mono-sm text-[10px] text-emerald-400 font-bold">+12.4% • LIVE</span></div>
+              <div class="space-y-1"><span
+                  class="text-[10px] text-secondary font-label-mono-sm uppercase tracking-wider">Portfolio
+                  Balance</span>
+                <div class="font-display-xl text-2xl font-bold text-white tracking-tight">$97,480.20</div>
+              </div>
+              <div class="h-28 bg-black/50 rounded-lg p-2 flex items-end justify-between border border-white/5">
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-3 bg-emerald-400/50"></div>
+                  <div class="w-2.5 h-10 bg-emerald-400 rounded-sm"></div>
+                  <div class="w-1 h-2 bg-emerald-400/50"></div>
+                </div>
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-2 bg-red-400/50"></div>
+                  <div class="w-2.5 h-6 bg-red-400 rounded-sm"></div>
+                  <div class="w-1 h-1 bg-red-400/50"></div>
+                </div>
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-4 bg-emerald-400/50"></div>
+                  <div class="w-2.5 h-14 bg-emerald-400 rounded-sm"></div>
+                  <div class="w-1 h-3 bg-emerald-400/50"></div>
+                </div>
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-2 bg-emerald-400/50"></div>
+                  <div class="w-2.5 h-18 bg-emerald-400 rounded-sm"></div>
+                  <div class="w-1 h-2 bg-emerald-400/50"></div>
+                </div>
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-3 bg-red-400/50"></div>
+                  <div class="w-2.5 h-8 bg-red-400 rounded-sm"></div>
+                  <div class="w-1 h-2 bg-red-400/50"></div>
+                </div>
+                <div class="flex flex-col items-center gap-1 flex-1">
+                  <div class="w-1 h-2 bg-emerald-400/50"></div>
+                  <div class="w-2.5 h-20 bg-primary rounded-sm shadow-[0_0_12px_rgba(255,105,0,0.5)]"></div>
+                  <div class="w-1 h-3 bg-primary/50"></div>
+                </div>
+              </div>
+              <div
+                class="p-2.5 bg-black/60 rounded-xl border border-white/10 flex items-center justify-between text-xs font-label-mono-sm">
+                <span class="text-white/60">24h Volume</span><span class="text-primary font-bold">$18.4M</span></div>
+            </div>
+            <div class="mt-3 text-center font-label-mono-sm text-[10px] text-white/40 uppercase tracking-widest">NATIVE
+              IOS ARCHITECTURE</div>
+          </div>
+          <div class="w-[500px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                nomos.ai/studio</div><span class="text-[9px] text-amber-400 font-label-mono-sm font-bold">★★★★★
+                5.0</span>
+            </div>
+            <div
+              class="p-6 bg-gradient-to-b from-[#111116] via-[#09090c] to-[#040405] flex flex-col justify-between h-[340px]">
+              <div class="flex items-center justify-between text-xs font-label-mono-sm"><span
+                  class="text-primary uppercase tracking-wider font-bold">Nomos Intelligence</span><span
+                  class="text-white/50">AI DECISION ENGINE</span></div>
+              <div class="my-auto py-2">
+                <h3 class="font-display-xl font-bold text-3xl text-white tracking-tight leading-snug">Make Wise
+                  Choices.<br><span class="text-primary">Effortlessly. Everywhere.</span></h3>
+                <p class="font-body-md text-xs text-secondary mt-2 leading-relaxed max-w-md">“Transformed our
+                  algorithmic allocation with zero drift across 4,200 concurrent user sessions.”</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs font-label-mono-sm">
+                <span class="text-white/60">FEATURED IN WIRED • 2025</span><span
+                  class="text-primary font-bold">EXPERIENCE DEMO →</span></div>
+            </div>
+          </div>
+          <div class="w-[520px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                os.sharkflow.cloud</div><span class="text-[9px] text-emerald-400 font-label-mono-sm font-bold">• CLUSTER
+                HEALTHY</span>
+            </div>
+            <div class="p-6 bg-[#0c0d12] flex flex-col justify-between h-[340px]">
+              <div class="flex items-center justify-between"><span
+                  class="font-headline-md font-bold text-white text-base">SharkFlow Enterprise OS</span><span
+                  class="font-label-mono-sm text-xs text-primary">RAID 10 ACTIVE</span></div>
+              <div class="grid grid-cols-3 gap-3 my-2 font-label-mono-sm">
+                <div class="p-3 bg-black/50 border border-white/10 rounded-lg">
+                  <div class="text-[10px] text-secondary">THROUGHPUT</div>
+                  <div class="text-xl font-display-xl font-bold text-white mt-1">2.4M</div>
+                  <div class="text-[9px] text-emerald-400">Req / Sec</div>
+                </div>
+                <div class="p-3 bg-black/50 border border-white/10 rounded-lg">
+                  <div class="text-[10px] text-secondary">LATENCY SLA</div>
+                  <div class="text-xl font-display-xl font-bold text-primary mt-1">0.42ms</div>
+                  <div class="text-[9px] text-emerald-400">p99 Global</div>
+                </div>
+                <div class="p-3 bg-black/50 border border-white/10 rounded-lg">
+                  <div class="text-[10px] text-secondary">MEMORY MESH</div>
+                  <div class="text-xl font-display-xl font-bold text-white mt-1">99.98%</div>
+                  <div class="text-[9px] text-secondary">Zero Dropped</div>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between text-xs font-label-mono-sm text-white/50 pt-3 border-t border-white/10">
+                <span>CONTAINERS: 1,024 ACTIVE</span><span class="text-white underline">INSPECT TELEMETRY</span></div>
+            </div>
+          </div>
+          <div
+            class="w-[300px] flex-shrink-0 mockup-glass rounded-3xl p-4 shadow-2xl flex flex-col justify-between relative overflow-hidden transition-all duration-300">
+            <div
+              class="w-24 h-4 bg-black rounded-full mx-auto mb-3 flex items-center justify-center border border-white/10">
+              <div class="w-8 h-1 bg-white/20 rounded-full"></div>
+            </div>
+            <div
+              class="bg-[#111219] rounded-2xl p-4 border border-white/10 flex-1 flex flex-col justify-between space-y-3">
+              <div class="flex items-center justify-between text-xs"><span
+                  class="font-headline-md font-bold text-white text-sm">Aura Biometrics</span><span
+                  class="font-label-mono-sm text-[10px] text-primary">HEALTH OS</span></div>
+              <div class="flex flex-col items-center justify-center py-2">
+                <div
+                  class="w-24 h-24 rounded-full border-4 border-emerald-400 flex items-center justify-center relative">
+                  <div class="w-18 h-18 rounded-full border-4 border-primary flex items-center justify-center">
+                    <div class="text-center"><span class="font-display-xl text-xl font-bold text-white">138</span><span
+                        class="text-[9px] text-white/60 font-label-mono-sm block">BPM</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-1.5 font-label-mono-sm text-[10px]">
+                <div class="flex justify-between text-white/70"><span>Active Calorie Burn</span><span
+                    class="text-primary font-bold">840 / 1,000 KCAL</span></div>
+                <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                  <div class="bg-primary h-full w-[84%]"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 text-center font-label-mono-sm text-[10px] text-white/40 uppercase tracking-widest">HEART
+              RATE • VO2 MAX SYNC</div>
+          </div>
+          <div class="w-[520px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                artifact-studio.xyz/threejs</div><span
+                class="text-[9px] text-primary font-label-mono-sm uppercase font-bold">WEBGL ENGINE</span>
+            </div>
+            <div
+              class="p-6 bg-gradient-to-br from-[#180a05] via-[#0d0e14] to-[#050507] flex flex-col justify-between h-[340px]">
+              <div class="flex items-center justify-between text-xs font-label-mono-sm"><span
+                  class="px-2 py-0.5 bg-primary/20 text-primary border border-primary/30 rounded">AWWWARDS
+                  SOTD</span><span class="text-white/60">THREE.JS PHYSICS</span></div>
+              <div class="my-auto py-2"><span
+                  class="text-xs text-primary font-label-mono-sm tracking-widest uppercase block mb-1">Procedural 3D
+                  Identity</span>
+                <h3 class="font-display-xl font-black text-3xl text-white tracking-tight leading-snug">Kinetic Shaders
+                  &amp; Spatial Lighting</h3>
+                <p class="font-body-md text-xs text-secondary mt-1.5">Hardware-accelerated GLSL fragments with
+                  interactive fluid dynamics.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs font-label-mono-sm">
+                <span>FPS: 60 LOCKED</span><span class="text-primary font-bold">INSPECT SHADER →</span></div>
+            </div>
+          </div>
+          <div class="w-[500px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                fizens.app/treasury</div><span
+                class="text-[9px] text-blue-400 font-label-mono-sm font-bold">MULTI-CURRENCY</span>
+            </div>
+            <div class="p-6 bg-[#0c0d12] flex flex-col justify-between h-[340px]">
+              <div class="flex items-center justify-between text-xs font-label-mono-sm text-secondary"><span>TREASURY
+                  REBALANCING</span><span class="text-emerald-400 font-bold">+28.4% APY</span></div>
+              <div class="space-y-1.5 my-auto">
+                <div class="text-xs text-white/60 font-label-mono-sm uppercase">Aggregated Liquidity</div>
+                <div class="text-4xl font-display-xl font-black text-white tracking-tight">$4,829,140.50</div>
+                <div class="flex items-center gap-2 pt-2"><span
+                    class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] text-white">USD
+                    62%</span><span
+                    class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] text-white">EUR
+                    24%</span><span
+                    class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] text-primary">BTC
+                    14%</span></div>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs font-label-mono-sm">
+                <span class="text-white/50">AUTOMATED SWAPS</span><span class="text-primary font-bold">VIEW ASSETS
+                  →</span></div>
+            </div>
+          </div>
+          <div
+            class="w-[300px] flex-shrink-0 mockup-glass rounded-3xl p-4 shadow-2xl flex flex-col justify-between relative overflow-hidden transition-all duration-300">
+            <div
+              class="w-24 h-4 bg-black rounded-full mx-auto mb-3 flex items-center justify-center border border-white/10">
+              <div class="w-8 h-1 bg-white/20 rounded-full"></div>
+            </div>
+            <div
+              class="bg-[#0d0e14] rounded-2xl p-4 border border-white/10 flex-1 flex flex-col justify-between space-y-4">
+              <div class="flex items-center justify-between text-xs"><span
+                  class="font-headline-md font-bold text-white text-sm">Cipher Vault</span><span
+                  class="font-label-mono-sm text-[10px] text-emerald-400 font-bold">ENCLAVE SECURE</span></div>
+              <div class="py-4 flex flex-col items-center justify-center text-center">
+                <div
+                  class="w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary mb-2 shadow-[0_0_20px_rgba(255,105,0,0.3)]">
+                  <span class="material-symbols-outlined text-3xl">fingerprint</span></div><span
+                  class="text-xs text-white font-bold">Biometrics Verified</span><span
+                  class="text-[10px] text-white/50 font-label-mono-sm mt-0.5">Multi-Sig 3 of 5 Approved</span>
+              </div>
+              <div
+                class="p-2.5 bg-black/60 rounded-xl border border-white/10 flex items-center justify-between text-xs font-label-mono-sm">
+                <span class="text-white/60">Hardware Key</span><span class="text-primary font-bold">FIDO2 /
+                  YUBIKEY</span></div>
+            </div>
+            <div class="mt-3 text-center font-label-mono-sm text-[10px] text-white/40 uppercase tracking-widest">
+              ZERO-KNOWLEDGE AUTH</div>
+          </div>
+          <div class="w-[520px] flex-shrink-0 mockup-glass rounded-xl overflow-hidden transition-all duration-300">
+            <div class="h-8 bg-[#14151a] border-b border-white/10 px-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span></div>
+              <div
+                class="px-3 py-0.5 rounded-full bg-black/60 text-[10px] text-white/60 font-label-mono-sm border border-white/10">
+                forme-paris.com</div><span class="text-[9px] text-white/60 font-label-mono-sm uppercase font-bold">PARIS
+                • RUNWAY</span>
+            </div>
+            <div
+              class="p-6 bg-gradient-to-t from-[#0a0a0d] via-[#101017] to-[#151622] flex flex-col justify-between h-[340px]">
+              <div class="flex items-center justify-between text-xs font-label-mono-sm"><span
+                  class="text-primary font-bold">FORME ARCHITECTURAL</span><span class="text-white/50">AUTUMN / WINTER
+                  25</span></div>
+              <div class="my-auto py-2">
+                <h3 class="font-display-xl font-black text-3xl text-white tracking-tight">Tangible Digital Luxury</h3>
+                <p class="font-body-md text-xs text-secondary mt-1.5 max-w-sm">Interactive lookbook featuring real-time
+                  3D garments, fluid drape physics and sub-second checkout.</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs font-label-mono-sm">
+                <span class="text-emerald-400 font-bold">+38.2% CONVERSION</span><span
+                  class="text-white underline font-medium">ENTER STORE →</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto px-6 sm:px-12 mt-4 flex items-center justify-between text-xs font-label-mono-sm text-secondary/60">
+        <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary animate-ping"></span><span
+            class="tracking-wider uppercase text-[10px]">CONTINUOUS REALTIME WORKBENCH • HOVER TO PAUSE</span></div>
+        <span class="tracking-widest uppercase text-[10px] text-primary">9 SHIPPED PRODUCT ENGINES</span>
+      </div>
+    </section>
+    <!-- ============================================================ -->
+    <!-- 4. DUAL FLOWING CROSS-RIBBON & COMPANY DOSSIER JOURNEY       -->
+    <!-- ============================================================ -->
+    <section class="relative w-full py-32 bg-[#08080a] overflow-hidden border-t border-white/[0.06]"
+      id="company-dossier">
+      <!-- Intersecting 3D SVG Dimensional Ribbons Container -->
+      <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <svg class="w-full h-full min-h-[1400px] ribbon-glow-filter" preserveAspectRatio="none" viewBox="0 0 1440 1800">
+          <defs>
+            <!-- Ribbon 1 Gradient: Luminous Safety Orange Spectrum -->
+            <linearGradient id="ribbonOrange" x1="0%" x2="100%" y1="0%" y2="100%">
+              <stop offset="0%" stop-color="#ff6900" stop-opacity="0.15"></stop>
+              <stop offset="30%" stop-color="#ff6900" stop-opacity="0.85"></stop>
+              <stop offset="65%" stop-color="#ff944d" stop-opacity="0.95"></stop>
+              <stop offset="100%" stop-color="#ff6900" stop-opacity="0.2"></stop>
+            </linearGradient>
+            <!-- Ribbon 2 Gradient: Matte Titanium Dark Chrome -->
+            <linearGradient id="ribbonTitanium" x1="100%" x2="0%" y1="0%" y2="100%">
+              <stop offset="0%" stop-color="#141416" stop-opacity="0.2"></stop>
+              <stop offset="35%" stop-color="#3a3c42" stop-opacity="0.8"></stop>
+              <stop offset="60%" stop-color="#555861" stop-opacity="0.9"></stop>
+              <stop offset="100%" stop-color="#1c1d20" stop-opacity="0.25"></stop>
+            </linearGradient>
+            <!-- Specular Edge Shimmer -->
+            <linearGradient id="edgeGleam" x1="0%" x2="100%" y1="0%" y2="0%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.4"></stop>
+              <stop offset="50%" stop-color="#ffffff" stop-opacity="0.9"></stop>
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"></stop>
+            </linearGradient>
+          </defs>
+          <!-- Ribbon 1: Sweeping S-Curve from Top-Left down through Bottom-Right -->
+          <path d="M -100 120 C 400 280, 500 700, 200 950 C -100 1200, 300 1550, 1550 1650" fill="none" opacity="0.65"
+            stroke="url(#ribbonOrange)" stroke-linecap="round" stroke-width="64"></path>
+          <path d="M -100 120 C 400 280, 500 700, 200 950 C -100 1200, 300 1550, 1550 1650" fill="none" opacity="0.75"
+            stroke="url(#edgeGleam)" stroke-width="2"></path>
+          <!-- Ribbon 2: Intersecting Counter-Curve from Top-Right cutting across Ribbon 1 -->
+          <path d="M 1550 80 C 1000 350, 850 650, 1150 1100 C 1450 1550, 750 1680, -100 1780" fill="none" opacity="0.75"
+            stroke="url(#ribbonTitanium)" stroke-linecap="round" stroke-width="72"></path>
+          <path d="M 1550 80 C 1000 350, 850 650, 1150 1100 C 1450 1550, 750 1680, -100 1780" fill="none" opacity="0.6"
+            stroke="#ff6900" stroke-dasharray="12 8" stroke-width="1.5"></path>
+        </svg>
+      </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="mb-24">
+          <div
+            class="inline-flex items-center gap-2 font-label-mono-sm text-xs text-primary uppercase tracking-[0.25em] mb-3">
+            <span class="w-2 h-2 bg-primary"></span>
+            <span>ENTERPRISE DOSSIER // CHAPTER 01 - 05</span>
+          </div>
+          <h2 class="font-display-xl font-black text-4xl sm:text-6xl text-white tracking-tighter uppercase max-w-3xl">
+            THE ARCHITECTURE OF <span class="text-primary">PROGRESS.</span>
+          </h2>
+        </div>
+        <!-- 5 Real Company Story Milestones (Staggered along ribbon curves) -->
+        <div class="space-y-32">
+          <!-- 1. WHO WE ARE -->
+          <div
+            class="dossier-node flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-8 md:p-12 bg-[#0c0c0e]/90 border border-white/10 backdrop-blur-md shadow-2xl relative"
+            style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+            <div class="absolute -left-1.5 top-8 bottom-8 w-3 bg-primary"></div>
+            <div class="max-w-xl">
+              <span
+                class="font-label-code text-xs uppercase tracking-widest text-primary font-bold block mb-2">MILESTONE 01
+                // IDENTITY</span>
+              <h3 class="font-headline-lg font-black text-3xl sm:text-4xl uppercase text-white mb-4">WHO WE ARE</h3>
+              <p class="font-body-lg text-lg text-on-surface-variant leading-relaxed">
+                We are a technology company building modern digital experiences and intelligent solutions.
+              </p>
+            </div>
+            <div class="border border-white/10 bg-black/40 p-6 w-full md:w-80">
+              <div class="font-label-mono-sm text-xs text-secondary mb-2 uppercase">FOUNDATION CORE</div>
+              <div class="text-white font-headline-md text-xl font-bold">INNOVATION + CODE</div>
+              <div class="text-xs text-secondary mt-1">Built to endure heavy market demands with modern craft.</div>
+            </div>
+          </div>
+          <!-- 2. WHAT WE BUILD -->
+          <div
+            class="dossier-node flex flex-col md:flex-row-reverse items-start md:items-center justify-between gap-8 p-8 md:p-12 bg-[#0c0c0e]/90 border border-white/10 backdrop-blur-md shadow-2xl relative md:ml-16"
+            style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+            <div class="absolute -right-1.5 top-8 bottom-8 w-3 bg-primary"></div>
+            <div class="max-w-xl">
+              <span
+                class="font-label-code text-xs uppercase tracking-widest text-primary font-bold block mb-2">MILESTONE 02
+                // CAPABILITIES</span>
+              <h3 class="font-headline-lg font-black text-3xl sm:text-4xl uppercase text-white mb-4">WHAT WE BUILD</h3>
+              <p class="font-body-lg text-lg text-on-surface-variant leading-relaxed">
+                Websites, web applications, mobile applications, SaaS, PaaS and custom software.
+              </p>
+            </div>
+            <div class="border border-white/10 bg-black/40 p-6 w-full md:w-80">
+              <div class="font-label-mono-sm text-xs text-secondary mb-2 uppercase">SYSTEM SPECS</div>
+              <div class="text-primary font-headline-md text-xl font-bold">FULL PLATFORM SUITE</div>
+              <div class="text-xs text-secondary mt-1">Web, Native iOS/Android, Cloud Infrastructure.</div>
+            </div>
+          </div>
+          <!-- 3. AI & AUTOMATION -->
+          <div
+            class="dossier-node flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-8 md:p-12 bg-[#0c0c0e]/90 border border-white/10 backdrop-blur-md shadow-2xl relative"
+            style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+            <div class="absolute -left-1.5 top-8 bottom-8 w-3 bg-primary"></div>
+            <div class="max-w-xl">
+              <span
+                class="font-label-code text-xs uppercase tracking-widest text-primary font-bold block mb-2">MILESTONE 03
+                // INTELLIGENCE</span>
+              <h3 class="font-headline-lg font-black text-3xl sm:text-4xl uppercase text-white mb-4">AI &amp; AUTOMATION
+              </h3>
+              <p class="font-body-lg text-lg text-on-surface-variant leading-relaxed">
+                Intelligent chatbots, AI-powered automation and smart business solutions.
+              </p>
+            </div>
+            <div class="border border-white/10 bg-black/40 p-6 w-full md:w-80">
+              <div class="font-label-mono-sm text-xs text-secondary mb-2 uppercase">AGENTIC WORKFLOWS</div>
+              <div class="text-white font-headline-md text-xl font-bold">AUTONOMOUS SCALE</div>
+              <div class="text-xs text-secondary mt-1">Eliminating friction, accelerating manual tasks.</div>
+            </div>
+          </div>
+          <!-- 4. DIGITAL GROWTH -->
+          <div
+            class="dossier-node flex flex-col md:flex-row-reverse items-start md:items-center justify-between gap-8 p-8 md:p-12 bg-[#0c0c0e]/90 border border-white/10 backdrop-blur-md shadow-2xl relative md:ml-16"
+            style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+            <div class="absolute -right-1.5 top-8 bottom-8 w-3 bg-primary"></div>
+            <div class="max-w-xl">
+              <span
+                class="font-label-code text-xs uppercase tracking-widest text-primary font-bold block mb-2">MILESTONE 04
+                // TRACTION</span>
+              <h3 class="font-headline-lg font-black text-3xl sm:text-4xl uppercase text-white mb-4">DIGITAL GROWTH</h3>
+              <p class="font-body-lg text-lg text-on-surface-variant leading-relaxed">
+                Meta Ads, Google Ads and digital growth solutions.
+              </p>
+            </div>
+            <div class="border border-white/10 bg-black/40 p-6 w-full md:w-80">
+              <div class="font-label-mono-sm text-xs text-secondary mb-2 uppercase">MARKET ENGINES</div>
+              <div class="text-primary font-headline-md text-xl font-bold">ALGORITHMIC REACH</div>
+              <div class="text-xs text-secondary mt-1">Targeted consumer and enterprise conversion.</div>
+            </div>
+          </div>
+          <!-- 5. OUR APPROACH -->
+          <div
+            class="dossier-node flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-8 md:p-12 bg-[#0c0c0e]/90 border border-white/10 backdrop-blur-md shadow-2xl relative"
+            style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+            <div class="absolute -left-1.5 top-8 bottom-8 w-3 bg-primary"></div>
+            <div class="max-w-xl">
+              <span
+                class="font-label-code text-xs uppercase tracking-widest text-primary font-bold block mb-2">MILESTONE 05
+                // METHOD</span>
+              <h3 class="font-headline-lg font-black text-3xl sm:text-4xl uppercase text-white mb-4">OUR APPROACH</h3>
+              <p class="font-body-lg text-lg text-on-surface-variant leading-relaxed">
+                Creativity, engineering and technology working together to turn ideas into real products.
+              </p>
+            </div>
+            <div class="border border-white/10 bg-black/40 p-6 w-full md:w-80">
+              <div class="font-label-mono-sm text-xs text-secondary mb-2 uppercase">DELIVERY PHILOSOPHY</div>
+              <div class="text-white font-headline-md text-xl font-bold">END-TO-END EXECUTION</div>
+              <div class="text-xs text-secondary mt-1">Zero handoffs to third parties. 100% production rigor.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============================================================ -->
+    <!-- 5. ART-DIRECTED CARDS WITH REALISTIC HEAVY METALLIC CHAINS   -->
+    <!-- ============================================================ -->
+    <section class="relative z-20 w-full max-w-7xl mx-auto px-6 py-32" id="capabilities"><!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-8 mb-16">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-3">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span class="font-label-mono-sm text-[11px] uppercase tracking-widest text-primary font-bold">CORE
+              CAPABILITY MATRIX</span>
+          </div>
+          <h2 class="font-display-xl font-black text-4xl sm:text-6xl uppercase text-white tracking-tighter">
+            SCALED <span class="text-primary">CAPABILITIES</span>
+          </h2>
+        </div>
+        <p class="font-body-md text-sm text-secondary max-w-md mt-4 md:mt-0 leading-relaxed">
+          Engineered with precision. Four foundational pillars spanning enterprise software, autonomous cloud clusters,
+          intelligence workflows, and high-velocity conversion.
+        </p>
+      </div>
+
+      <!-- Scroll-Pinned Stacked Cards Wrapper -->
+      <div class="relative flex flex-col gap-12 pb-24" id="cards-stack-wrapper">
+        <!-- CARD 1: Engineering & Custom Software -->
+        <div
+          class="sticky top-[100px] z-10 w-full bg-[#18181b] border border-white/10 rounded-[32px] p-8 sm:p-12 shadow-2xl transition-all duration-300">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <!-- Left Content -->
+            <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+              <div class="flex items-center gap-3">
+                <span
+                  class="px-3 py-1 rounded-full bg-white/10 border border-white/15 font-label-mono-sm text-xs text-primary font-bold tracking-wider">01
+                  // PLATFORM CORE</span>
+                <span class="font-label-mono-sm text-xs text-white/50">FULL-STACK ARCHITECTURE</span>
+              </div>
+              <div>
+                <h3 class="font-display-xl font-black text-3xl sm:text-5xl text-white tracking-tight mb-4">
+                  Engineering &amp; <span class="text-primary text-[#ff6900]">Custom Software</span>
+                </h3>
+                <p class="font-body-lg text-secondary text-base sm:text-lg leading-relaxed max-w-xl">
+                  High-consequence digital platforms built with zero-compromise engineering. From scalable distributed
+                  microservices to ultra-fluid native mobile interfaces.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/40 border border-white/10 font-label-mono-sm text-xs text-white/80">Web
+                  Applications</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/40 border border-white/10 font-label-mono-sm text-xs text-white/80">Mobile
+                  Apps</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/40 border border-white/10 font-label-mono-sm text-xs text-white/80">SaaS
+                  &amp; PaaS</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/40 border border-white/10 font-label-mono-sm text-xs text-white/80">WASM
+                  &amp; Edge</span>
+              </div>
+              <div class="pt-4">
+                <a href="#intake-terminal"
+                  class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-primary text-black font-body-md text-sm font-bold hover:bg-[#ff8533] hover:shadow-[0_8px_25px_rgba(255,105,0,0.35)] transition-all">
+                  <span>Explore Architecture</span>
+                  <span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+            <!-- Right Illustration -->
+            <div
+              class="lg:col-span-5 flex items-center justify-center p-6 bg-black/40 rounded-2xl border border-white/10">
+              <svg class="w-full max-w-[340px] h-auto drop-shadow-xl" viewBox="0 0 400 300" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="50" y="30" width="300" height="240" rx="16" fill="#111217" stroke="#33353d" stroke-width="2">
+                </rect>
+                <path d="M50 70H350" stroke="#262830" stroke-width="2"></path>
+                <circle cx="75" cy="50" r="5" fill="#ff5f56"></circle>
+                <circle cx="95" cy="50" r="5" fill="#ffbd2e"></circle>
+                <circle cx="115" cy="50" r="5" fill="#27c93f"></circle>
+                <!-- Code blocks / modules -->
+                <rect x="75" y="90" width="140" height="12" rx="4" fill="#ff6900" opacity="0.8"></rect>
+                <rect x="75" y="115" width="210" height="10" rx="3" fill="#3a3c46"></rect>
+                <rect x="75" y="135" width="180" height="10" rx="3" fill="#282a33"></rect>
+                <rect x="100" y="155" width="150" height="10" rx="3" fill="#ff6900" opacity="0.4"></rect>
+                <rect x="100" y="175" width="190" height="10" rx="3" fill="#282a33"></rect>
+                <!-- Isometric badge -->
+                <g transform="translate(230, 160)">
+                  <polygon points="50,10 90,30 50,50 10,30" fill="#ff6900" opacity="0.3" stroke="#ff6900"
+                    stroke-width="1.5"></polygon>
+                  <polygon points="10,30 50,50 50,75 10,55" fill="#cc5400"></polygon>
+                  <polygon points="90,30 50,50 50,75 90,55" fill="#ff7a1a"></polygon>
+                </g>
+                <rect x="75" y="225" width="120" height="24" rx="6" fill="#ff6900"></rect>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: Cloud Infrastructure & SRE (Crisp Light Cream from Reference Image) -->
+        <div
+          class="sticky top-[125px] z-20 w-full bg-[#f6f4ee] text-[#141416] rounded-[32px] p-8 sm:p-12 shadow-[0_30px_70px_rgba(0,0,0,0.85)] border border-white/60 transition-all duration-300">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <!-- Left Content -->
+            <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+              <div class="flex items-center gap-3">
+                <span
+                  class="px-3 py-1 rounded-full bg-[#e7e4dc] font-label-mono-sm text-xs text-[#222222] font-bold tracking-wider">02
+                  // CLOUD INFRASTRUCTURE</span>
+                <span class="font-label-mono-sm text-xs text-[#666666]">HOSTING &amp; BEHEER</span>
+              </div>
+              <div>
+                <h3 class="font-display-xl font-black text-3xl sm:text-5xl text-[#111113] tracking-tight mb-4">
+                  Cloud &amp; Autonomous SRE
+                </h3>
+                <p class="font-body-lg text-[#444448] text-base sm:text-lg leading-relaxed max-w-xl font-normal">
+                  Je site draait op geavanceerde cloud servers, met zero-downtime updates, geautomatiseerde back-ups en
+                  end-to-end SSL. 24/7 realtime zicht op bereikbaarheid en telemetry.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span
+                  class="px-4 py-1.5 rounded-full bg-[#e4e1d7] font-label-mono-sm text-xs text-[#2c2d30] font-medium">Multi-Cloud
+                  Clusters</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-[#e4e1d7] font-label-mono-sm text-xs text-[#2c2d30] font-medium">Zero-Downtime
+                  CI/CD</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-[#e4e1d7] font-label-mono-sm text-xs text-[#2c2d30] font-medium">Automated
+                  Backups</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-[#e4e1d7] font-label-mono-sm text-xs text-[#2c2d30] font-medium">99.999%
+                  SLA</span>
+              </div>
+              <div class="pt-4">
+                <a href="#intake-terminal"
+                  class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#ff5500] hover:bg-[#e04b00] text-white font-body-md text-sm font-bold shadow-[0_8px_25px_rgba(255,85,0,0.35)] transition-all">
+                  <span>Initiate Infrastructure</span>
+                  <span
+                    class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center font-bold text-xs ml-1">→</span>
+                </a>
+              </div>
+            </div>
+            <!-- Right Illustration: Isometric Server Architecture directly replica of Reference Image -->
+            <div class="lg:col-span-5 flex items-center justify-center p-6 bg-[#ebe8df] rounded-3xl">
+              <svg class="w-full max-w-[340px] h-auto drop-shadow-md" viewBox="0 0 320 240" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- Base motherboard platform -->
+                <polygon points="160,20 295,85 160,195 25,120" fill="#d9d5cb" stroke="#4a4c52" stroke-width="2">
+                </polygon>
+                <polygon points="25,120 160,195 160,205 25,130" fill="#b8b3a7" stroke="#4a4c52" stroke-width="1.5">
+                </polygon>
+                <polygon points="295,85 160,195 160,205 295,95" fill="#9d988c" stroke="#4a4c52" stroke-width="1.5">
+                </polygon>
+                <!-- Circuit traces -->
+                <path d="M110 80 L145 95 L145 125 L175 140" stroke="#ff5500" stroke-width="2" stroke-dasharray="4,3">
+                </path>
+                <path d="M90 100 L120 115" stroke="#ff5500" stroke-width="2"></path>
+                <!-- CPU Chip -->
+                <polygon points="75,70 105,85 85,105 55,90" fill="#61636c" stroke="#33353b" stroke-width="1.5">
+                </polygon>
+                <polygon points="55,90 85,105 85,112 55,97" fill="#42444a"></polygon>
+                <polygon points="105,85 85,105 85,112 105,92" fill="#2f3136"></polygon>
+                <!-- Isometric memory modules / microchips -->
+                <g transform="translate(50, 10)">
+                  <polygon points="95,80 115,90 100,102 80,92" fill="#a8aab3" stroke="#3c3e44" stroke-width="1.2">
+                  </polygon>
+                  <polygon points="115,90 135,100 120,112 100,102" fill="#a8aab3" stroke="#3c3e44" stroke-width="1.2">
+                  </polygon>
+                  <polygon points="135,100 155,110 140,122 120,112" fill="#a8aab3" stroke="#3c3e44" stroke-width="1.2">
+                  </polygon>
+                  <polygon points="115,115 135,125 120,137 100,127" fill="#8c8e96" stroke="#3c3e44" stroke-width="1.2">
+                  </polygon>
+                  <polygon points="135,125 155,135 140,147 120,137" fill="#8c8e96" stroke="#3c3e44" stroke-width="1.2">
+                  </polygon>
+                </g>
+                <!-- Server Rack Towers (Top Right) -->
+                <g transform="translate(210, 45)">
+                  <!-- Server blade 1 -->
+                  <polygon points="20,0 35,7 35,45 20,38" fill="#5c5f69" stroke="#313338" stroke-width="1.5"></polygon>
+                  <polygon points="35,7 48,0 48,38 35,45" fill="#3f4147" stroke="#313338" stroke-width="1.5"></polygon>
+                  <polygon points="20,0 35,7 48,0 33,-7" fill="#828591" stroke="#313338" stroke-width="1.5"></polygon>
+                  <!-- Server blade 2 -->
+                  <polygon points="36,-8 51,-1 51,37 36,30" fill="#5c5f69" stroke="#313338" stroke-width="1.5">
+                  </polygon>
+                  <polygon points="51,-1 64,-8 64,30 51,37" fill="#3f4147" stroke="#313338" stroke-width="1.5">
+                  </polygon>
+                  <polygon points="36,-8 51,-1 64,-8 49,-15" fill="#828591" stroke="#313338" stroke-width="1.5">
+                  </polygon>
+                  <!-- Server blade 3 -->
+                  <polygon points="52,-16 67,-9 67,29 52,22" fill="#5c5f69" stroke="#313338" stroke-width="1.5">
+                  </polygon>
+                  <polygon points="67,-9 80,-16 80,22 67,29" fill="#3f4147" stroke="#313338" stroke-width="1.5">
+                  </polygon>
+                  <polygon points="52,-16 67,-9 80,-16 65,-23" fill="#828591" stroke="#313338" stroke-width="1.5">
+                  </polygon>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: AI Agents & Automation (Vibrant Warm Burnt Orange from Reference Image) -->
+        <div
+          class="sticky top-[150px] z-30 w-full bg-[#e8590c] text-white rounded-[32px] p-8 sm:p-12 shadow-[0_35px_80px_rgba(0,0,0,0.9)] border border-white/20 transition-all duration-300">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <!-- Left Content -->
+            <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+              <div class="flex items-center gap-3">
+                <span
+                  class="px-3 py-1 rounded-full bg-black/20 font-label-mono-sm text-xs text-white font-bold tracking-wider">03
+                  // INTELLIGENCE</span>
+                <span class="font-label-mono-sm text-xs text-white/80">AUTONOMOUS CORE</span>
+              </div>
+              <div>
+                <h3 class="font-display-xl font-black text-3xl sm:text-5xl text-white tracking-tight mb-4">
+                  AI Agents &amp; <span class="text-[#111216]">Automation</span>
+                </h3>
+                <p class="font-body-lg text-white/90 text-base sm:text-lg leading-relaxed max-w-xl font-normal">
+                  Deploy intelligent chatbots, cognitive agents, and autonomous self-healing workflows that execute
+                  complex business actions around the clock.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/25 text-white font-label-mono-sm text-xs font-medium">Autonomous
+                  Workflows</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/25 text-white font-label-mono-sm text-xs font-medium">Custom
+                  LLMs</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/25 text-white font-label-mono-sm text-xs font-medium">Neural
+                  Search</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/25 text-white font-label-mono-sm text-xs font-medium">Real-Time
+                  Telemetry</span>
+              </div>
+              <div class="pt-4">
+                <a href="#intake-terminal"
+                  class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#111216] hover:bg-black text-white font-body-md text-sm font-bold shadow-xl transition-all">
+                  <span>Deploy Intelligence</span>
+                  <span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+            <!-- Right Illustration: Neural Network Isometric Core -->
+            <div
+              class="lg:col-span-5 flex items-center justify-center p-6 bg-black/20 rounded-3xl border border-white/10">
+              <svg class="w-full max-w-[340px] h-auto drop-shadow-xl" viewBox="0 0 320 240" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="160" cy="120" r="80" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"
+                  stroke-dasharray="6,6"></circle>
+                <circle cx="160" cy="120" r="50" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.35)"
+                  stroke-width="2"></circle>
+                <!-- Core Sphere Nodes -->
+                <circle cx="160" cy="120" r="16" fill="#ffffff"></circle>
+                <!-- Outer Orbit Nodes -->
+                <g stroke="#ffffff" stroke-width="2">
+                  <line x1="160" y1="120" x2="90" y2="70"></line>
+                  <line x1="160" y1="120" x2="230" y2="70"></line>
+                  <line x1="160" y1="120" x2="80" y2="160"></line>
+                  <line x1="160" y1="120" x2="240" y2="160"></line>
+                  <line x1="160" y1="120" x2="160" y2="40"></line>
+                  <line x1="160" y1="120" x2="160" y2="200"></line>
+                </g>
+                <circle cx="90" cy="70" r="10" fill="#111216" stroke="#ffffff" stroke-width="2.5"></circle>
+                <circle cx="230" cy="70" r="10" fill="#111216" stroke="#ffffff" stroke-width="2.5"></circle>
+                <circle cx="80" cy="160" r="10" fill="#111216" stroke="#ffffff" stroke-width="2.5"></circle>
+                <circle cx="240" cy="160" r="10" fill="#111216" stroke="#ffffff" stroke-width="2.5"></circle>
+                <circle cx="160" cy="40" r="8" fill="#ffffff"></circle>
+                <circle cx="160" cy="200" r="8" fill="#ffffff"></circle>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: Algorithmic Growth & Scaling (Deep Rich Charcoal / Black) -->
+        <div
+          class="sticky top-[175px] z-40 w-full bg-[#0e0e11] text-white rounded-[32px] p-8 sm:p-12 shadow-[0_40px_90px_rgba(0,0,0,0.95)] border border-white/10 transition-all duration-300">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <!-- Left Content -->
+            <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+              <div class="flex items-center gap-3">
+                <span
+                  class="px-3 py-1 rounded-full bg-white/10 font-label-mono-sm text-xs text-primary font-bold tracking-wider">04
+                  // CONVERSION &amp; SCALE</span>
+                <span class="font-label-mono-sm text-xs text-white/50">MARKET ENGINES</span>
+              </div>
+              <div>
+                <h3 class="font-display-xl font-black text-3xl sm:text-5xl text-white tracking-tight mb-4">
+                  Algorithmic Growth &amp; <span class="text-primary text-[#ff6900]">Scaling</span>
+                </h3>
+                <p class="font-body-lg text-secondary text-base sm:text-lg leading-relaxed max-w-xl font-normal">
+                  Precision Meta &amp; Google Ads architecture backed by custom conversion engineering, automated bid
+                  optimization, and granular customer lifecycle instrumentation.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/50 border border-white/10 font-label-mono-sm text-xs text-white/80">Algorithmic
+                  Reach</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/50 border border-white/10 font-label-mono-sm text-xs text-white/80">Precision
+                  Attribution</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/50 border border-white/10 font-label-mono-sm text-xs text-white/80">Full
+                  Funnel CRO</span>
+                <span
+                  class="px-4 py-1.5 rounded-full bg-black/50 border border-white/10 font-label-mono-sm text-xs text-white/80">Enterprise
+                  Retention</span>
+              </div>
+              <div class="pt-4">
+                <a href="#intake-terminal"
+                  class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-primary text-black font-body-md text-sm font-bold hover:bg-[#ff8533] hover:shadow-[0_8px_25px_rgba(255,105,0,0.35)] transition-all">
+                  <span>Accelerate Growth</span>
+                  <span class="material-symbols-outlined text-sm font-bold">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+            <!-- Right Illustration: Growth Telemetry Charts -->
+            <div
+              class="lg:col-span-5 flex items-center justify-center p-6 bg-black/40 rounded-2xl border border-white/10">
+              <svg class="w-full max-w-[340px] h-auto drop-shadow-xl" viewBox="0 0 320 240" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="30" y="30" width="260" height="180" rx="14" fill="#13141a" stroke="#262832" stroke-width="1.5">
+                </rect>
+                <!-- Grid lines -->
+                <line x1="30" y1="80" x2="290" y2="80" stroke="#1c1e26" stroke-width="1"></line>
+                <line x1="30" y1="130" x2="290" y2="130" stroke="#1c1e26" stroke-width="1"></line>
+                <line x1="30" y1="170" x2="290" y2="170" stroke="#1c1e26" stroke-width="1"></line>
+                <!-- Exponential growth graph curve -->
+                <path d="M50 170 Q120 160 170 110 T270 55" fill="none" stroke="#ff6900" stroke-width="4"
+                  stroke-linecap="round"></path>
+                <path d="M50 170 Q120 160 170 110 T270 55 L270 190 L50 190 Z" fill="url(#growthGrad)" opacity="0.2">
+                </path>
+                <defs>
+                  <linearGradient id="growthGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ff6900"></stop>
+                    <stop offset="100%" stop-color="#ff6900" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
+                <circle cx="170" cy="110" r="6" fill="#ff6900" stroke="#ffffff" stroke-width="2"></circle>
+                <circle cx="270" cy="55" r="7" fill="#ff6900" stroke="#ffffff" stroke-width="2.5"></circle>
+                <!-- Tooltip badge -->
+                <g transform="translate(195, 30)">
+                  <rect width="70" height="22" rx="6" fill="#000000" stroke="#ff6900" stroke-width="1"></rect>
+                  <text x="35" y="15" fill="#ff6900" font-family="monospace" font-size="10" font-weight="bold"
+                    text-anchor="middle">+342% ROAS</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============================================================ -->
+    <!-- 6. EDITORIAL MANIFESTO SECTION                               -->
+    <!-- ============================================================ -->
+    <section class="relative z-20 w-full py-28 bg-[#09090b] border-t border-b border-white/10" id="manifesto">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <span class="font-label-mono-sm text-xs uppercase tracking-[0.3em] text-primary block mb-6 font-bold">
+          [ THE ABEN ENGINEERING MANIFESTO ]
+        </span>
+        <blockquote
+          class="font-display-xl font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tighter text-white leading-tight mb-16">
+          "GOOD IDEAS DESERVE UNCOMPROMISING EXECUTION.<br>
+          <span class="text-primary">CONVENTION IS COWARDICE."</span>
+        </blockquote>
+        <!-- 3 Governance Commitments -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          <div class="p-6 bg-white/[0.02] border border-white/10">
+            <div class="font-label-code text-xs text-primary font-bold mb-2">01 // ZERO OUTSOURCING</div>
+            <p class="font-body-md text-sm text-secondary leading-relaxed">
+              Every single line of code, design layout, and model checkpoint is formulated by our internal senior core.
+              No white-labeled third parties.
+            </p>
+          </div>
+          <div class="p-6 bg-white/[0.02] border border-white/10">
+            <div class="font-label-code text-xs text-primary font-bold mb-2">02 // STRICT 100% NDA</div>
+            <p class="font-body-md text-sm text-secondary leading-relaxed">
+              Complete source-code escrow and binding non-disclosure agreements prior to architectural intake. Your IP
+              remains yours entirely.
+            </p>
+          </div>
+          <div class="p-6 bg-white/[0.02] border border-white/10">
+            <div class="font-label-code text-xs text-primary font-bold mb-2">03 // HARD SLA GUARANTEE</div>
+            <p class="font-body-md text-sm text-secondary leading-relaxed">
+              Sprint-locked velocity deliverables with mathematical uptime guarantees and production-ready code from Day
+              1.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============================================================ -->
+    <!-- 7. REAL-TIME PROJECT INTAKE TERMINAL                         -->
+    <!-- ============================================================ -->
+    <section class="relative z-20 w-full max-w-7xl mx-auto px-6 py-32" id="intake-terminal">
+      <div class="bg-[#0c0c0f] border-2 border-white/10 shadow-2xl p-8 md:p-12">
+        <!-- Terminal Header -->
+        <div
+          class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-white/10 pb-6 mb-8 gap-4">
+          <div class="flex items-center gap-3">
+            <div class="flex gap-1.5">
+              <span class="w-3 h-3 rounded-full bg-red-600 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-primary inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-green-600 inline-block"></span>
+            </div>
+            <span class="font-label-mono-sm text-xs text-secondary tracking-widest uppercase">
+              DISPATCH TERMINAL // PROJECT INTAKE PROTOCOL
+            </span>
+          </div>
+          <div class="font-label-mono-sm text-xs text-primary font-bold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            BUFFER STATUS: READY FOR TRANSMISSION
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <!-- Left Telemetry Column -->
+          <div class="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <h3 class="font-headline-lg font-black text-3xl uppercase text-white mb-4">
+                COMMISSION <span class="text-primary">ENGINEERING.</span>
+              </h3>
+              <p class="font-body-md text-secondary leading-relaxed mb-8">
+                Submit your scope. Our principal architects analyze requirements within 24 hours, prepare architecture
+                recommendations, and lock project milestones.
+              </p>
+              <div class="space-y-3 font-label-mono-sm text-xs text-secondary">
+                <div class="p-3 bg-black/40 border-l-2 border-primary">
+                  DIRECT ACCESS TO PRINCIPAL ARCHITECTS
+                </div>
+                <div class="p-3 bg-black/40 border-l-2 border-primary">
+                  14-DAY FUNCTIONAL PROTOTYPE DELIVERY
+                </div>
+                <div class="p-3 bg-black/40 border-l-2 border-primary">
+                  CONFIDENTIAL PROTOCOL // SHA-256 ESCROW
+                </div>
+              </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-white/10 flex flex-col gap-2">
+              <span class="font-label-mono-sm text-xs text-secondary/60 block uppercase mb-1">DIRECT ROUTE</span>
+              <a class="font-headline-md text-2xl text-primary hover:text-white transition-colors font-bold"
+                href="mailto:abentechnologies@gmail.com">
+                ABENTECHNOLOGIES@GMAIL.COM
+              </a>
+              <a class="font-label-mono-sm text-xs text-[#0a66c2] hover:text-white transition-colors inline-flex items-center gap-1.5 pt-1"
+                href="https://www.linkedin.com/in/aben-technologies-643751450?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                <span>CONNECT ON LINKEDIN →</span>
+              </a>
+            </div>
+          </div>
+          <!-- Right Form Fields -->
+          <div class="lg:col-span-7 bg-[#141418] p-8 border border-white/10">
+            <form class="space-y-6" id="project-form" onsubmit="handleProjectFormSubmit(event)">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block font-label-code text-xs uppercase text-secondary mb-2" for="project-org">&gt;
+                    ORGANISATION / NAME <span class="text-[#ff6900]">*</span></label>
+                  <input
+                    class="w-full bg-[#08080a] border border-white/15 p-3 text-white font-body-md focus:border-primary focus:outline-none transition-colors"
+                    id="project-org" placeholder="Acme Systems Ltd." required="" type="text">
+                </div>
+                <div>
+                  <label class="block font-label-code text-xs uppercase text-secondary mb-2" for="project-email">&gt;
+                    CORPORATE EMAIL <span class="text-[#ff6900]">*</span></label>
+                  <input
+                    class="w-full bg-[#08080a] border border-white/15 p-3 text-white font-body-md focus:border-primary focus:outline-none transition-colors"
+                    id="project-email" placeholder="architect@acme.com" required="" type="email">
+                </div>
+              </div>
+              <div>
+                <label class="block font-label-code text-xs uppercase text-secondary mb-2" for="project-phone">&gt;
+                  CONTACT TELEPHONE <span class="text-white/40 font-normal">(OPTIONAL)</span></label>
+                <input
+                  class="w-full bg-[#08080a] border border-white/15 p-3 text-white font-body-md focus:border-primary focus:outline-none transition-colors"
+                  id="project-phone" placeholder="+1 (555) 000-0000" type="tel">
+              </div>
+              <div>
+                <label class="block font-label-code text-xs uppercase text-secondary mb-2">&gt; SELECT WORKFLOW
+                  DOMAINS</label>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 font-label-mono-sm text-xs"
+                  id="project-domains-group">
+                  <label
+                    class="p-2.5 bg-black/50 border border-white/10 flex items-center gap-2 cursor-pointer hover:border-primary transition-colors">
+                    <input checked="" class="accent-[#ff6900]" name="project-domain" type="checkbox"
+                      value="AI Automation &amp; Chatbots">
+                    <span>AI &amp; AGENTS</span>
+                  </label>
+                  <label
+                    class="p-2.5 bg-black/50 border border-white/10 flex items-center gap-2 cursor-pointer hover:border-primary transition-colors">
+                    <input checked="" class="accent-[#ff6900]" name="project-domain" type="checkbox"
+                      value="Website &amp; Web App Dev">
+                    <span>WEB &amp; APP</span>
+                  </label>
+                  <label
+                    class="p-2.5 bg-black/50 border border-white/10 flex items-center gap-2 cursor-pointer hover:border-primary transition-colors">
+                    <input class="accent-[#ff6900]" name="project-domain" type="checkbox" value="iOS &amp; Android Apps">
+                    <span>MOBILE</span>
+                  </label>
+                  <label
+                    class="p-2.5 bg-black/50 border border-white/10 flex items-center gap-2 cursor-pointer hover:border-primary transition-colors">
+                    <input class="accent-[#ff6900]" name="project-domain" type="checkbox"
+                      value="SaaS &amp; Custom Software">
+                    <span>SAAS / ENG</span>
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label class="block font-label-code text-xs uppercase text-secondary mb-2" for="project-scope">&gt;
+                  PROJECT SCOPE &amp; REQUIREMENTS <span class="text-[#ff6900]">*</span></label>
+                <textarea
+                  class="w-full bg-[#08080a] border border-white/15 p-3 text-white font-body-md focus:border-primary focus:outline-none transition-colors"
+                  id="project-scope"
+                  placeholder="Detail your technical challenge, estimated throughput, timeline expectations..."
+                  required="" rows="4"></textarea>
+              </div>
+              <div>
+                <label class="block font-label-code text-xs uppercase text-secondary mb-2">&gt; BUDGET
+                  ALLOCATION</label>
+                <div class="grid grid-cols-3 gap-2 font-label-mono-sm text-xs text-center"
+                  id="project-budget-group">
+                  <label
+                    class="p-3 bg-black/50 border border-white/10 cursor-pointer hover:border-primary transition-colors">
+                    <input class="hidden peer" name="project-budget" type="radio" value="$25K — $50K">
+                    <span class="block peer-checked:text-primary peer-checked:font-bold">$25K — $50K</span>
+                  </label>
+                  <label
+                    class="p-3 bg-black/50 border border-white/10 cursor-pointer hover:border-primary transition-colors">
+                    <input checked="" class="hidden peer" name="project-budget" type="radio"
+                      value="$50K — $150K">
+                    <span class="block peer-checked:text-primary peer-checked:font-bold">$50K — $150K</span>
+                  </label>
+                  <label
+                    class="p-3 bg-black/50 border border-white/10 cursor-pointer hover:border-primary transition-colors">
+                    <input class="hidden peer" name="project-budget" type="radio" value="$150K+ SCALE">
+                    <span class="block peer-checked:text-primary peer-checked:font-bold">$150K+ SCALE</span>
+                  </label>
+                </div>
+              </div>
+              <button
+                class="w-full py-4 bg-primary text-black font-label-code text-xs tracking-widest uppercase font-bold hover:bg-white transition-all shadow-[0_0_20px_rgba(255,105,0,0.3)] flex items-center justify-center gap-2 cursor-pointer"
+                id="project-submit-btn" type="submit">
+                <span class="w-2 h-2 bg-black inline-block" id="project-btn-dot"></span>
+                <span id="project-btn-text">TRANSMIT DISPATCH PACKET</span>
+                <div class="hidden w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"
+                  id="project-btn-spinner"></div>
+              </button>
+              <div class="hidden p-4 font-label-mono-sm text-xs transition-all" id="terminal-feedback"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ============================================================ -->
+    <!-- 8. SIGNATURE ABEN FOOTER WITH 18 KINETIC STARBURSTS          -->
+    <!-- ============================================================ -->
+    <section class="relative z-20 w-full bg-[#050505] border-t-2 border-primary pt-24 pb-12 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Big Final Typography Statement -->
+        <div class="mb-16">
+          <span class="font-label-code text-xs text-primary uppercase tracking-widest block mb-3 font-bold">
+            // FINAL INVOCATION
+          </span>
+          <h2
+            class="font-display-xl font-black text-4xl sm:text-6xl md:text-7xl uppercase text-white tracking-tighter leading-none">
+            SAY HELLO, BRING THE IDEA.<br>
+            <span class="text-primary">WE’LL BUILD IT.</span>
+          </h2>
+        </div>
+        <!-- 18 Calibrated Starburst Spheres & Nodes -->
+        <div
+          class="w-full py-8 border-y border-white/10 flex flex-wrap items-center justify-between gap-4 select-none my-12">
+          <div class="star-unit text-primary hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="36" viewBox="0 0 40 40" width="36">
+              <path d="M20 0 L20 40 M0 20 L40 20 M6 6 L34 34 M6 34 L34 6" stroke="currentColor" stroke-width="2.5">
+              </path>
+            </svg>
+          </div>
+          <div class="star-unit text-white/80 hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="32" viewBox="0 0 40 40" width="32">
+              <path d="M20 0 L20 40 M0 20 L40 20 M6 6 L34 34 M6 34 L6 34" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+          </div>
+          <div
+            class="star-unit text-primary hover:rotate-90 transition-transform duration-500 cursor-pointer animate-spin"
+            style="animation-duration: 14s;">
+            <svg height="40" viewBox="0 0 40 40" width="40">
+              <circle cx="20" cy="20" fill="none" r="14" stroke="currentColor" stroke-dasharray="4,4"
+                stroke-width="1.5"></circle>
+              <path d="M20 0 L20 40 M0 20 L40 20" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+          </div>
+          <div class="star-unit text-secondary hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="34" viewBox="0 0 40 40" width="34">
+              <path d="M20 0 L20 40 M0 20 L40 20 M6 6 L34 34 M6 34 L34 6" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+          </div>
+          <div class="star-unit text-primary hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="38" viewBox="0 0 40 40" width="38">
+              <polygon fill="currentColor" points="20,0 25,15 40,20 25,25 20,40 15,25 0,20 15,15"></polygon>
+            </svg>
+          </div>
+          <div class="star-unit text-white hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="30" viewBox="0 0 40 40" width="30">
+              <path d="M20 0 L20 40 M0 20 L40 20 M6 6 L34 34" stroke="currentColor" stroke-width="2.5"></path>
+            </svg>
+          </div>
+          <div class="star-unit text-primary hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="40" viewBox="0 0 40 40" width="40">
+              <circle cx="20" cy="20" fill="none" r="13" stroke="currentColor" stroke-width="2"></circle>
+              <path d="M20 2 L20 38 M2 20 L38 20" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+          </div>
+          <div class="star-unit text-secondary hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="34" viewBox="0 0 40 40" width="34">
+              <path d="M20 0 L20 40 M0 20 L40 20 M6 6 L34 34 M6 34 L34 6" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+          </div>
+          <div
+            class="star-unit text-primary hover:rotate-90 transition-transform duration-500 cursor-pointer animate-pulse">
+            <svg height="36" viewBox="0 0 40 40" width="36">
+              <polygon fill="none" points="20,2 24,14 38,20 24,26 20,38 16,26 2,20 16,14" stroke="currentColor"
+                stroke-width="2"></polygon>
+            </svg>
+          </div>
+          <div class="star-unit text-white hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="30" viewBox="0 0 40 40" width="30">
+              <path d="M20 0 L20 40 M0 20 L40 20 M8 8 L32 32 M8 32 L32 8" stroke="currentColor" stroke-width="2.5">
+              </path>
+            </svg>
+          </div>
+          <div class="star-unit text-primary hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="36" viewBox="0 0 40 40" width="36">
+              <circle cx="20" cy="20" fill="currentColor" r="7"></circle>
+              <path d="M20 0 L20 40 M0 20 L40 20" stroke="currentColor" stroke-width="1.5"></path>
+            </svg>
+          </div>
+          <div class="star-unit text-primary hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="38" viewBox="0 0 40 40" width="38">
+              <polygon fill="currentColor" points="20,0 26,14 40,20 26,26 20,40 14,26 0,20 14,14"></polygon>
+            </svg>
+          </div>
+          <div class="star-unit text-secondary hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="32" viewBox="0 0 40 40" width="32">
+              <path d="M20 0 L20 40 M0 20 L40 20" stroke="currentColor" stroke-width="2.5"></path>
+            </svg>
+          </div>
+          <div class="star-unit text-primary hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="40" viewBox="0 0 40 40" width="40">
+              <circle cx="20" cy="20" fill="none" r="16" stroke="currentColor" stroke-width="1.5"></circle>
+              <path d="M6 6 L34 34 M6 34 L34 6" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+          </div>
+          <div class="star-unit text-white hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="34" viewBox="0 0 40 40" width="34">
+              <polygon fill="currentColor" points="20,4 23,16 36,20 23,24 20,36 17,24 4,20 17,16"></polygon>
+            </svg>
+          </div>
+          <div class="star-unit text-primary hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="30" viewBox="0 0 40 40" width="30">
+              <path d="M20 0 L20 40 M0 20 L40 20 M6 6 L34 34 M6 34 L34 6" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+          </div>
+          <div class="star-unit text-secondary hover:rotate-90 transition-transform duration-500 cursor-pointer">
+            <svg height="36" viewBox="0 0 40 40" width="36">
+              <circle cx="20" cy="20" fill="none" r="11" stroke="currentColor" stroke-width="2"></circle>
+              <path d="M20 0 L20 40 M0 20 L40 20" stroke="currentColor" stroke-width="1.5"></path>
+            </svg>
+          </div>
+          <div
+            class="star-unit text-primary hover:rotate-90 transition-transform duration-500 cursor-pointer animate-spin"
+            style="animation-duration: 9s;">
+            <svg height="40" viewBox="0 0 40 40" width="40">
+              <polygon fill="none" points="20,0 25,15 40,20 25,25 20,40 15,25 0,20 15,15" stroke="currentColor"
+                stroke-width="2"></polygon>
+            </svg>
+          </div>
+        </div>
+        <!-- Telemetry Bottom Bar -->
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 font-label-mono-sm text-xs text-secondary">
+          <div>NODE ID: ABEN-PRODUCTION // SHA-256 VALIDATED</div>
+          <div class="flex items-center gap-6">
+            <a class="text-primary hover:underline font-bold" href="mailto:abentechnologies@gmail.com">ABENTECHNOLOGIES@GMAIL.COM</a>
+            <a class="text-white/70 hover:text-primary transition-colors flex items-center gap-1.5"
+              href="https://www.linkedin.com/in/aben-technologies-643751450?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LINKEDIN</span>
+            </a>
+            <span>© 2025 ABEN TECHNOLOGIES INC.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- ============================================================ -->
+  <!-- 9. STUDIO MOTION ORCHESTRATION SCRIPT                        -->
+  <!-- ============================================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const letters = document.querySelectorAll('.reveal-letter');
+      const curtain = document.getElementById('cinematic-curtain');
+      const revealMeta = document.getElementById('reveal-meta');
+      const revealTagline = document.getElementById('reveal-tagline');
+      const skipBtn = document.getElementById('skip-reveal-btn');
+      const mainNav = document.getElementById('main-nav');
+      const collageGrid = document.getElementById('collage-grid');
+
+      // 1. Initial State for Cinematic Letters:
+      letters.forEach((el, index) => {
+        const zOffset = -180 - (index % 4) * 40;
+        const yOffset = (index % 2 === 0 ? -30 : 30);
+        const rotY = (index % 2 === 0 ? -12 : 12);
+
+        gsap.set(el, {
+          opacity: 0,
+          z: zOffset,
+          y: yOffset,
+          rotationY: rotY,
+          rotationX: 8,
+          filter: 'blur(8px)'
+        });
+      });
+
+      // Master Timeline for Brand Reveal
+      const masterTL = gsap.timeline({
+        onComplete: finishCinematicReveal
+      });
+
+      // Reveal Top Meta Badge
+      masterTL.to(revealMeta, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power3.out'
+      }, 0.2);
+
+      // Show Skip button smoothly
+      masterTL.to(skipBtn, {
+        opacity: 0.7,
+        duration: 0.4
+      }, 0.4);
+
+      // Smooth Organic Convergence of Letters into Center
+      masterTL.to(letters, {
+        opacity: 1,
+        z: 0,
+        y: 0,
+        rotationY: 0,
+        rotationX: 0,
+        filter: 'blur(0px)',
+        duration: 1.35,
+        stagger: {
+          each: 0.045,
+          from: 'center'
+        },
+        ease: 'power4.out'
+      }, 0.35);
+
+      // Back-glow lock pulse on letters
+      masterTL.to(letters, {
+        textShadow: '0 0 30px rgba(255, 105, 0, 0.45)',
+        duration: 0.5,
+        ease: 'power2.out'
+      }, '-=0.4');
+
+      // Subtitle Reveal
+      masterTL.to(revealTagline, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power3.out'
+      }, '-=0.2');
+
+      // Pause to let viewer absorb brand lock
+      masterTL.to({}, { duration: 0.8 });
+
+      // Seamlessly transition into hero
+      masterTL.to(curtain, {
+        opacity: 0,
+        duration: 0.85,
+        ease: 'power2.inOut',
+        pointerEvents: 'none'
+      });
+
+      function finishCinematicReveal() {
+        if (curtain) {
+          curtain.style.display = 'none';
+        }
+        // Minimal Top Navbar glides down smoothly after brand reveal
+        if (mainNav) {
+          mainNav.classList.remove('-translate-y-6', 'opacity-0', 'pointer-events-none');
+          mainNav.classList.add('translate-y-0', 'opacity-100');
+        }
+      }
+
+      // Skip action for immediate access
+      if (skipBtn) {
+        skipBtn.addEventListener('click', () => {
+          masterTL.progress(1);
+          finishCinematicReveal();
+        });
+      }
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          masterTL.progress(1);
+          finishCinematicReveal();
+        }
+      });
+
+      // Subtle Interactive 3D Perspective Shift on Cursor Hover over Hero
+      const heroSection = document.getElementById('hero');
+      if (heroSection && collageGrid) {
+        heroSection.addEventListener('mousemove', (e) => {
+          const { innerWidth, innerHeight } = window;
+          const xRatio = (e.clientX / innerWidth) - 0.5;
+          const yRatio = (e.clientY / innerHeight) - 0.5;
+
+          const rotX = 24 + yRatio * -8;
+          const rotY = -8 + xRatio * 8;
+          const rotZ = 3 + xRatio * 2;
+
+          gsap.to(collageGrid, {
+            rotationX: rotX,
+            rotationY: rotY,
+            rotationZ: rotZ,
+            duration: 1.2,
+            ease: 'power2.out'
+          });
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+          gsap.to(collageGrid, {
+            rotationX: 24,
+            rotationY: -8,
+            rotationZ: 3,
+            duration: 1.5,
+            ease: 'power2.out'
+          });
+        });
+      }
+
+      // Scroll-Synchronized Reveal for Company Dossier Nodes
+      const dossierNodes = document.querySelectorAll('.dossier-node');
+      dossierNodes.forEach((node) => {
+        gsap.from(node, {
+          scrollTrigger: {
+            trigger: node,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          },
+          opacity: 0,
+          y: 40,
+          duration: 0.85,
+          ease: 'power3.out'
+        });
+      });
+
+      // Chain-Suspended Architectural Cards Tension Micro-Interactions
+      const suspendedCards = document.querySelectorAll('.chain-suspended-card');
+      suspendedCards.forEach(card => {
+        const chassis = card.querySelector('.card-chassis');
+        const chains = card.querySelectorAll('.heavy-chain-assembly');
+
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+
+          const tiltX = (y / rect.height) * -8;
+          const tiltY = (x / rect.width) * 8;
+
+          if (chassis) {
+            chassis.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(10px)`;
+          }
+
+          chains.forEach((chain, i) => {
+            const factor = i % 2 === 0 ? 0.3 : -0.3;
+            chain.style.transform = `translate(${x * factor * 0.15}px, ${y * 0.1}px)`;
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          if (chassis) {
+            chassis.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)`;
+          }
+          chains.forEach(chain => {
+            chain.style.transform = `translate(0px, 0px)`;
+          });
+        });
+      });
+
+      // Modal backdrop click & escape handlers
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          const m = document.getElementById('quick-nav-modal');
+          if (m && !m.classList.contains('hidden')) m.classList.add('hidden');
+        }
+      });
+      document.addEventListener('click', function (e) {
+        const modal = document.getElementById('quick-nav-modal');
+        const menuBtn = document.querySelector('button[aria-label="Toggle Navigation Menu"]');
+        if (modal && !modal.classList.contains('hidden')) {
+          if (!modal.contains(e.target) && (!menuBtn || !menuBtn.contains(e.target))) {
+            modal.classList.add('hidden');
+          }
+        }
+      });
+
+      // Smooth Scroll-Driven Progressive Stacking Animation for the Four Cards
+      const stackWrapper = document.getElementById('cards-stack-wrapper');
+      if (stackWrapper && typeof ScrollTrigger !== 'undefined') {
+        const cards = stackWrapper.querySelectorAll('.sticky');
+        cards.forEach((card, index) => {
+          if (index < cards.length - 1) {
+            const nextCard = cards[index + 1];
+            ScrollTrigger.create({
+              trigger: nextCard,
+              start: 'top 85%',
+              end: 'top 25%',
+              scrub: 0.6,
+              onUpdate: (self) => {
+                const scale = 1 - (self.progress * 0.035);
+                const brightness = 1 - (self.progress * 0.18);
+                gsap.to(card, {
+                  scale: scale,
+                  filter: `brightness(${brightness})`,
+                  duration: 0.1,
+                  overwrite: 'auto'
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+
+    // Handle Project Intake Terminal Form Submission
+    async function handleProjectFormSubmit(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      const form = document.getElementById('project-form');
+      const orgInput = document.getElementById('project-org');
+      const emailInput = document.getElementById('project-email');
+      const phoneInput = document.getElementById('project-phone');
+      const scopeInput = document.getElementById('project-scope');
+      const feedback = document.getElementById('terminal-feedback');
+      const submitBtn = document.getElementById('project-submit-btn');
+      const btnText = document.getElementById('project-btn-text');
+      const btnDot = document.getElementById('project-btn-dot');
+      const btnSpinner = document.getElementById('project-btn-spinner');
+
+      if (!orgInput || !emailInput || !scopeInput) return false;
+
+      // Validate inputs
+      if (!orgInput.value.trim()) {
+        orgInput.focus();
+        return false;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+        emailInput.focus();
+        return false;
+      }
+      if (!scopeInput.value.trim()) {
+        scopeInput.focus();
+        return false;
+      }
+
+      const checkedDomains = [];
+      document.querySelectorAll('#project-domains-group input[name="project-domain"]:checked').forEach(cb => {
+        checkedDomains.push(cb.value);
+      });
+
+      const checkedBudget = document.querySelector('input[name="project-budget"]:checked');
+      const budgetVal = checkedBudget ? checkedBudget.value : '$50K — $150K';
+
+      // UI Loading state
+      submitBtn.disabled = true;
+      btnText.textContent = 'DISPATCHING PACKET...';
+      btnDot.classList.add('hidden');
+      btnSpinner.classList.remove('hidden');
+      feedback.classList.add('hidden');
+
+      // Determine correct API endpoint URL
+      let apiUrl = '/api/contact';
+      if (window.location.protocol === 'file:' || (window.location.port !== '3000' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'))) {
+        apiUrl = 'http://localhost:3000/api/contact';
+      }
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fullName: orgInput.value.trim(),
+            workEmail: emailInput.value.trim(),
+            phone: phoneInput ? phoneInput.value.trim() : '',
+            services: checkedDomains.length > 0 ? checkedDomains : ['Full-Stack / AI Agents'],
+            budget: budgetVal,
+            timeline: 'Active Milestone Sprint',
+            projectDetails: scopeInput.value.trim(),
+            formType: 'Project Intake Terminal'
+          })
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        feedback.classList.remove('hidden');
+        if (response.ok && data.success) {
+          feedback.className = 'p-5 bg-[#0e0e12] border border-[#ff6900]/50 shadow-[0_0_30px_rgba(255,105,0,0.2)] text-white mt-4 transition-all duration-300';
+          feedback.innerHTML = `
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-7 h-7 rounded-full bg-[#ff6900]/20 border border-[#ff6900] flex items-center justify-center text-[#ff6900] font-bold text-sm shrink-0">✓</div>
+              <strong class="text-sm font-headline-md uppercase tracking-wider text-white">Your Inquiry Has Been Successfully Submitted!</strong>
+            </div>
+            <p class="text-white/80 font-body-md text-xs leading-relaxed ml-10">
+              Thank you for reaching out. We've received your inquiry and our team will get back to you shortly.
+            </p>
+          `;
+          if (form) form.reset();
+        } else {
+          feedback.className = 'p-4 bg-red-950/60 border-l-4 border-red-500 text-red-200 font-label-mono-sm text-xs mt-4';
+          feedback.innerHTML = `[ TRANSMISSION REJECTED ]: ${data.error || 'Server error encountered during transmission.'}`;
+        }
+      } catch (err) {
+        console.error('Project form dispatch error:', err);
+        feedback.classList.remove('hidden');
+        feedback.className = 'p-4 bg-red-950/60 border-l-4 border-red-500 text-red-200 font-label-mono-sm text-xs mt-4';
+        feedback.innerHTML = `[ NETWORK ERROR ]: UNABLE TO REACH DISPATCH GATEWAY. Please ensure the server is active ("npm start" on port 3000) or email us directly at <a href="mailto:abentechnologies@gmail.com" class="text-[#ff6900] underline">abentechnologies@gmail.com</a>.`;
+      } finally {
+        submitBtn.disabled = false;
+        btnText.textContent = 'TRANSMIT DISPATCH PACKET';
+        btnDot.classList.remove('hidden');
+        btnSpinner.classList.add('hidden');
+      }
+
+      return false;
+    }
+
+    // Attach listeners on DOM ready to guarantee Enter key never jumps or refreshes
+    document.addEventListener('DOMContentLoaded', () => {
+      const projectForm = document.getElementById('project-form');
+      if (projectForm) {
+        projectForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          handleProjectFormSubmit(e);
+        });
+
+        projectForm.querySelectorAll('input').forEach(input => {
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              e.stopPropagation();
+              handleProjectFormSubmit(e);
+            }
+          });
+        });
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

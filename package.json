@@ -1,0 +1,25 @@
+{
+  "name": "aben-technologies-website",
+  "version": "1.0.0",
+  "description": "ABEN Technologies website with Gmail SMTP enquiry integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test-smtp": "node scripts/test-smtp.js"
+  },
+  "keywords": [
+    "aben",
+    "technologies",
+    "nodemailer",
+    "gmail-smtp"
+  ],
+  "author": "ABEN Technologies",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemailer": "^6.10.0"
+  }
+}
