@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>404 // Page Not Found — ABEN Technologies</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Space+Mono:wght@400;700&amp;family=Syne:wght@700;800&amp;display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --font-display: 'Clash Display', 'Unbounded', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: #050505;
+      color: #f5f5f5;
+    }
+  </style>
+</head>
+
+<body class="bg-[#050505] text-[#f5f5f5] min-h-screen flex flex-col justify-between selection:bg-[#ff6900] selection:text-black">
+  <!-- Minimal Top Nav -->
+  <header class="w-full border-b border-white/10 px-6 py-4 flex items-center justify-between">
+    <a href="/" class="text-lg font-bold tracking-widest uppercase font-mono">
+      ABEN <span class="text-[#ff6900]">TECHNOLOGIES</span>
+    </a>
+    <nav class="flex items-center gap-6 text-xs font-mono uppercase tracking-wider text-neutral-400">
+      <a href="/about.html" class="hover:text-white transition-colors">About</a>
+      <a href="/services.html" class="hover:text-white transition-colors">Services</a>
+      <a href="/work.html" class="hover:text-white transition-colors">Work</a>
+      <a href="/contact.html" class="text-[#ff6900] hover:text-white transition-colors">Contact</a>
+    </nav>
+  </header>
+
+  <!-- 404 Hero Content -->
+  <main class="flex-1 flex flex-col items-center justify-center px-6 py-20 text-center">
+    <div class="inline-block px-3 py-1 bg-[#ff6900]/10 border border-[#ff6900]/40 text-[#ff6900] font-mono text-xs uppercase tracking-widest mb-6">
+      // ERROR_CODE :: 404_NOT_FOUND
+    </div>
+
+    <h1 class="text-7xl md:text-9xl font-black tracking-tighter text-white uppercase mb-4 font-mono">
+      404
+    </h1>
+
+    <p class="text-lg md:text-xl text-neutral-400 max-w-lg mb-8 font-mono leading-relaxed">
+      The requested route coordinate does not exist or has been shifted in the network topology.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="/"
+        class="px-8 py-3.5 bg-[#ff6900] text-black font-bold uppercase text-xs tracking-widest hover:bg-white transition-all shadow-[0_0_30px_rgba(255,105,0,0.3)]">
+        ← Return To Homepage
+      </a>
+      <a href="/contact.html"
+        class="px-8 py-3.5 bg-neutral-900 border border-white/20 text-white font-mono text-xs uppercase tracking-widest hover:border-[#ff6900] hover:text-[#ff6900] transition-all">
+        Contact Support
+      </a>
+    </div>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="w-full border-t border-white/10 px-6 py-4 text-center text-xs font-mono text-neutral-500">
+    © 2025 ABEN TECHNOLOGIES CORP. ALL RIGHTS RESERVED.
+  </footer>
+</body>
+
+</html>

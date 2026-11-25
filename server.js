@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fs = require('fs');
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
@@ -462,14 +463,27 @@ https://abentech.com
   }
 });
 
-// Fallback route for SPA / clean navigation
+// Clean navigation & direct URL access handler
 app.get('*', (req, res) => {
-  const file = req.path === '/' ? 'index.html' : req.path.replace(/^\//, '');
-  res.sendFile(path.join(__dirname, file), err => {
-    if (err) {
-      res.sendFile(path.join(__dirname, 'index.html'));
-    }
-  });
+  const reqPath = req.path === '/' ? 'index.html' : req.path.replace(/^\//, '');
+  let filePath = path.join(__dirname, reqPath);
+
+  // 1. Direct file match (e.g. static assets, images, or .html requested)
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+    return res.sendFile(filePath);
+  }
+
+  // 2. Clean URL without extension (e.g. /about -> about.html)
+  if (!path.extname(filePath) && fs.existsSync(filePath + '.html')) {
+    return res.sendFile(filePath + '.html');
+  }
+
+  // 3. Fallback to 404.html if route not found
+  const notFoundPage = path.join(__dirname, '404.html');
+  if (fs.existsSync(notFoundPage)) {
+    return res.status(404).sendFile(notFoundPage);
+  }
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => {

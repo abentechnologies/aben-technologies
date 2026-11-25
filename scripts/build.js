@@ -17,7 +17,8 @@ const htmlFiles = [
   'about.html',
   'contact.html',
   'services.html',
-  'work.html'
+  'work.html',
+  '404.html'
 ];
 
 // 2. Static asset folders
@@ -25,9 +26,8 @@ const staticDirs = [
   'assets'
 ];
 
-// 3. Deployment & server configuration files
+// 3. Deployment & server configuration files (no _redirects to avoid loops)
 const configFiles = [
-  '_redirects',
   '_headers',
   'robots.txt'
 ];
@@ -114,9 +114,10 @@ console.log('  ✓ dist/about.html verified');
 console.log('  ✓ dist/contact.html verified');
 console.log('  ✓ dist/services.html verified');
 console.log('  ✓ dist/work.html verified');
+console.log('  ✓ dist/404.html verified');
 console.log('  ✓ dist/assets/ verified');
 
 console.log('\n=======================================================');
 console.log('ABEN Technologies production build completed successfully!');
-console.log('Cloudflare Pages output directory: "dist" (or "build" or ".")');
+console.log('Cloudflare Workers & Pages ready (zero redirect loops).');
 console.log('=======================================================');
