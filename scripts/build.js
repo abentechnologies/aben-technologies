@@ -29,6 +29,7 @@ const staticDirs = [
 // 3. Deployment & server configuration files
 const configFiles = [
   '_headers',
+  '_redirects',
   'robots.txt',
   'google221afec29cd589d7.htm',
   'google221afec29cd589d7.html'
