@@ -26,11 +26,13 @@ const staticDirs = [
   'assets'
 ];
 
-// 3. Deployment & server configuration files (no _redirects to avoid loops)
+// 3. Deployment & server configuration files
 const configFiles = [
   '_headers',
+  '_redirects',
   'robots.txt',
-  'google221afec29cd589d7.htm'
+  'google221afec29cd589d7.htm',
+  'google221afec29cd589d7.html'
 ];
 
 // Validate required source files
@@ -118,6 +120,7 @@ console.log('  ✓ dist/services.html verified');
 console.log('  ✓ dist/work.html verified');
 console.log('  ✓ dist/404.html verified');
 console.log('  ✓ dist/google221afec29cd589d7.htm verified');
+console.log('  ✓ dist/google221afec29cd589d7.html verified');
 console.log('  ✓ dist/assets/ verified');
 
 console.log('\n=======================================================');

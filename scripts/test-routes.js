@@ -16,6 +16,7 @@ const routesToTest = [
   { path: '/contact.html', expectedStatus: 200, expectedTitle: 'Contact' },
   { path: '/unknown-route', expectedStatus: 404, expectedTitle: 'Page Not Found' },
   { path: '/google221afec29cd589d7.htm', expectedStatus: 200, exactContent: 'google-site-verification: google221afec29cd589d7.htm' },
+  { path: '/google221afec29cd589d7.html', expectedStatus: 200, exactContent: 'google-site-verification: google221afec29cd589d7.html' },
   { path: '/api/health', expectedStatus: 200, expectedContent: '"status":"online"' }
 ];
 
