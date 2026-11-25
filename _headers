@@ -5,3 +5,26 @@
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+/about
+  Content-Type: text/html; charset=utf-8
+
+/services
+  Content-Type: text/html; charset=utf-8
+
+/work
+  Content-Type: text/html; charset=utf-8
+
+/contact
+  Content-Type: text/html; charset=utf-8
+
+/google221afec29cd589d7
+  Content-Type: text/html; charset=utf-8
+
+/google221afec29cd589d7.html
+  Content-Type: text/html; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
+/google221afec29cd589d7.htm
+  Content-Type: text/html; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate

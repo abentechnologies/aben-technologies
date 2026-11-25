@@ -31,8 +31,7 @@ const configFiles = [
   '_headers',
   'robots.txt',
   'google221afec29cd589d7.htm',
-  'google221afec29cd589d7.html',
-  'worker.js'
+  'google221afec29cd589d7.html'
 ];
 
 // Validate required source files
@@ -63,13 +62,23 @@ function buildTarget(targetDir, label) {
   }
   fs.mkdirSync(targetDir, { recursive: true });
 
-  // Copy HTML files
+  // Copy HTML files (both .html and clean extensionless/dir copies for static serving)
   for (const file of htmlFiles) {
     const src = path.join(ROOT_DIR, file);
     const dest = path.join(targetDir, file);
     fs.copyFileSync(src, dest);
+
+    const baseName = path.basename(file, '.html');
+    if (file.endsWith('.html') && baseName !== 'index' && baseName !== '404') {
+      // Directory index (e.g. dist/about/index.html) so /about/ and /about work cleanly
+      const subDir = path.join(targetDir, baseName);
+      if (!fs.existsSync(subDir)) {
+        fs.mkdirSync(subDir, { recursive: true });
+      }
+      fs.copyFileSync(src, path.join(subDir, 'index.html'));
+    }
   }
-  console.log(`  ✓ Copied ${htmlFiles.length} HTML pages to ${label}/`);
+  console.log(`  ✓ Copied ${htmlFiles.length} HTML pages and clean URL routes to ${label}/`);
 
   // Copy assets recursively
   for (const dir of staticDirs) {
@@ -92,11 +101,10 @@ function buildTarget(targetDir, label) {
     }
   }
 
-  // Also create _worker.js for Cloudflare Pages advanced mode compatibility
-  const workerSrc = path.join(ROOT_DIR, 'worker.js');
-  if (fs.existsSync(workerSrc)) {
-    fs.copyFileSync(workerSrc, path.join(targetDir, '_worker.js'));
-    console.log(`  ✓ Generated ${label}/_worker.js for edge worker execution`);
+  // Also copy google verification as extensionless for dual-support
+  const googleHtml = path.join(ROOT_DIR, 'google221afec29cd589d7.html');
+  if (fs.existsSync(googleHtml)) {
+    fs.copyFileSync(googleHtml, path.join(targetDir, 'google221afec29cd589d7'));
   }
   if (copiedConfigs > 0) {
     console.log(`  ✓ Copied ${copiedConfigs} deployment configuration file(s) to ${label}/`);
