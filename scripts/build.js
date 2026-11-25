@@ -29,10 +29,10 @@ const staticDirs = [
 // 3. Deployment & server configuration files
 const configFiles = [
   '_headers',
-  '_redirects',
   'robots.txt',
   'google221afec29cd589d7.htm',
-  'google221afec29cd589d7.html'
+  'google221afec29cd589d7.html',
+  'worker.js'
 ];
 
 // Validate required source files
@@ -90,6 +90,13 @@ function buildTarget(targetDir, label) {
       fs.copyFileSync(src, dest);
       copiedConfigs++;
     }
+  }
+
+  // Also create _worker.js for Cloudflare Pages advanced mode compatibility
+  const workerSrc = path.join(ROOT_DIR, 'worker.js');
+  if (fs.existsSync(workerSrc)) {
+    fs.copyFileSync(workerSrc, path.join(targetDir, '_worker.js'));
+    console.log(`  ✓ Generated ${label}/_worker.js for edge worker execution`);
   }
   if (copiedConfigs > 0) {
     console.log(`  ✓ Copied ${copiedConfigs} deployment configuration file(s) to ${label}/`);
