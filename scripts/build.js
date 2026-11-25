@@ -29,7 +29,8 @@ const staticDirs = [
 // 3. Deployment & server configuration files (no _redirects to avoid loops)
 const configFiles = [
   '_headers',
-  'robots.txt'
+  'robots.txt',
+  'google221afec29cd589d7.htm'
 ];
 
 // Validate required source files
@@ -103,8 +104,9 @@ buildTarget(BUILD_DIR, 'build');
 console.log('\n[PHASE 3] Verifying generated build artifacts...');
 const distIndex = path.join(DIST_DIR, 'index.html');
 const distAssets = path.join(DIST_DIR, 'assets');
+const distGoogleVerify = path.join(DIST_DIR, 'google221afec29cd589d7.htm');
 
-if (!fs.existsSync(distIndex) || !fs.existsSync(distAssets)) {
+if (!fs.existsSync(distIndex) || !fs.existsSync(distAssets) || !fs.existsSync(distGoogleVerify)) {
   console.error('[BUILD FAILED]: Verification failed - dist output incomplete.');
   process.exit(1);
 }
@@ -115,6 +117,7 @@ console.log('  ✓ dist/contact.html verified');
 console.log('  ✓ dist/services.html verified');
 console.log('  ✓ dist/work.html verified');
 console.log('  ✓ dist/404.html verified');
+console.log('  ✓ dist/google221afec29cd589d7.htm verified');
 console.log('  ✓ dist/assets/ verified');
 
 console.log('\n=======================================================');

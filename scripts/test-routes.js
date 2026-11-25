@@ -15,6 +15,7 @@ const routesToTest = [
   { path: '/contact', expectedStatus: 200, expectedTitle: 'Contact' },
   { path: '/contact.html', expectedStatus: 200, expectedTitle: 'Contact' },
   { path: '/unknown-route', expectedStatus: 404, expectedTitle: 'Page Not Found' },
+  { path: '/google221afec29cd589d7.htm', expectedStatus: 200, exactContent: 'google-site-verification: google221afec29cd589d7.htm' },
   { path: '/api/health', expectedStatus: 200, expectedContent: '"status":"online"' }
 ];
 
@@ -36,10 +37,11 @@ function checkRoute(route) {
         const statusOk = res.statusCode === route.expectedStatus;
         const titleOk = route.expectedTitle ? title.includes(route.expectedTitle) : true;
         const contentOk = route.expectedContent ? data.includes(route.expectedContent) : true;
+        const exactOk = route.exactContent ? data === route.exactContent : true;
 
-        const passed = statusOk && titleOk && contentOk && !isRedirect;
+        const passed = statusOk && titleOk && contentOk && exactOk && !isRedirect;
 
-        console.log(`[${passed ? 'PASS' : 'FAIL'}] ${route.path.padEnd(20)} -> Status: ${res.statusCode} | Redirect: ${isRedirect ? 'YES' : 'NO'} | Title/Content: "${title || (route.expectedContent ? 'JSON OK' : '')}"`);
+        console.log(`[${passed ? 'PASS' : 'FAIL'}] ${route.path.padEnd(30)} -> Status: ${res.statusCode} | Redirect: ${isRedirect ? 'YES' : 'NO'} | Title/Content: "${title || (route.exactContent ? data : (route.expectedContent ? 'JSON OK' : ''))}"`);
 
         if (passed) {
           resolve();
