@@ -31,6 +31,7 @@ const configFiles = [
   '_headers',
   '_redirects',
   'robots.txt',
+  'sitemap.xml',
   'google221afec29cd589d7.htm',
   'google221afec29cd589d7.html'
 ];
@@ -137,6 +138,8 @@ console.log('  ✓ dist/work.html verified');
 console.log('  ✓ dist/404.html verified');
 console.log('  ✓ dist/google221afec29cd589d7.htm verified');
 console.log('  ✓ dist/google221afec29cd589d7.html verified');
+console.log('  ✓ dist/sitemap.xml verified');
+console.log('  ✓ dist/robots.txt verified');
 console.log('  ✓ dist/assets/ verified');
 
 console.log('\n=======================================================');

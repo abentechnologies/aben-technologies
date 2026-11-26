@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://web.abentechnologies.workers.dev/sitemap.xml
