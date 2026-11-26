@@ -4,8 +4,8 @@ const PORT = 3000;
 const HOST = 'localhost';
 
 const routesToTest = [
-  { path: '/', expectedStatus: 200, expectedTitle: 'ABEN TECHNOLOGIES' },
-  { path: '/index.html', expectedStatus: 200, expectedTitle: 'ABEN TECHNOLOGIES' },
+  { path: '/', expectedStatus: 200, expectedTitle: 'ABEN Technologies' },
+  { path: '/index.html', expectedStatus: 200, expectedTitle: 'ABEN Technologies' },
   { path: '/about', expectedStatus: 200, expectedTitle: 'About Us' },
   { path: '/about.html', expectedStatus: 200, expectedTitle: 'About Us' },
   { path: '/services', expectedStatus: 200, expectedTitle: 'Services' },
